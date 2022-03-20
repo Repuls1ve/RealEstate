@@ -1,0 +1,12 @@
+<div class="language-picker">
+  <button
+  class="language-select"
+  [class.active]="isLanguageActive('en')"
+  (click)="useLanguage('en')"
+  >En</button>
+  <button
+  class="language-select"
+  [class.active]="isLanguageActive('ru')"
+  (click)="useLanguage('ru')"
+  >Ru</button>
+</div>

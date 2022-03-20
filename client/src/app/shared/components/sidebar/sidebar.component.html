@@ -1,0 +1,63 @@
+<aside class="sidebar" [class.folded]="!visible">
+  <div class="head">
+    <svg-icon
+    svgClass="logo-icon"
+    class="logo"
+    src="/assets/svg/logo.svg"
+    ></svg-icon>
+    <button class="close-button" (click)="closeSidebar()">
+      <svg-icon
+      svgClass="close-icon"
+      class="close"
+      src="/assets/svg/close.svg"
+      ></svg-icon>
+    </button>
+  </div>
+  <nav class="nav-content">
+    <ul class="nav-links">
+      <li>
+        <a
+        routerLink="home"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+        >{{ 'nav.home' | translate}}</a>
+      </li>
+      <li>
+        <a
+        routerLink="catalog"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+        >{{ 'nav.catalog' | translate }}</a>
+      </li>
+      <li>
+        <a
+        routerLink="about"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+        >{{ 'nav.about' | translate }}</a>
+      </li>
+      <li>
+        <a
+        routerLink="contacts"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+        >{{ 'nav.contacts' | translate }}</a>
+      </li>
+      <li>
+        <a
+        routerLink="feedback"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+        >{{ 'nav.feedback' | translate }}</a>
+      </li>
+      <li>
+        <a
+        routerLink="tour"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+        >{{ 'nav.tour' | translate }}</a>
+      </li>
+    </ul>
+  </nav>
+  <select-language class="language-select"></select-language>
+</aside>

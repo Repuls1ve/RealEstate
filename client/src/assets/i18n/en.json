@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About us",
+    "catalog": "Catalog",
+    "tour": "Estate Tour",
+    "feedback": "Feedback",
+    "contacts": "Contact"
+  },
+  "footer": {
+    "heading": "Make your home more modern",
+    "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim",
+    "services": {
+      "heading": "Our services",
+      "home-rent": "Home rent",
+      "villa-rent": "Villa rent",
+      "sell": "Apartment sell"
+    },
+    "support": {
+      "heading": "Support",
+      "customer": "Customer services",
+      "contact": "Email us",
+      "privacy": "Privacy policy"
+    },
+    "media": {
+      "heading": "Social media",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "twitter": "Twitter"
+    }
+  },
+  "home": {
+    "discover": {
+      "heading": "Discover your perfect home",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+    }
+  }
+}

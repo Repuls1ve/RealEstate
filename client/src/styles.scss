@@ -1,0 +1,27 @@
+@use "src/assets/scss/typography";
+@use "src/assets/scss/brand-colors";
+
+* {
+  font-family: typography.$font-primary;
+  font-weight: typography.$regular;
+  color: brand-colors.$greyscale-70;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: brand-colors.$greyscale-10;
+}
+
+button,
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}

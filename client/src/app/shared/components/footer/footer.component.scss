@@ -1,0 +1,166 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/typography";
+@use "src/assets/scss/breakpoints";
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 100px 40px;
+  background-color: brand-colors.$greyscale-80;
+
+  .logo {
+    height: 32px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+
+    &-icon {
+      height: 100%;
+    }
+  }
+
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 18%;
+
+        .heading {
+          font-size: 2rem;
+          line-height: 150%;
+          font-weight: typography.$bold;
+          color: brand-colors.$greyscale-10;
+          text-transform: capitalize;
+          margin-bottom: 24px;
+        }
+
+        .subheading {
+          font-size: 1.5rem;
+          line-height: 150%;
+          color: brand-colors.$greyscale-10;
+          font-weight: typography.$bold;
+          text-transform: capitalize;
+          margin-bottom: 24px;
+        }
+
+        .description {
+          font-family: typography.$font-secondary;
+          font-size: 1rem;
+          line-height: 150%;
+          color: brand-colors.$greyscale-10;
+        }
+
+        .offers {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+
+          .offer {
+            font-family: typography.$font-secondary;
+            color: brand-colors.$greyscale-10;
+            line-height: 200%;
+            text-transform: capitalize;
+          }
+
+          @include breakpoints.tablet {
+            flex-direction: row;
+          }
+
+          @include breakpoints.new(500px) {
+            flex-direction: column;
+          }
+        }
+
+        &:nth-child(1) {
+          flex-basis: 25%;
+        }
+
+        @include breakpoints.laptop {
+          flex-basis: 40%;
+
+          &:nth-child(1) {
+            flex-basis: 40%;
+          }
+        }
+
+        @include breakpoints.tablet {
+          flex-basis: 100%;
+
+          &:nth-child(1) {
+            flex-basis: 100%;
+          }
+        }
+      }
+
+      @include breakpoints.laptop {
+        gap: 24px;
+      }
+    }
+
+    .nav-row {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .nav {
+        display: flex;
+
+        &-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 40px;
+
+          a {
+            font-family: typography.$font-secondary;
+            line-height: 200%;
+            color: brand-colors.$greyscale-10;
+          }
+
+          @include breakpoints.tablet {
+            justify-content: space-around;
+            gap: 20px;
+          }
+        }
+      }
+
+      .copyright {
+        font-family: typography.$font-secondary;
+        line-height: 150%;
+        font-size: 1rem;
+        color: brand-colors.$greyscale-10;
+        text-transform: capitalize;
+      }
+
+      @include breakpoints.tablet {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  }
+
+  @include breakpoints.tablet {
+    padding: 50px 45px 40px;
+
+    .logo {
+      margin-bottom: 30px;
+    }
+  }
+
+  @include breakpoints.new(500px) {
+    padding: 45px 30px 35px;
+  }
+}

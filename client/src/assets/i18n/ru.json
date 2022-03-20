@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Главная",
+    "about": "О нас",
+    "catalog": "Каталог",
+    "tour": "Ознакомительный тур",
+    "feedback": "Отзывы",
+    "contacts": "Контакты"
+  },
+  "footer": {
+    "heading": "Сделайте свой дом более современным",
+    "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim",
+    "services": {
+      "heading": "Наши услуги",
+      "home-rent": "Аренда домов",
+      "villa-rent": "Аренда вилл",
+      "sell": "Продажа квартир"
+    },
+    "support": {
+      "heading": "Поддержка",
+      "customer": "Обслуживание клиентов",
+      "contact": "Связаться по электронной почте",
+      "privacy": "Политика конфиденциальности"
+    },
+    "media": {
+      "heading": "Социальные сети",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "twitter": "Twitter"
+    }
+  },
+  "home": {
+    "discover": {
+      "heading": "Откройте для себя свой идеальный дом",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+    }
+  }
+}

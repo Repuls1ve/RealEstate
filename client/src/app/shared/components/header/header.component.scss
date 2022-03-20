@@ -1,0 +1,83 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/typography";
+@use "src/assets/scss/breakpoints";
+
+.header {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  padding: 32px 40px;
+
+  .logo {
+    height: 32px;
+  }
+
+  .nav-links {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 0 auto;
+
+    a {
+      font-family: typography.$font-secondary;
+
+      &.active {
+        position: relative;
+        color: brand-colors.$greyscale-80;
+        font-weight: typography.$semi-bold;
+
+        &::after {
+          content: "";
+          position: absolute;
+          margin: auto auto -15px;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          width: 12px;
+          height: 12px;
+          background-color: brand-colors.$primary-70;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    @include breakpoints.new(1050px) {
+      display: none;
+    }
+  }
+
+  .language-select {
+    height: 100%;
+    margin-right: 40px;
+
+    @include breakpoints.new(1050px) {
+      margin-left: auto;
+      margin-right: 25px;
+    }
+  }
+
+  .menu {
+    background-color: transparent;
+    border: none;
+    display: none;
+
+    &-icon {
+      height: 20px;
+      width: 28px;
+      display: flex;
+      align-items: center;
+      fill: brand-colors.$greyscale-80;
+    }
+
+    @include breakpoints.new(1050px) {
+      display: initial;
+    }
+  }
+
+  @include breakpoints.tablet {
+    padding: 5px 0;
+  }
+}
