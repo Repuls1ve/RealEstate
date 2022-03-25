@@ -8,7 +8,8 @@ import { RouterModule } from '@angular/router'
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SelectLanguageComponent } from './components/select-language/select-language.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
-import { FooterComponent } from './components/footer/footer.component'
+import { FooterComponent } from './components/footer/footer.component';
+import { ButtonComponent } from './components/button/button.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './components/footer/footer.component'
     LayoutComponent,
     SelectLanguageComponent,
     SearchFormComponent,
-    FooterComponent
+    FooterComponent,
+    ButtonComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { FooterComponent } from './components/footer/footer.component'
     SidebarComponent,
     LayoutComponent,
     SelectLanguageComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    ButtonComponent,
   ]
 })
 export class SharedModule {}

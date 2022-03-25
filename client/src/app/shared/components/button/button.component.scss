@@ -1,0 +1,26 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/typography";
+
+:host {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  font-family: typography.$font-tertiary;
+  font-weight: typography.$semi-bold;
+  font-size: 1rem;
+  border-radius: 8px;
+
+  &.contained {
+    color: brand-colors.$greyscale-10;
+    background-color: brand-colors.$primary-70;
+    border: none;
+  }
+
+  &.outlined {
+    color: brand-colors.$primary-70;
+    background-color: brand-colors.$greyscale-10;
+    border: 1px solid brand-colors.$primary-70;
+  }
+}
