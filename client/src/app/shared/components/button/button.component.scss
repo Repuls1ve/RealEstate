@@ -13,14 +13,34 @@
   border-radius: 8px;
 
   &.contained {
-    color: brand-colors.$greyscale-10;
-    background-color: brand-colors.$primary-70;
     border: none;
+    color: brand-colors.$greyscale-10;
+
+    &.primary {
+      color: brand-colors.$greyscale-10;
+      background-color: brand-colors.$primary-70;
+    }
+
+    &.secondary {
+      background-color: brand-colors.$secondary-50;
+      font-family: typography.$font-secondary;
+    }
   }
 
   &.outlined {
-    color: brand-colors.$primary-70;
-    background-color: brand-colors.$greyscale-10;
-    border: 1px solid brand-colors.$primary-70;
+    border-style: solid;
+    border-width: 1px;
+
+    &.primary {
+      color: brand-colors.$primary-70;
+      background-color: brand-colors.$greyscale-10;
+      border-color: brand-colors.$primary-70;
+    }
+
+    &.secondary {
+      background-color: brand-colors.$greyscale-10;
+      color: brand-colors.$secondary-50;
+      border-color: brand-colors.$secondary-50;
+    }
   }
 }
