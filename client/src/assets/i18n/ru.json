@@ -7,6 +7,24 @@
     "feedback": "Отзывы",
     "contacts": "Контакты"
   },
+  "search-form": {
+    "type": {
+      "sell": "Продажа",
+      "rent": "Аренда"
+    },
+    "attributes": {
+      "location": "Местоположение",
+      "type": "Тип",
+      "range": "Цена"
+    },
+    "button": "Поиск"
+  },
+  "listings": {
+    "heading": {
+      "title": "Новые объявления",
+      "view-button": "Смотреть все"
+    }
+  },
   "footer": {
     "heading": "Сделайте свой дом более современным",
     "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim",

@@ -7,6 +7,24 @@
     "feedback": "Feedback",
     "contacts": "Contact"
   },
+  "search-form": {
+    "type": {
+      "sell": "Sell",
+      "rent": "Rent"
+    },
+    "attributes": {
+      "location": "Location",
+      "type": "Type",
+      "range": "Range"
+    },
+    "button": "Search"
+  },
+  "listings": {
+    "heading": {
+      "title": "Newest Listings",
+      "view-button": "View All"
+    }
+  },
   "footer": {
     "heading": "Make your home more modern",
     "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim",
