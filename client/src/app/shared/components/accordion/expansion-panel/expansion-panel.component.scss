@@ -1,0 +1,29 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/typography";
+@use "src/assets/scss/breakpoints";
+
+.expansion-panel {
+  border-radius: 8px;
+  border: 1px solid brand-colors.$greyscale-30;
+  transition: box-shadow 0.3s ease-out;
+  
+  .summary {
+    padding: 16px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  &-title {
+    font-size: 1.5rem;
+    line-height: 175%;
+    font-weight: typography.$bold;
+    color: brand-colors.$greyscale-80;
+    text-transform: capitalize;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    box-shadow: 0px 1px 10px 1px rgba(34, 60, 80, 0.1);
+  }
+}
