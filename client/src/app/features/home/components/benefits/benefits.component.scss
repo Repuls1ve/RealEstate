@@ -1,0 +1,110 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/typography";
+@use "src/assets/scss/breakpoints";
+
+.benefits {
+  width: 100%;
+  padding: 10px 60px;
+
+  .heading {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 50px;
+
+    .title {
+      font-size: 3rem;
+      font-weight: typography.$bold;
+      line-height: 125%;
+      text-transform: capitalize;
+      color: brand-colors.$greyscale-80;
+      flex-basis: 50%;
+
+      @include breakpoints.tablet-sm {
+        font-size: 2.5rem;
+      }
+
+      @include breakpoints.new(500px) {
+        font-size: 2.15rem;
+      }
+
+      @include breakpoints.mobile {
+        text-align: center;
+      }
+    }
+
+    .description {
+      font-weight: typography.$font-secondary;
+      font-size: 1rem;
+      line-height: 150%;
+      color: brand-colors.$greyscale-70;
+      flex-basis: 50%;
+
+      @include breakpoints.mobile {
+        text-align: center;
+      }
+    }
+
+    @include breakpoints.laptop {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    .img {
+      flex-basis: 50%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
+
+      @include breakpoints.laptop {
+        width: 100%;
+        aspect-ratio: 2 / 1;
+      }
+
+      @include breakpoints.mobile {
+        display: none;
+      }
+    }
+
+    .accordion-wrapper {
+      flex-basis: 50%;
+
+      .expansion-title {
+        font-size: 1.5rem;
+        line-height: 175%;
+        font-weight: typography.$bold;
+        color: brand-colors.$greyscale-80;
+        text-transform: capitalize;
+      }
+
+      .expansion-description {
+        font-size: 0.875rem;
+        line-height: 175%;
+        font-family: typography.$font-secondary;
+        color: brand-colors.$greyscale-70;
+      }
+
+      @include breakpoints.laptop {
+        width: 100%;
+      }
+    }
+
+    @include breakpoints.laptop {
+      flex-direction: column;
+      gap: 25px;
+    }
+  }
+
+  @include breakpoints.tablet {
+    padding: 0 16px;
+  }
+}
