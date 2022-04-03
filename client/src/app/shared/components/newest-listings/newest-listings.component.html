@@ -1,0 +1,13 @@
+<div class="newest-listings">
+  <div class="heading">
+    <h2 class="title">{{ 'listings.heading.title' | translate }}</h2>
+    <a
+    shared-button
+    color="secondary"
+    class="view-button"
+    >{{ 'listings.heading.view-button' | translate }}</a>
+  </div>
+  <div class="listings">
+    <product-card *ngFor="let index of 4 | times" class="product"></product-card>
+  </div>
+</div>
