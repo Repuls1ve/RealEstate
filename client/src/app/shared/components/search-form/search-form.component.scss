@@ -1,0 +1,84 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/typography";
+@use "src/assets/scss/breakpoints";
+
+:host {
+  width: 100%;
+}
+
+.search-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .search-type {
+    display: flex;
+    max-width: 100%;
+    align-self: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 40px;
+    background-color: brand-colors.$greyscale-10;
+    border-radius: 8px 8px 0 0;
+
+    @include breakpoints.mobile {
+      width: 100%;
+      padding: 16px 24px;
+
+      .switch {
+        max-width: 50%;
+      }
+    }
+  }
+
+  .search-attributes {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    padding: 24px;
+    background-color: brand-colors.$greyscale-10;
+    border-radius: 8px;
+
+    .search-attribute {
+      flex-basis: 25%;
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 6px;
+        font-size: 1rem;
+        line-height: 200%;
+        font-family: typography.$font-secondary;
+        font-weight: typography.$medium;
+        color: brand-colors.$greyscale-80;
+      }
+    }
+
+    .submit-button {
+      margin-top: auto;
+      height: 55px;
+      flex-basis: 25%;
+      gap: 10px;
+
+      .search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &-icon {
+          height: 24px;
+          width: 24px;
+        }
+      }
+    }
+
+    @include breakpoints.laptop {
+      flex-direction: column;
+    }
+
+    @include breakpoints.mobile {
+      border-radius: 0 0 8px 8px;
+      padding-top: 0;
+    }
+  }
+}
