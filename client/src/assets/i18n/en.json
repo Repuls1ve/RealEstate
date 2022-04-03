@@ -51,6 +51,34 @@
     "discover": {
       "heading": "Discover your perfect home",
       "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+    },
+    "benefits": {
+      "heading": {
+        "title": "We help you to find your dream house",
+        "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+      },
+      "accordion": {
+        "warranty": {
+          "title": "Lifetime warranty",
+          "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat"
+        },
+        "cheap": {
+          "title": "Cheapest compared to other competitors",
+          "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat"
+        },
+        "location": {
+          "title": "Strategic location",
+          "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat"
+        },
+        "tax": {
+          "title": "Low tax",
+          "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat"
+        }
+      }
+    },
+    "contact": {
+      "title": "Get luxury and cheap housing and guaranteed forever",
+      "button": "Contact now"
     }
   }
 }

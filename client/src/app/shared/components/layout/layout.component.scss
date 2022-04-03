@@ -1,14 +1,12 @@
+@use "src/assets/scss/variables";
+
 .main-layout {
   position: relative;
   overflow-x: hidden;
   height: 100%;
 
   .header-wrapper {
-    margin: 0 2%;
-  }
-
-  .content {
-    padding: 0 2%;
+    padding: 0 variables.$layout-indent;
   }
 
   .backdrop {

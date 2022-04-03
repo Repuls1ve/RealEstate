@@ -1,9 +1,10 @@
 @use "src/assets/scss/brand-colors";
 @use "src/assets/scss/typography";
 @use "src/assets/scss/breakpoints";
+@use "src/assets/scss/variables";
 
 .benefits {
-  width: 100%;
+  margin: 0 variables.$layout-indent;
   padding: 10px 60px;
 
   .heading {

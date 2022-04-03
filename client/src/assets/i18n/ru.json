@@ -51,6 +51,34 @@
     "discover": {
       "heading": "Откройте для себя свой идеальный дом",
       "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+    },
+    "benefits": {
+      "heading": {
+        "title": "Мы поможем найти дом вашей мечты",
+        "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+      },
+      "accordion": {
+        "warranty": {
+          "title": "Пожизненная гарантия",
+          "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat"
+        },
+        "cheap": {
+          "title": "Выгодные цены по сравнению с конкурентами",
+          "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat"
+        },
+        "location": {
+          "title": "Удобное местоположение",
+          "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat"
+        },
+        "tax": {
+          "title": "Низкий налог",
+          "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat"
+        }
+      }
+    },
+    "contact": {
+      "title": "Получите роскошное и дешевое жилье с гарантией навсегда",
+      "button": "Связаться сейчас"
     }
   }
 }
