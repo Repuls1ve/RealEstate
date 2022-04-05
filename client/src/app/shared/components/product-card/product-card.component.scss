@@ -23,6 +23,17 @@
     }
   }
 
+  .img-loader {
+    width: 100%;
+
+    ::ng-deep .loader {
+      height: 100%;
+      border-radius: 16px;
+      aspect-ratio: 1 / 1;
+      margin: 0;
+    }
+  }
+
   .title {
     font-weight: typography.$bold;
     font-size: 1.5rem;
@@ -31,6 +42,19 @@
     margin-top: 16px;
     margin-bottom: 8px;
     color: brand-colors.$greyscale-80;
+  }
+
+  .title-loader {
+    max-width: 90%;
+    height: 30px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+
+    ::ng-deep .loader {
+      height: 100%;
+      margin: 0;
+    }
+
   }
 
   .location {
@@ -57,6 +81,16 @@
     }
   }
 
+  .location-loader {
+    max-width: 80%;
+    height: 24px;
+
+    ::ng-deep .loader {
+      height: 100%;
+      margin: 0;
+    }
+  }
+
   .summary {
     margin-top: 14px;
     display: flex;
@@ -67,6 +101,17 @@
       font-size: 1.5rem;
       line-height: 150%;
       color: brand-colors.$greyscale-80;
+    }
+
+    .price-loader {
+      width: 30%;
+      min-width: 60px;
+      height: 36px;
+
+      ::ng-deep .loader {
+        height: 100%;
+        margin: 0;
+      }
     }
 
     .rating {
@@ -94,6 +139,17 @@
         line-height: 200%;
         font-weight: typography.$semi-bold;
         color: brand-colors.$greyscale-80;
+      }
+    }
+
+    .rating-loader {
+      width: 20%;
+      min-width: 60px;
+      height: 36px;
+
+      ::ng-deep .loader {
+        height: 100%;
+        margin: 0;
       }
     }
   }

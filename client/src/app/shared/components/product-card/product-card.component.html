@@ -1,13 +1,30 @@
 <div class="product-card">
-  <a class="img-wrapper">
+  <a
+  class="img-wrapper"
+  *ngIf="!isLoading"
+  >
     <img
     class="img"
     src="/assets/img/img-placeholder.png"
     alt="placeholder"    
     >
   </a>
-  <a class="title">Grand Family House</a>
-  <div class="location">
+  <ngx-skeleton-loader
+  class="img-loader"
+  *ngIf="isLoading"
+  ></ngx-skeleton-loader>
+  <a
+  class="title"
+  *ngIf="!isLoading"
+  >Grand Family House</a>
+  <ngx-skeleton-loader
+  class="title-loader"
+  *ngIf="isLoading"
+  ></ngx-skeleton-loader>
+  <div
+  class="location"
+  *ngIf="!isLoading"
+  >
     <svg-icon
     src="/assets/svg/location.svg"
     class="location-icon"
@@ -15,9 +32,23 @@
     ></svg-icon>
     <p class="address">Ohio St. South Gate, California</p>
   </div>
+  <ngx-skeleton-loader
+  class="location-loader"
+  *ngIf="isLoading"
+  ></ngx-skeleton-loader>
   <div class="summary">
-    <span class="price">$350</span>
-    <div class="rating">
+    <span
+    class="price"
+    *ngIf="!isLoading"
+    >$350</span>
+    <ngx-skeleton-loader
+    class="price-loader"
+    *ngIf="isLoading"
+    ></ngx-skeleton-loader>
+    <div
+    class="rating"
+    *ngIf="!isLoading"
+    >
       <svg-icon
       src="/assets/svg/star.svg"
       class="rating-icon"
@@ -25,5 +56,9 @@
       ></svg-icon>
       <span class="rating-value">4.8</span>
     </div>
+    <ngx-skeleton-loader
+    class="rating-loader"
+    *ngIf="isLoading"
+    ></ngx-skeleton-loader>
   </div>
 </div>

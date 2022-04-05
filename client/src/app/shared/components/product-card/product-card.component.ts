@@ -1,8 +1,11 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
-export class ProductCardComponent {}
+export class ProductCardComponent {
+  @Input()
+  public isLoading = false
+}
