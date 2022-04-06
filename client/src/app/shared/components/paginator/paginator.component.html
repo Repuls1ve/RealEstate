@@ -1,0 +1,41 @@
+<div class="paginator">
+  <a
+  role="link"
+  class="prev-link"
+  [class.disabled]="isFirstPage"
+  [attr.aria-disabled]="isFirstPage"
+  (click)="selectPreviousPage()"
+  >
+    <svg-icon
+    src="/assets/svg/chevron-left.svg"
+    class="arrow-left"
+    svgClass="arrow-left-icon"
+    ></svg-icon>
+  </a>
+  <ul class="paginator-pages">
+    <li
+    class="page"
+    [class.active]="isCurrentPage(page)"
+    *ngFor="let page of pages"
+    >
+      <a
+      role="link"
+      class="page-link"
+      (click)="selectPage(page)"
+      >{{ page }}</a>
+    </li>
+  </ul>
+  <a
+  role="link"
+  class="next-link"
+  [class.disabled]="isLastPage"
+  [attr.aria-disabled]="isLastPage"
+  (click)="selectNextPage()"
+  >
+    <svg-icon
+    src="/assets/svg/chevron-right.svg"
+    class="arrow-right"
+    svgClass="arrow-right-icon"
+    ></svg-icon>
+  </a>
+</div>
