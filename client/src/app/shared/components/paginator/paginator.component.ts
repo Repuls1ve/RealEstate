@@ -29,14 +29,19 @@ export class PaginatorComponent {
 
   public selectPage(page: number): void {
     this.currentPage = page
+    this.pageChange.emit(page)
   }
 
   public selectPreviousPage(): void {
-    this.currentPage = this.isFirstPage ? this.currentPage : this.currentPage - 1 
+    if (!this.isFirstPage) {
+      this.selectPage(this.currentPage - 1)
+    }
   }
 
   public selectNextPage(): void {
-    this.currentPage = this.isLastPage ? this.currentPage : this.currentPage + 1
+    if (!this.isLastPage) {
+      this.selectPage(this.currentPage + 1)
+    }
   }
 
   public isCurrentPage(page: number): boolean {
