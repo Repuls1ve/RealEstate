@@ -1,75 +1,50 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'
-import { PaginationHelper, PaginationParams } from 'src/app/shared/helpers/pagination.helper'
-
-export interface PaginationOptions {
-  totalItems: number
-  pageSize: number
-  maxPages: number
-}
+import { ChangeDetectionStrategy, Component, Input, Output } from '@angular/core'
+import { PaginatorStore } from './paginator.store'
 
 @Component({
   selector: 'shared-paginator',
   templateUrl: './paginator.component.html',
-  styleUrls: ['./paginator.component.scss']
+  styleUrls: ['./paginator.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [PaginatorStore]
 })
 export class PaginatorComponent {
-  public currentPage = 1
+  public readonly vm$ = this.paginatorStore.vm$
 
   @Input()
-  public totalItems!: PaginationOptions['totalItems']
+  public set pageIndex(value: number) {
+    this.paginatorStore.setPageIndex(value)
+  }
 
   @Input()
-  public pageSize!: PaginationOptions['pageSize']
+  public set length(value: number) {
+    this.paginatorStore.setLength(value)
+  }
 
   @Input()
-  public maxPages: PaginationOptions['maxPages'] = 5
+  public set pageSize(value: number) {
+    this.paginatorStore.setPageSize(value)
+  }
+
+  @Input()
+  public set delta(value: number) {
+    this.paginatorStore.setDelta(value)
+  }
 
   @Output()
-  public readonly pageChange = new EventEmitter<number>()
+  public readonly page = this.paginatorStore.page$
 
-  public selectPage(page: number): void {
-    this.currentPage = page
-    this.pageChange.emit(page)
+  constructor(private readonly paginatorStore: PaginatorStore) {}
+
+  public changePage(page: number): void {
+    this.paginatorStore.changePage(page)
   }
 
-  public selectPreviousPage(): void {
-    if (!this.isFirstPage) {
-      this.selectPage(this.currentPage - 1)
-    }
+  public nextPage(): void {
+    this.paginatorStore.nextPage()
   }
 
-  public selectNextPage(): void {
-    if (!this.isLastPage) {
-      this.selectPage(this.currentPage + 1)
-    }
-  }
-
-  public isCurrentPage(page: number): boolean {
-    return page == this.currentPage
-  }
-
-  public get pages(): number[] {
-    const params: PaginationParams = {
-      totalItems: this.totalItems,
-      pageSize: this.pageSize,
-      maxPages: this.maxPages,
-      currentPage: this.currentPage
-    }
-
-    return PaginationHelper.paginate(params)
-  }
-
-  public get isFirstPage(): boolean {
-    return this.currentPage == 1
-  }
-
-  public get isLastPage(): boolean {
-    const params: Pick<PaginationParams, 'totalItems' | 'pageSize'> = {
-      totalItems: this.totalItems,
-      pageSize: this.pageSize
-    }
-    const pagesCount = PaginationHelper.getPagesCount(params)
-
-    return this.currentPage == pagesCount
+  public previousPage(): void {
+    this.paginatorStore.previousPage()
   }
 }
