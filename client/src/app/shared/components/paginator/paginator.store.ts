@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
-import { filter, last, map, Observable, pairwise, skip, tap, withLatestFrom } from 'rxjs'
+import { filter, map, Observable, pairwise, skip, tap, withLatestFrom } from 'rxjs'
 import { PaginationHelper, PaginationParams } from '../../helpers/pagination.helper'
 
 export interface PaginatorState {
@@ -147,15 +147,15 @@ export class PaginatorStore extends ComponentStore<PaginatorState> {
     tap(([pageIndex]) => this.setPageIndex(pageIndex))
   ))
 
-  public readonly nextPage = this.effect(() => this.hasNextPage$.pipe(
-    last(),
-    filter(hasNextPage => hasNextPage),
+  public readonly nextPage = this.effect(origin$ => origin$.pipe(
+    withLatestFrom(this.hasNextPage$),
+    filter(([, hasNextPage]) => hasNextPage),
     tap(() => this.setPageIndex(this.get().pageIndex + 1))
   ))
 
-  public readonly previousPage = this.effect(() => this.hasPreviousPage$.pipe(
-    last(),
-    filter(hasPreviousPage => hasPreviousPage),
-    tap(() => this.setPageIndex(0))
+  public readonly previousPage = this.effect(origin$ => origin$.pipe(
+    withLatestFrom(this.hasPreviousPage$),
+    filter(([, hasPreviousPage]) => hasPreviousPage),
+    tap(() => this.setPageIndex(this.get().pageIndex - 1))
   ))
 }
