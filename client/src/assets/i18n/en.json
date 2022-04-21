@@ -80,5 +80,65 @@
       "title": "Get luxury and cheap housing and guaranteed forever",
       "button": "Contact now"
     }
+  },
+  "catalog": {
+    "explore": {
+      "title": "Explore catalog without limitations",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+    }
+  },
+  "payment-calculator": {
+    "title": "Payment Calculator",
+    "inputs": {
+      "tax": {
+        "label": "Property Tax",
+        "errors": {
+          "number": "Should be a non-negative number",
+          "required": "Required field"
+        }
+      },
+      "insurance": {
+        "label":  "Home Insurance",
+        "errors": {
+          "number": "Should be a non-negative number",
+          "required": "Required field"
+        }
+      },
+      "deposit": {
+        "label": "Down Payment",
+        "errors": {
+          "number": "Should be a non-negative number",
+          "required": "Required field"
+        }
+      },
+      "interest": {
+        "label": "Interest Rate (Yearly %)",
+        "errors": {
+          "number": "Should be a non-negative number",
+          "required": "Required field"
+        }
+      },
+      "term": {
+        "label": "Loan Term (Years)",
+        "errors": {
+          "number": "Minimal term - 1 year",
+          "required": "Required field"
+        }
+      },
+      "total": {
+        "label": "Total Payment",
+        "errors": {
+          "number": "Should be a non-negative number",
+          "required": "Required field"
+        }
+      }
+    },
+    "chart": {
+      "label": "Monthly payment",
+      "principal": "Principal & interest",
+      "tax": "Property tax",
+      "insurance": "Home Insurance"
+    },
+    "calculate-button": "Calculate"
   }
 }
