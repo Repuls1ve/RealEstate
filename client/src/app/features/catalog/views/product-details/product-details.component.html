@@ -1,0 +1,20 @@
+<ng-container *ngrxLet="vm$ as vm">
+  <div class="product-details-page">
+    <main class="product-info-wrapper">
+      <product-info
+      *ngIf="!vm.error"
+      [product]="vm.product"
+      [isLoading]="vm.loading"
+      ></product-info>
+      <ng-container *ngIf="vm.error">
+        No such product
+      </ng-container>
+    </main>
+    <section class="payment-calculator-wrapper">
+      <payment-calculator></payment-calculator>
+    </section>
+    <section>
+      <newest-listings [quantity]="4"></newest-listings>
+    </section>
+  </div>
+</ng-container>
