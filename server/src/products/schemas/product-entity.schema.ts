@@ -1,11 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
-import { AgencySchema } from 'src/agencies/schemas/agency.schema'
+import { Schema as MongooseSchema } from 'mongoose'
+import { Agency } from 'src/agencies/schemas/agency.schema'
 import { ProductEntity as IProductEntity } from 'src/products/entities/product.entity'
 import { ProductDetailsSchema } from './product-details.schema'
 import { ProductLocationSchema } from './product-location.schema'
 import { ProductPhotoSchema } from './product-photo.schema'
 
-@Schema()
+@Schema({_id: false})
 export class ProductEntity implements IProductEntity {
   @Prop({
     type: String,
@@ -44,7 +45,8 @@ export class ProductEntity implements IProductEntity {
   public readonly photos: IProductEntity['photos']
 
   @Prop({
-    type: AgencySchema,
+    type: MongooseSchema.Types.ObjectId,
+    ref: Agency.name,
     required: true
   })
   public readonly agency: IProductEntity['agency']

@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { ProductLocation as IProductLocation} from 'src/products/entities/product.entity'
 import { ProductAddressSchema } from './product-address.schema'
 
-@Schema()
+@Schema({_id: false})
 export class ProductLocation implements IProductLocation {
   @Prop({
     type: String,

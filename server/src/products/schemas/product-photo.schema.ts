@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Photo } from '../entities/product.entity'
 
-@Schema()
+@Schema({_id: false})
 export class ProductPhoto implements Photo {
   @Prop({
     type: String,

@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Address } from 'src/products/entities/product.entity'
 
-@Schema()
+@Schema({_id: false})
 export class ProductAddress implements Address {
   @Prop({
     type: String,
