@@ -46,10 +46,11 @@ export class ProductEntity implements IProductEntity {
 
   @Prop({
     type: MongooseSchema.Types.ObjectId,
+    autopopulate: true,
     ref: Agency.name,
     required: true
   })
   public readonly agency: IProductEntity['agency']
 }
 
-export const ProductEntitySchema = SchemaFactory.createForClass(ProductEntity)  
+export const ProductEntitySchema = SchemaFactory.createForClass(ProductEntity)

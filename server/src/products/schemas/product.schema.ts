@@ -26,4 +26,6 @@ export const ProductSchema = SchemaFactory.createForClass(Product)
 export const ProductModel: ModelDefinition = {
   name: Product.name,
   schema: ProductSchema
-} 
+}
+
+ProductSchema.plugin(require('mongoose-autopopulate'))
