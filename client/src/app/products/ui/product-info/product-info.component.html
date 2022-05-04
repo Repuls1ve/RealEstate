@@ -14,11 +14,11 @@
   alt="placeholder"
   >
   <div class="description">
-    <h2 class="property-title">Description</h2>
+    <h2 class="property-title">{{ 'product-info.description' | translate }}</h2>
     <p class="description-text">{{ product.description }}</p>
   </div>
   <div class="overview">
-    <h2 class="property-title">Overview</h2>
+    <h2 class="property-title">{{ 'product-info.overview' | translate }}</h2>
     <ul class="overview-list">
       <li class="overview-list-item" *ngFor="let overview of product.overview">
         <p>{{ overview }}</p>
@@ -26,40 +26,40 @@
     </ul>
   </div>
   <div class="details">
-    <h2 class="property-title">Details</h2>
+    <h2 class="property-title">{{ 'product-info.details.title' | translate }}</h2>
     <div class="details-properties">
       <ul class="details-list">
         <li class="row">
-          <span class="head">Property ID</span>
+          <span class="head">{{ 'product-info.details.property-id' | translate }}</span>
           <span class="data">{{ product.details.uid }}</span>
         </li>
         <li class="row">
-          <span class="head">Price</span>
+          <span class="head">{{ 'product-info.details.price' | translate }}</span>
           <span class="data">{{ product.details.price | currency : 'USD' : 'symbol' : '2.0-2' }}</span>
         </li>
         <li class="row">
-          <span class="head">Property size</span>
+          <span class="head">{{ 'product-info.details.property-size' | translate }}</span>
           <span class="data">{{ product.details.size }}</span>
         </li>
         <li class="row">
-          <span class="head">Category</span>
+          <span class="head">{{ 'product-info.details.category' | translate }}</span>
           <span class="data">{{ product.details.category }}</span>
         </li>
       </ul>
       <ul class="details-list">
         <li class="row">
-          <span class="head">Year built</span>
+          <span class="head">{{ 'product-info.details.year' | translate }}</span>
           <span class="data">{{ product.details.year }}</span>
         </li>
         <li class="row">
-          <span class="head">Property status</span>
+          <span class="head">{{ 'product-info.details.property-status' | translate }}</span>
           <span class="data">{{ product.details.status }}</span>
         </li>
       </ul>
     </div>
   </div>
   <div class="address">
-    <h2 class="property-title">Address</h2>
+    <h2 class="property-title">{{ 'product-info.address' | translate }}</h2>
     <div class="map"></div>
   </div>
 </div>

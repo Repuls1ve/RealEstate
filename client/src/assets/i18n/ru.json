@@ -140,5 +140,19 @@
       "insurance": "Страхование"
     },
     "calculate-button": "Рассчитать"
+  },
+  "product-info": {
+    "description": "Описание",
+    "overview": "Обзор",
+    "details": {
+      "title": "Подробности",
+      "property-id": "Артикул",
+      "price": "Цена",
+      "property-size": "Площадь",
+      "category": "Категория",
+      "year": "Год постройки",
+      "property-status": "Статус" 
+    },
+    "address": "Адрес"
   }
 }
