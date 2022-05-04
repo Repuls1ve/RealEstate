@@ -140,5 +140,19 @@
       "insurance": "Home Insurance"
     },
     "calculate-button": "Calculate"
+  },
+  "product-info": {
+    "description": "Description",
+    "overview": "Overview",
+    "details": {
+      "title": "Details",
+      "property-id": "Property ID",
+      "price": "Price",
+      "property-size": "Property Size",
+      "category": "Category",
+      "year": "Year Built",
+      "property-status": "Property Status" 
+    },
+    "address": "Address"
   }
 }
