@@ -1,0 +1,122 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/typography";
+@use "src/assets/scss/breakpoints";
+@use "src/assets/scss/variables";
+
+$products-gap: 16px;
+
+.search-results {
+  margin: 0 variables.$layout-indent;
+  padding: 0 60px;
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    .title {
+      font-size: 2rem;
+      line-height: 150%;
+      font-weight: typography.$bold;
+      text-transform: capitalize;
+      color: brand-colors.$greyscale-80;
+    }
+
+    .title-loader {
+      max-width: 450px;
+      height: 48px;
+
+      ::ng-deep .loader {
+        height: 100%;
+        margin-bottom: 0;
+      }
+    }
+
+    .filters {
+      display: flex;
+      justify-content: space-between;
+
+      .count {
+        display: inline-flex;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: typography.$bold;
+        line-height: 150%;
+        text-transform: capitalize;
+        color: brand-colors.$greyscale-75;
+      }
+
+      .count-loader {
+        min-width: 170px;
+        height: 32px;
+
+        ::ng-deep .loader {
+          height: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      .sorting {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        .label {
+          color: brand-colors.$greyscale-80;
+          font-size: 1rem;
+          line-height: 150%;
+          text-transform: capitalize;
+          font-weight: typography.$bold;
+        }
+
+        .sort {
+          padding: 5px 40px 5px 5px;
+          border: none;
+          color: brand-colors.$greyscale-80;
+          font-family: typography.$font-primary;
+          font-weight: typography.$bold;
+        }
+      }
+
+      .sorting-loader {
+        min-width: 220px;
+        height: 32px;
+
+        ::ng-deep .loader {
+          height: 100%;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $products-gap;
+    
+    .product {
+      width: calc(20% - $products-gap);
+
+      @include breakpoints.new(1600px) {
+        width: calc(25% - $products-gap);
+      }
+
+      @include breakpoints.laptop {
+        width: calc(33.33% - $products-gap);
+      }
+
+      @include breakpoints.tablet {
+        width: calc(50% - $products-gap);
+      }
+
+      @include breakpoints.tablet-sm {
+        width: 100%;
+      }
+    }
+  }
+
+  @include breakpoints.tablet {
+    padding: 0 16px;
+  }
+}

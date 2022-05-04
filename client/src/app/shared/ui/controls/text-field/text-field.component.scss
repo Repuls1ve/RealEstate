@@ -1,0 +1,19 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/typography";
+
+:host {
+  padding: 12px 32px 12px 16px;
+  border: 1px solid brand-colors.$greyscale-50;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 200%;
+  font-family: typography.$font-secondary;
+  font-weight: typography.$semi-bold;
+  color: brand-colors.$greyscale-80;
+  height: 56px;
+
+  &:focus {
+    outline: 2px solid brand-colors.$secondary-50;
+    border: none;
+  }
+}

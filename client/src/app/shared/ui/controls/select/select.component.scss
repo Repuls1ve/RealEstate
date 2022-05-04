@@ -1,0 +1,21 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/typography";
+
+:host {
+  padding: 15px 32px 15px 16px;
+  border: 1px solid brand-colors.$greyscale-50;
+  border-radius: 8px;
+  appearance: none;
+  background-image: url("/assets/svg/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+  background-size: 16px;
+  font-size: 1rem;
+  font-family: typography.$font-secondary;
+  height: 56px;
+
+  &:focus {
+    outline: 2px solid brand-colors.$secondary-50;
+    border: none;
+  }
+}

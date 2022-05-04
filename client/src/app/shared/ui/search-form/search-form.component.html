@@ -1,0 +1,83 @@
+<form class="search-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="search-type">
+    <button
+    shared-button
+    type="button"
+    class="switch"
+    [theme]="getTheme('sell')"
+    (click)="setBranch('sell')"
+    >{{ 'search-form.type.sell' | translate }}</button>
+    <button
+    shared-button
+    type="button"
+    class="switch"
+    [theme]="getTheme('rent')"
+    (click)="setBranch('rent')"
+    >{{ 'search-form.type.rent' | translate }}</button>
+  </div>
+  <div class="search-attributes">
+    <div class="search-attribute">
+      <label for="period">{{ 'search-form.attributes.location' | translate}}</label>
+      <select
+      id="period"
+      shared-select
+      formControlName="period"
+      >
+        <option value="1">Last day</option>
+        <option value="3">Last 3 days</option>
+        <option value="7">Last week</option>
+        <option value="31">Last month</option>
+        <option value="365">Last year</option>
+        <option value="0" [defaultSelected]="true">All time</option>
+      </select>
+    </div>
+    <div class="search-attribute">
+      <label for="type">{{ 'search-form.attributes.type' | translate}}</label>
+      <select
+      id="type"
+      shared-select
+      formControlName="type"
+      >
+        <option value="house" [defaultSelected]="true">House</option>
+        <option value="villa">Villa</option>
+        <option value="cottage">Cottage</option>
+      </select>
+    </div>
+    <fieldset class="search-attribute fieldset" formGroupName="price">
+      <legend>{{ 'search-form.attributes.range' | translate}}</legend>
+      <div class="price-range">
+        <input
+        id="min-price"
+        class="min-price"
+        shared-text-field
+        placeholder="Min $"
+        suffix=" $"
+        mask="0*"
+        formControlName="min"
+        >
+        <input
+        id="max-price"
+        class="max-price"
+        shared-text-field
+        suffix="$"
+        placeholder="Max $"
+        mask="0*"
+        formControlName="max"
+        >
+      </div>
+    </fieldset>
+    <button
+    shared-button
+    type="submit"
+    color="secondary"
+    class="submit-button"
+    >
+      Search
+      <svg-icon
+      src="/assets/svg/search.svg"
+      class="search"
+      svgClass="search-icon"
+      ></svg-icon>
+    </button>
+  </div>
+</form>

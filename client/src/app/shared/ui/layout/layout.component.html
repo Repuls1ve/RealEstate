@@ -1,0 +1,18 @@
+<div class="app-layout" *ngrxLet="vm$ as vm">
+  <div class="header-wrapper">
+    <app-header (sidebarOpenRequest)="toggleSidebar(true)"></app-header>
+  </div>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+  <app-sidebar
+  [visible]="vm.isSidebarOpened"
+  (sidebarCloseRequest)="toggleSidebar(false)"
+  ></app-sidebar>
+  <div
+  *ngIf="vm.isSidebarOpened"
+  class="backdrop"
+  (click)="toggleSidebar(false)"
+  ></div>
+  <app-footer></app-footer>
+</div>

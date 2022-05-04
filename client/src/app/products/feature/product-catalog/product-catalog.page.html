@@ -1,0 +1,22 @@
+<div class="catalog-page" *ngrxLet="vm$ as vm">
+  <section class="explore">
+    <h1 class="title">{{ 'catalog.explore.title' | translate }}</h1>
+    <p class="description">{{ 'catalog.explore.description' | translate }}</p>
+    <search-form (search)="onSearch($event)"></search-form>
+  </section>
+  <main>
+    <product-results
+    [products]="vm.products"
+    [isLoading]="vm.loading"
+    ></product-results>
+    <div class="pagination">
+      <paginator
+      [length]="133"
+      [pageIndex]="vm.pageIndex"
+      (page)="changePage($event)"
+      [pageSize]="6"
+      [delta]="2"
+      ></paginator>
+    </div>
+  </main>
+</div>

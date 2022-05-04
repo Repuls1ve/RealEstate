@@ -1,0 +1,55 @@
+<div class="search-results">
+  <div class="heading">
+    <h2
+    class="title"
+    *ngIf="!isLoading"
+    >Result for "South Gate"</h2>
+    <ngx-skeleton-loader
+    class="title-loader"
+    *ngIf="isLoading"
+    ></ngx-skeleton-loader>
+    <div class="filters">
+      <span
+      class="count"
+      *ngIf="!isLoading"
+      >Displaying 8 Results</span>
+      <ngx-skeleton-loader
+      class="count-loader"
+      *ngIf="isLoading"
+      ></ngx-skeleton-loader>
+      <div
+      class="sorting"
+      *ngIf="!isLoading"
+      >
+        <label for="sort" class="label">Sort By:</label>
+        <select
+        id="sort"
+        class="sort"
+        shared-select
+        >
+          <option>Default Order</option>
+        </select>
+      </div>
+      <ngx-skeleton-loader
+      class="sorting-loader"
+      *ngIf="isLoading"
+      ></ngx-skeleton-loader>
+    </div>
+  </div>
+  <div class="products">
+    <ng-container *ngIf="!isLoading">
+      <product-card
+      class="product"
+      [product]="product"
+      *ngFor="let product of products"
+      ></product-card>
+    </ng-container>
+    <ng-container *ngIf="isLoading">
+      <product-card
+      class="product"
+      [isLoading]="true"
+      *ngFor="let loader of 8 | times"
+      ></product-card>
+    </ng-container>
+  </div>
+</div>

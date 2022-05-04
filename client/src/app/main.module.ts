@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core'
 import { CoreModule } from './core/core.module'
 import { MainComponent } from './main.component'
-import { SharedModule } from './shared/shared.module'
+import { LayoutModule } from './shared/ui/layout/layout.module'
 
 @NgModule({
-  declarations: [
-    MainComponent
-  ],
   imports: [
     CoreModule,
-    SharedModule
+    LayoutModule
   ],
+  declarations: [MainComponent],
   bootstrap: [MainComponent]
 })
 export class MainModule {}

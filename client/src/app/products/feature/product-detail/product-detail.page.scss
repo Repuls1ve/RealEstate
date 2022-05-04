@@ -1,0 +1,28 @@
+@use "src/assets/scss/variables";
+@use "src/assets/scss/typography";
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/breakpoints";
+
+.product-detail-page {
+  display: flex;
+  flex-direction: column;
+  row-gap: 56px;
+
+  .product-info-wrapper {
+    margin: 0 variables.$layout-indent;
+    padding: 0 40px;
+
+    @include breakpoints.tablet {
+      padding: 0;
+    }
+  }
+
+  .product-payment-wrapper {
+    margin: 0 variables.$layout-indent;
+    padding: 0 70px;
+
+    @include breakpoints.tablet {
+      padding: 0 16px;
+    }
+  }
+}

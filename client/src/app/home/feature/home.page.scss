@@ -1,0 +1,67 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/typography";
+@use "src/assets/scss/breakpoints";
+@use "src/assets/scss/variables";
+
+.home-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  .benefits-wrapper {
+    margin: 0 variables.$layout-indent;
+    padding: 10px 60px;
+
+    @include breakpoints.tablet {
+      padding: 0 16px;
+    }
+  }
+
+  .discover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba($color: brand-colors.$greyscale-80, $alpha: 0.5);
+    padding: 128px 15%;
+    border-radius: 16px;
+    margin: 0 variables.$layout-indent;
+  
+    .heading {
+      font-size: 4.5rem;
+      font-weight: typography.$bold;
+      text-align: center;
+      color: brand-colors.$greyscale-10;
+      margin-bottom: 24px;
+  
+      @include breakpoints.laptop {
+        font-size: 4rem;
+      }
+  
+      @include breakpoints.tablet {
+        font-size: 3.5rem;
+      }
+  
+      @include breakpoints.tablet-sm {
+        font-size: 3rem;
+      }
+    }
+  
+    .description {
+      font-size: 1rem;
+      line-height: 130%;
+      font-family: typography.$font-secondary;
+      text-align: center;
+      color: brand-colors.$greyscale-10;
+      margin-bottom: 64px;
+    }
+  
+    @include breakpoints.tablet {
+      padding: 64px 10%;
+    }
+  
+    @include breakpoints.tablet-sm {
+      padding: 52px 8%;
+    }
+  }
+}

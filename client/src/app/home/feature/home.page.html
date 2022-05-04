@@ -1,0 +1,16 @@
+<div class="home-page">
+  <section class="discover">
+    <h1 class="heading">{{ 'home.discover.heading' | translate }}</h1>
+    <p class="description">{{ 'home.discover.description' | translate }}</p>
+    <search-form (search)="onSearch($event)"></search-form>
+  </section>
+  <section>
+    <product-listing [quantity]="4"></product-listing>
+  </section>
+  <section class="benefits-wrapper">
+    <home-benefits></home-benefits>
+  </section>
+  <section>
+    <home-contact></home-contact>
+  </section>
+</div>

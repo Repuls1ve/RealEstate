@@ -1,0 +1,18 @@
+<div class="product-detail-page" *ngrxLet="vm$ as vm">
+  <main class="product-info-wrapper">
+    <product-info
+    *ngIf="!vm.error"
+    [product]="vm.product"
+    [isLoading]="vm.loading"
+    ></product-info>
+    <ng-container *ngIf="vm.error">
+      No such product
+    </ng-container>
+  </main>
+  <section class="product-payment-wrapper">
+    <product-payment></product-payment>
+  </section>
+  <section>
+    <product-listing [quantity]="4"></product-listing>
+  </section>
+</div>
