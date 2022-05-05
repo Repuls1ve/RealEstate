@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 import { Agency, MockAgency } from 'src/app/shared/models/agency.model'
 
 @Component({
@@ -13,4 +13,11 @@ export class AgencyCardComponent {
 
   @Input()
   public isLoading = false
+
+  @Output()
+  public readonly contact = new EventEmitter<Agency>()
+
+  public onContact(): void {
+    this.contact.emit(this.agency as Agency)
+  }
 }

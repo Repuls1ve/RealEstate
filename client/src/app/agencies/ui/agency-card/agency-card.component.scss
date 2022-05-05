@@ -17,6 +17,7 @@
   .agency-detail {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     row-gap: 8px;
 
     .agency-name {
@@ -85,5 +86,36 @@
 
   &:hover {
     box-shadow: 0px 2px 10px 2px rgba(34, 60, 80, 0.2);
+  }
+}
+
+.skeleton-loader {
+  width: 100%;
+  
+  .loader ::ng-deep .loader {
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  .name-loader {
+    width: 400px;
+    max-width: 100%;
+    height: 42px;
+  }
+
+  .detail-loader {
+    height: 30px;
+
+    &:nth-child(2) {
+      max-width: 190px;
+    }
+
+    &:nth-child(3) {
+      max-width: 260px;
+    }
+
+    &:nth-child(4) {
+      max-width: 330px;
+    }
   }
 }

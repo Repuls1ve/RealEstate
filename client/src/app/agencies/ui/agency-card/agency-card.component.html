@@ -1,4 +1,4 @@
-<div class="agency-card" *ngIf="agency">
+<div class="agency-card" *ngIf="!isLoading && agency; else loader">
   <div class="agency-detail">
     <span class="agency-name">{{ agency.title }}</span>
     <div class="agency-location">
@@ -35,6 +35,19 @@
   <button
   class="contact-button"
   color="secondary"
+  (click)="onContact()"
   shared-button
   >Contact now</button>
 </div>
+<ng-template #loader>
+  <div class="agency-card skeleton-loader">
+    <div class="agency-detail">
+      <ngx-skeleton-loader class="name-loader loader"></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+      class="detail-loader loader"
+      *ngFor="let i of 3 | times"
+      ></ngx-skeleton-loader>
+    </div>
+    <ngx-skeleton-loader class="contact-button button-loader loader"></ngx-skeleton-loader>
+  </div>
+</ng-template>
