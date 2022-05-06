@@ -157,5 +157,11 @@
   },
   "agency-card": {
     "contact-button": "Связаться"
+  },
+  "agency-list": {
+    "overview": {
+      "heading": "Наш список агенств",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+    }
   }
 }
