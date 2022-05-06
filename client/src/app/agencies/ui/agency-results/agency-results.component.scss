@@ -1,0 +1,9 @@
+.agency-results {
+  width: 100%;
+
+  .agencies {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+  }
+}
