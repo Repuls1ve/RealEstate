@@ -154,5 +154,8 @@
       "property-status": "Property Status" 
     },
     "address": "Address"
+  },
+  "agency-card": {
+    "contact-button": "Contact now"
   }
 }
