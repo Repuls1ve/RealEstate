@@ -1,11 +1,8 @@
 {
   "nav": {
     "home": "Главная",
-    "about": "О нас",
-    "catalog": "Каталог",
-    "tour": "Ознакомительный тур",
-    "feedback": "Отзывы",
-    "contacts": "Контакты"
+    "agencies": "Агенства",
+    "catalog": "Каталог"
   },
   "search-form": {
     "type": {

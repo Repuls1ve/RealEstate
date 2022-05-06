@@ -1,11 +1,8 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About us",
-    "catalog": "Catalog",
-    "tour": "Estate Tour",
-    "feedback": "Feedback",
-    "contacts": "Contact"
+    "agencies": "Agencies",
+    "catalog": "Catalog"
   },
   "search-form": {
     "type": {
