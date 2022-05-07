@@ -1,28 +1,33 @@
+import { Type } from 'class-transformer'
 import { IsIn, IsNumber, IsOptional, IsString, Min } from 'class-validator'
+import { PaginationDto } from 'src/common/dtos/pagination.dto'
 
-export class FindProductsDto {
+export class FindProductsDto extends PaginationDto {
   @IsOptional()
   @IsString()
   @IsIn(['sell', 'rent'])
-  public readonly status: string 
+  public readonly status?: string 
 
   @IsOptional()
+  @Type(() => Number)
   @IsNumber()
-  @Min(0)
-  public readonly period: string
+  @Min(1)
+  public readonly period?: number
 
   @IsOptional()
   @IsString()
   @IsIn(['house', 'villa', 'cottage'])
-  public readonly type: string
+  public readonly type?: string
 
   @IsOptional()
+  @Type(() => Number)
   @IsNumber()
   @Min(0)
-  public readonly priceMin: number
+  public readonly priceMin?: number
 
   @IsOptional()
+  @Type(() => Number)
   @IsNumber()
   @Min(0)
-  public readonly priceMax: number
+  public readonly priceMax?: number
 }
