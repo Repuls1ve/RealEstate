@@ -11,10 +11,11 @@
     ></product-results>
     <div class="pagination">
       <paginator
-      [length]="133"
+      *ngIf="vm.meta"
+      [length]="vm.meta.totalItems"
+      [pageSize]="vm.meta.limit"
       [pageIndex]="vm.pageIndex"
       (page)="changePage($event)"
-      [pageSize]="6"
       [delta]="2"
       ></paginator>
     </div>

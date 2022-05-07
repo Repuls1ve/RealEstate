@@ -28,19 +28,23 @@
         <option value="7">Last week</option>
         <option value="31">Last month</option>
         <option value="365">Last year</option>
-        <option value="0" [defaultSelected]="true">All time</option>
+        <option value="any" [defaultSelected]="true">All time</option>
       </select>
     </div>
     <div class="search-attribute">
-      <label for="type">{{ 'search-form.attributes.type' | translate}}</label>
+      <label for="category">{{ 'search-form.attributes.type' | translate}}</label>
       <select
-      id="type"
+      id="category"
       shared-select
-      formControlName="type"
+      formControlName="category"
       >
-        <option value="house" [defaultSelected]="true">House</option>
-        <option value="villa">Villa</option>
-        <option value="cottage">Cottage</option>
+        <option value="apartments">Apartments</option>
+        <option value="condominium">Condominium</option>
+        <option value="duplex">Duplex Home</option>
+        <option value="multi-family">Multi-Family Home</option>
+        <option value="single-family">Single-Family Home</option>
+        <option value="townhouse">Townhouse</option>
+        <option value="any" [defaultSelected]="true">All Categories</option>
       </select>
     </div>
     <fieldset class="search-attribute fieldset" formGroupName="price">
