@@ -3,7 +3,7 @@ import { ComponentStore } from '@ngrx/component-store'
 import { TranslateService } from '@ngx-translate/core'
 import { SingleSeries } from '@swimlane/ngx-charts'
 import { tap } from 'rxjs'
-import { MortgagePaymentParams, PaymentCalculator } from 'src/app/shared/helpers/payment-calculator/payment-calculator.helper'
+import { MortgagePaymentParams, PaymentHelper } from 'src/app/shared/helpers/payment/payment.helper'
 
 export interface ProductPaymentParams extends MortgagePaymentParams {
   insurance: number
@@ -33,7 +33,7 @@ export class ProductPaymentStore extends ComponentStore<ProductPaymentState> {
     tap(params => this.setResults([
       {
         name: this.translate.instant('payment-calculator.chart.principal'),
-        value: PaymentCalculator.calculateMortgage(params)
+        value: PaymentHelper.calculateMortgage(params)
       },
       {
         name: this.translate.instant('payment-calculator.chart.insurance'),
