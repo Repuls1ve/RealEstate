@@ -1,12 +1,12 @@
 import { ModelDefinition, Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Document } from 'mongoose'
 import { ProductEntity } from 'src/products/entities/product.entity'
-import { Languages, Translatable } from 'src/common/interfaces/translate.interface'
+import { Languages, Translatable } from 'src/common/types/translate.type'
 import { ProductEntitySchema } from './product-entity.schema'
 
 export type ProductDocument = Product & Document
 
-@Schema()
+@Schema({ timestamps: true })
 export class Product implements Translatable<ProductEntity> {
   @Prop({
     type: ProductEntitySchema,
