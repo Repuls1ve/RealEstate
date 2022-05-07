@@ -5,7 +5,7 @@ export interface MortgagePaymentParams {
   interest: number
 }
 
-export class PaymentCalculator {
+export class PaymentHelper {
   public static calculateMortgage(params: MortgagePaymentParams): number {
     const {
       interest: yearlyInterest,
