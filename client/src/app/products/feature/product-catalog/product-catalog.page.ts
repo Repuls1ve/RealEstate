@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core'
 import { tap } from 'rxjs'
 import { PageEvent } from 'src/app/shared/ui/paginator/paginator.store'
 import { SearchFormParams } from 'src/app/shared/ui/search-form/search-form.component'
-import { ProductCatalogParams, ProductCatalogStore } from './product-catalog.store'
+import { ProductCatalogStore } from './product-catalog.store'
 
 @Component({
   selector: 'product-catalog-page',
@@ -16,12 +16,7 @@ import { ProductCatalogParams, ProductCatalogStore } from './product-catalog.sto
 export class ProductCatalogPage implements OnInit {
   public readonly vm$ = this.productCatalogStore.vm$
 
-  constructor(
-    private readonly productCatalogStore: ProductCatalogStore,
-    private readonly translate: TranslateService,
-    private readonly route: ActivatedRoute,
-    private readonly router: Router,
-  ) {}
+  constructor(private readonly productCatalogStore: ProductCatalogStore) {}
 
   public ngOnInit(): void {
     this.observeLanguageChange()
@@ -29,41 +24,18 @@ export class ProductCatalogPage implements OnInit {
   }
 
   public changePage(event: PageEvent): void {
-    const queryParams: Pick<ProductCatalogParams, 'page'> = { page: String(++event.pageIndex) }
-
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: queryParams,
-      queryParamsHandling: 'merge'
-    })
+    this.productCatalogStore.changePage(event)
   }
 
   public onSearch(params: SearchFormParams): void {
-    const queryParams: ProductCatalogParams = {
-      period: params.period,
-      priceMin: params.price.min ?? undefined,
-      priceMax: params.price.max ?? undefined,
-      status: params.status,
-      type: params.type,
-      page: '1'
-    }
-
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: queryParams
-    })
+    this.productCatalogStore.onSearch(params)
   }
 
   private observeLanguageChange(): void {
-    const onLanguageChange$ = this.translate.onLangChange.pipe(
-      tap(() => this.productCatalogStore.updateLanguage())
-    )
-    this.productCatalogStore.subscribeTo(onLanguageChange$)
+    this.productCatalogStore.observeLanguageChange()
   }
 
   private observeParamsChange(): void {
-    this.route.queryParams.subscribe(params => 
-      this.productCatalogStore.fetchProducts(params)
-    )
+    this.productCatalogStore.observeParamsChange()
   }
 }

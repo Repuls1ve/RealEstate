@@ -1,12 +1,14 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core'
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms'
+import { Period } from 'src/app/products/feature/product-catalog/product-catalog.store'
+import { Category, PropertyStatus } from '../../models/product.model'
 import { ButtonTheme } from '../controls/button/button.component'
 
 export interface SearchFormParams {
-  status: string
-  period: string
-  type: string
-  price: Record<'min' | 'max', string | null>
+  status: PropertyStatus
+  period: Period | number
+  category: Category
+  price: Record<'min' | 'max', number | null>
 }
 
 export type SearchBranch = 'sell' | 'rent'
@@ -25,8 +27,8 @@ export class SearchFormComponent {
 
   public readonly form = this.fb.group({
     status: ['sell', Validators.required],
-    period: ['0', Validators.required],
-    type: ['house', Validators.required],
+    period: ['any', Validators.required],
+    category: ['any', Validators.required],
     price: this.fb.group({
       min: [null],
       max: [null]
@@ -47,10 +49,15 @@ export class SearchFormComponent {
   public onSubmit(): void {
     const params: SearchFormParams = {
       status: this.status.value,
-      period: this.period.value,
-      type: this.type.value,
-      price: this.price.value
+      period: this.period.value == Period.Any ? this.period.value : Number(this.period.value),
+      category: this.category.value,
+      price: {
+        min: this.price.value.min ? this.price.value.min : null,
+        max: this.price.value.max ? this.price.value.max : null
+      }
     }
+
+    console.log(params)
 
     this.search.emit(params)
   }
@@ -63,8 +70,8 @@ export class SearchFormComponent {
     return this.form.get('period')!
   }
 
-  public get type(): AbstractControl {
-    return this.form.get('type')!
+  public get category(): AbstractControl {
+    return this.form.get('category')!
   }
 
   public get price(): AbstractControl {
