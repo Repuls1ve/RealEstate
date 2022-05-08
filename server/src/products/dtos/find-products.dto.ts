@@ -1,23 +1,25 @@
 import { Type } from 'class-transformer'
-import { IsIn, IsNumber, IsOptional, IsString, Min } from 'class-validator'
+import { IsEnum, IsNumber, IsOptional, IsString, Min } from 'class-validator'
 import { PaginationDto } from 'src/common/dtos/pagination.dto'
+import { Category, PropertyStatus } from '../entities/product.entity'
+
+export enum Period {
+  Any = 'any'
+}
 
 export class FindProductsDto extends PaginationDto {
   @IsOptional()
   @IsString()
-  @IsIn(['sell', 'rent'])
-  public readonly status?: string 
+  @IsEnum(PropertyStatus)
+  public readonly status?: PropertyStatus = PropertyStatus.Any
 
   @IsOptional()
-  @Type(() => Number)
-  @IsNumber()
-  @Min(1)
-  public readonly period?: number
+  public readonly period?: Period | number = Period.Any
 
   @IsOptional()
   @IsString()
-  @IsIn(['house', 'villa', 'cottage'])
-  public readonly type?: string
+  @IsEnum(Category)
+  public readonly category?: Category = Category.Any
 
   @IsOptional()
   @Type(() => Number)
