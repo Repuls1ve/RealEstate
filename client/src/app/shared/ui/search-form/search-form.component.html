@@ -1,50 +1,55 @@
-<form class="search-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+<form
+  class="search-form"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  *ngrxLet="vm$ as vm"
+>
   <div class="search-type">
     <button
     shared-button
     type="button"
     class="switch"
-    [theme]="getTheme('sell')"
-    (click)="setBranch('sell')"
+    [theme]="vm.theme.sell"
+    (click)="changeStatus('sell')"
     >{{ 'search-form.type.sell' | translate }}</button>
     <button
     shared-button
     type="button"
     class="switch"
-    [theme]="getTheme('rent')"
-    (click)="setBranch('rent')"
+    [theme]="vm.theme.rent"
+    (click)="changeStatus('rent')"
     >{{ 'search-form.type.rent' | translate }}</button>
   </div>
   <div class="search-attributes">
     <div class="search-attribute">
-      <label for="period">{{ 'search-form.attributes.location' | translate}}</label>
+      <label for="period">{{ 'search-form.attributes.period.label' | translate}}</label>
       <select
       id="period"
       shared-select
       formControlName="period"
       >
-        <option value="1">Last day</option>
-        <option value="3">Last 3 days</option>
-        <option value="7">Last week</option>
-        <option value="31">Last month</option>
-        <option value="365">Last year</option>
-        <option value="any" [defaultSelected]="true">All time</option>
+        <option value="1">{{ 'search-form.attributes.period.options.last-day' | translate }}</option>
+        <option value="3">{{ 'search-form.attributes.period.options.last-3-days' | translate }}</option>
+        <option value="7">{{ 'search-form.attributes.period.options.last-week' | translate }}</option>
+        <option value="31">{{ 'search-form.attributes.period.options.last-month' | translate }}</option>
+        <option value="365">{{ 'search-form.attributes.period.options.last-year' | translate }}</option>
+        <option value="any" [defaultSelected]="true">{{ 'search-form.attributes.period.options.any' | translate }}</option>
       </select>
     </div>
     <div class="search-attribute">
-      <label for="category">{{ 'search-form.attributes.type' | translate}}</label>
+      <label for="category">{{ 'search-form.attributes.category.label' | translate }}</label>
       <select
       id="category"
       shared-select
       formControlName="category"
       >
-        <option value="apartments">Apartments</option>
-        <option value="condominium">Condominium</option>
-        <option value="duplex">Duplex Home</option>
-        <option value="multi-family">Multi-Family Home</option>
-        <option value="single-family">Single-Family Home</option>
-        <option value="townhouse">Townhouse</option>
-        <option value="any" [defaultSelected]="true">All Categories</option>
+        <option value="apartments">{{ 'search-form.attributes.category.options.apartments' | translate }}</option>
+        <option value="condominium">{{ 'search-form.attributes.category.options.condominium' | translate }}</option>
+        <option value="duplex">{{ 'search-form.attributes.category.options.duplex' | translate }}</option>
+        <option value="multi-family">{{ 'search-form.attributes.category.options.multi-family' | translate }}</option>
+        <option value="single-family">{{ 'search-form.attributes.category.options.single-family' | translate }}</option>
+        <option value="townhouse">{{ 'search-form.attributes.category.options.townhouse' | translate }}</option>
+        <option value="any" [defaultSelected]="true">{{ 'search-form.attributes.category.options.any' | translate }}</option>
       </select>
     </div>
     <fieldset class="search-attribute fieldset" formGroupName="price">
@@ -55,7 +60,7 @@
         class="min-price"
         shared-text-field
         placeholder="Min $"
-        suffix=" $"
+        suffix="$"
         mask="0*"
         formControlName="min"
         >

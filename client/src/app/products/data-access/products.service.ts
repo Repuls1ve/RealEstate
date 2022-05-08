@@ -36,8 +36,8 @@ export class ProductsService {
   }
 
   public getProduct(uid: ProductDetails['uid']): Observable<Translatable<Product>> {
-    return timer(2500).pipe(
-      map(() => MockTranslatableProduct)
+    return this.http.get<Translatable<Product>>(this.baseURL + `products/${uid}`).pipe(
+      delay(1500)
     )
   }
 }

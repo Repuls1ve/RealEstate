@@ -38,7 +38,9 @@ export interface Photo {
   readonly alt: string
 }
 
-export enum Category {
+export type Category = 'apartments' | 'condominium' | 'multi-family' | 'single-family' | 'townhouse' | 'duplex' | 'any'
+
+export enum Categories {
   Apartments = 'apartments',
   Condominium = 'condominium',
   MultiFamily = 'multi-family',
@@ -48,7 +50,9 @@ export enum Category {
   Any = 'any'
 }
 
-export enum PropertyStatus {
+export type PropertyStatus = 'sell' | 'rent' | 'any'
+
+export enum PropertyStatuses {
   Sell = 'sell',
   Rent = 'rent',
   Any = 'any'

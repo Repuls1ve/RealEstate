@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveComponentModule } from '@ngrx/component'
 import { TranslateModule } from '@ngx-translate/core'
 import { AngularSvgIconModule as SvgIconModule } from 'angular-svg-icon'
 import { NgxMaskModule } from 'ngx-mask'
@@ -18,7 +19,8 @@ import { SearchFormComponent } from './search-form.component'
     NgxMaskModule,
     TranslateModule,
     TextFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ReactiveComponentModule
   ],
   declarations: [SearchFormComponent],
   exports: [SearchFormComponent]

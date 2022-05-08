@@ -10,8 +10,29 @@
       "rent": "Аренда"
     },
     "attributes": {
-      "location": "Местоположение",
-      "type": "Тип",
+      "period": {
+        "label": "Период публикации",
+        "options": {
+          "last-day": "За день",
+          "last-3-days": "За последние 3 дня",
+          "last-week": "За неделю",
+          "last-month": "За месяц",
+          "last-year": "За год",
+          "any": "За всё время"
+        }
+      },
+      "category": {
+        "label": "Категория",
+        "options": {
+          "apartments": "Апартаменты",
+          "condominium": "Кондоминиум",
+          "duplex": "Двухуровневый дом",
+          "multi-family": "Многоквартирный дом",
+          "single-family": "Индивидуальный дом",
+          "townhouse": "Особняк",
+          "any": "Все категории"
+        }
+      },
       "range": "Цена"
     },
     "button": "Поиск"

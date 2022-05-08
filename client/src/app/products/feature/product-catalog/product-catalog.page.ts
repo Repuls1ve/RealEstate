@@ -1,9 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
-import { ActivatedRoute, Router } from '@angular/router'
-import { TranslateService } from '@ngx-translate/core'
-import { tap } from 'rxjs'
 import { PageEvent } from 'src/app/shared/ui/paginator/paginator.store'
-import { SearchFormParams } from 'src/app/shared/ui/search-form/search-form.component'
+import { SearchFormParams } from 'src/app/shared/ui/search-form/search-form.store'
 import { ProductCatalogStore } from './product-catalog.store'
 
 @Component({

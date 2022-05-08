@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { SearchFormParams } from 'src/app/shared/ui/search-form/search-form.component'
+import { SearchFormParams } from 'src/app/shared/ui/search-form/search-form.store'
 import { HomeStore } from './home.store'
 
 @Component({

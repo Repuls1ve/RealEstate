@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
 import { ComponentStore } from '@ngrx/component-store'
 import { map, Observable, tap } from 'rxjs'
-import { SearchFormParams } from 'src/app/shared/ui/search-form/search-form.component'
+import { SearchFormParams } from 'src/app/shared/ui/search-form/search-form.store'
 
 export interface HomeState {}
 

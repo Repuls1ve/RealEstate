@@ -1,65 +1,42 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core'
-import { AbstractControl, FormBuilder, Validators } from '@angular/forms'
+import { ChangeDetectionStrategy, Component, Output } from '@angular/core'
+import { AbstractControl, FormBuilder } from '@angular/forms'
 import { Period } from 'src/app/products/feature/product-catalog/product-catalog.store'
-import { Category, PropertyStatus } from '../../models/product.model'
-import { ButtonTheme } from '../controls/button/button.component'
-
-export interface SearchFormParams {
-  status: PropertyStatus
-  period: Period | number
-  category: Category
-  price: Record<'min' | 'max', number | null>
-}
-
-export type SearchBranch = 'sell' | 'rent'
+import { Categories } from '../../models/product.model'
+import { SearchFormStatus, SearchFormStore, SearchFormValues } from './search-form.store'
 
 @Component({
   selector: 'search-form',
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [SearchFormStore]
 })
 export class SearchFormComponent {
-  public branch: SearchBranch = 'sell'
-
-  @Output()
-  public readonly search = new EventEmitter<SearchFormParams>()
+  public readonly vm$ = this.searchFormStore.vm$
 
   public readonly form = this.fb.group({
-    status: ['sell', Validators.required],
-    period: ['any', Validators.required],
-    category: ['any', Validators.required],
+    period: [Period.Any],
+    category: [Categories.Any],
     price: this.fb.group({
       min: [null],
       max: [null]
     })
   })
 
-  constructor(private readonly fb: FormBuilder) {}
+  @Output()
+  public readonly search = this.searchFormStore.search$
 
-  public setBranch(branch: SearchBranch): void {
-    this.branch = branch
-    this.status.setValue(branch)
-  }
+  constructor(
+    private readonly searchFormStore: SearchFormStore,
+    private readonly fb: FormBuilder,
+  ) {}
 
-  public getTheme(current: SearchBranch): ButtonTheme {
-    return this.branch == current ? 'contained' : 'outlined'
+  public changeStatus(status: SearchFormStatus): void {
+    this.searchFormStore.changeStatus(status)
   }
 
   public onSubmit(): void {
-    const params: SearchFormParams = {
-      status: this.status.value,
-      period: this.period.value == Period.Any ? this.period.value : Number(this.period.value),
-      category: this.category.value,
-      price: {
-        min: this.price.value.min ? this.price.value.min : null,
-        max: this.price.value.max ? this.price.value.max : null
-      }
-    }
-
-    console.log(params)
-
-    this.search.emit(params)
+    this.searchFormStore.onSubmit(this.form.value as SearchFormValues)
   }
 
   public get status(): AbstractControl {

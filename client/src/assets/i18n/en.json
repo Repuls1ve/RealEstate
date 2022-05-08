@@ -10,8 +10,29 @@
       "rent": "Rent"
     },
     "attributes": {
-      "location": "Location",
-      "type": "Type",
+      "period": {
+        "label": "Period",
+        "options": {
+          "last-day": "Last day",
+          "last-3-days": "Last 3 days",
+          "last-week": "Last week",
+          "last-month": "Last month",
+          "last-year": "Last year",
+          "any": "All time"
+        }
+      },
+      "category": {
+        "label": "Category",
+        "options": {
+          "apartments": "Apartments",
+          "condominium": "Condominium",
+          "duplex": "Duplex Home",
+          "multi-family": "Multi-Family Home",
+          "single-family": "Single-Family Home",
+          "townhouse": "Townhouse",
+          "any": "All Categories"
+        }
+      },
       "range": "Range"
     },
     "button": "Search"
