@@ -5,9 +5,9 @@ import { TranslateService } from '@ngx-translate/core'
 import { map, Observable, switchMap, tap } from 'rxjs'
 import { Language, Translatable } from 'src/app/core/i18n/i18n.types'
 import { PaginationMetaInfo, PaginationParams } from 'src/app/core/types/pagination.type'
-import { Category, Product, PropertyStatus } from 'src/app/shared/models/product.model'
+import { Categories, Category, Product, PropertyStatus, PropertyStatuses } from 'src/app/shared/models/product.model'
 import { PageEvent } from 'src/app/shared/ui/paginator/paginator.store'
-import { SearchFormParams } from 'src/app/shared/ui/search-form/search-form.component'
+import { SearchFormParams } from 'src/app/shared/ui/search-form/search-form.store'
 import { ProductsService } from '../../data-access/products.service'
 import { Error, Status } from '../../ui/product-listing/product-listing.store'
 
@@ -44,9 +44,9 @@ export class ProductCatalogStore extends ComponentStore<ProductCatalogState> {
       products: [],
       translations: null,
       params: {
-        status: PropertyStatus.Any,
+        status: PropertyStatuses.Any,
         period: Period.Any,
-        category: Category.Any,
+        category: Categories.Any,
         page: 1,
         limit: 8
       },
@@ -168,9 +168,9 @@ export class ProductCatalogStore extends ComponentStore<ProductCatalogState> {
     map(params => ({
       ...params.priceMin && { priceMin: params.priceMin },
       ...params.priceMax && { priceMax: params.priceMax },
-      status: params.status || PropertyStatus.Any,
+      status: params.status || PropertyStatuses.Any,
       period: params.period || Period.Any,
-      category: params.category || Category.Any,
+      category: params.category || Categories.Any,
       page: params.page || 1,
       limit: params.limit || 8
     })),
