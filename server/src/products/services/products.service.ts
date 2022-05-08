@@ -4,7 +4,8 @@ import { Model, FilterQuery } from 'mongoose'
 import { Paginated, PaginationMetaInfo } from 'src/common/types/pagination.type'
 import { CreateProductDto } from '../dtos/create-product.dto'
 import { FindProductDto } from '../dtos/find-product.dto'
-import { FindProductsDto } from '../dtos/find-products.dto'
+import { FindProductsDto, Period } from '../dtos/find-products.dto'
+import { Category, PropertyStatus } from '../entities/product.entity'
 import { Product, ProductDocument } from '../schemas/product.schema'
 
 @Injectable()
@@ -17,23 +18,23 @@ export class ProductsService {
       priceMax,
       period,
       status,
-      type,
+      category,
       limit,
       page
     } = findProductsDto
 
     const query: FilterQuery<ProductDocument> = {
-      ...status && {
+      ...status != PropertyStatus.Any && {
       'en.details.status': {
         $regex: status,
         $options: 'i'
       }},
-      ...type && {
+      ...category != Category.Any && {
       'en.details.category': {
-        $regex: type,
+        $regex: category,
         $options: 'i'
       }},
-      ...period && {
+      ...period != Period.Any && {
         'createdAt': {
         $gt: new Date().getTime() - 1000 * 60 * 60 * 24 * period,
       }},

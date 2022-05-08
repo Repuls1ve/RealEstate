@@ -36,3 +36,19 @@ export interface Photo {
   readonly source: string
   readonly alt: string
 }
+
+export enum Category {
+  Apartments = 'apartments',
+  Condominium = 'condominium',
+  MultiFamily = 'multi-family',
+  SingleFamily = 'single-family',
+  Townhouse = 'townhouse',
+  Duplex = 'duplex',
+  Any = 'any'
+}
+
+export enum PropertyStatus {
+  Sell = 'sell',
+  Rent = 'rent',
+  Any = 'any'
+}
