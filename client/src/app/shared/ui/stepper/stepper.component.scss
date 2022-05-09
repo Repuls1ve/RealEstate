@@ -1,0 +1,26 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/breakpoints";
+
+.stepper {
+  width: 100%;
+  padding: 24px 50px;
+  background-color: brand-colors.$primary-70;
+  border-radius: 8px;
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    &-item {
+      width: 200px;
+      max-width: 100%;
+    }
+
+    @include breakpoints.tablet-sm {
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<div class="stepper" *ngrxLet="vm$ as vm">
+  <ul class="stepper-list">
+    <li class="stepper-list-item" *ngFor="let step of vm.steps">
+      <stepper-step [step]="step" (stepChange)="onStepChange(step)"></stepper-step>
+    </li>
+  </ul>
+</div>
