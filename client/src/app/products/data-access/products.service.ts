@@ -15,6 +15,8 @@ export interface GetProductsParams extends PaginationParams {
   readonly category: Category
 }
 
+export interface CreateProductParams extends Translatable<Omit<Product, 'agency'>> {}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,5 +41,9 @@ export class ProductsService {
     return this.http.get<Translatable<Product>>(this.baseURL + `products/${uid}`).pipe(
       delay(1500)
     )
+  }
+
+  public createProduct(params: CreateProductParams): Observable<Translatable<Product>> {
+    return this.http.post<Translatable<Product>>(this.baseURL + 'products/create', params)
   }
 }

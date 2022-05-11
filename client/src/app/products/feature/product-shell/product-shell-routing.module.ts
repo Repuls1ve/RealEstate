@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
-const LoadChildrenCallbacks = {
-  Catalog: () => import('../product-catalog/product-catalog.module').then(m => m.ProductCatalogPageModule),
-  Detail: () => import('../product-detail/product-detail.module').then(m => m.ProductDetailPageModule),
-}
-
 const routes: Routes = [
   {
     path: '',
-    loadChildren: LoadChildrenCallbacks.Catalog
+    loadChildren: () => import('../product-catalog/product-catalog.module').then(m => m.ProductCatalogPageModule)
   },
   {
     path: 'product-detail/:id',
-    loadChildren: LoadChildrenCallbacks.Detail
+    loadChildren: () => import('../product-detail/product-detail.module').then(m => m.ProductDetailPageModule)
+  },
+  {
+    path: 'product-creation',
+    loadChildren: () => import('../product-creation/product-creation.module').then(m => m.ProductCreationPageModule)
   },
   {
     path: '**',
