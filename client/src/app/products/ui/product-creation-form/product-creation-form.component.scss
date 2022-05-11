@@ -1,0 +1,63 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/typography";
+@use "src/assets/scss/breakpoints";
+
+.product-creation-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  margin: 20px 5%;
+
+  .form-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    label {
+      font-size: 1.15rem;
+      line-height: 200%;
+      font-family: typography.$font-secondary;
+      font-weight: typography.$semi-bold;
+      color: brand-colors.$greyscale-80;
+      text-transform: capitalize;
+    }
+
+    textarea {
+      height: 200px;
+    }
+
+    input::placeholder, textarea::placeholder {
+      font-weight: typography.$regular;
+      text-transform: capitalize;
+    }
+  }
+
+  .form-field-group {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 32px;
+
+    .form-field {
+      flex: 1;
+    }
+  }
+
+  .next-button,
+  .submit-button {
+    height: 56px;
+    min-width: 140px;
+    align-self: flex-end;
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+  }
+
+  @include breakpoints.mobile {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
