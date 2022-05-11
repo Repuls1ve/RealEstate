@@ -181,5 +181,11 @@
       "heading": "Our Agencies List",
       "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
     }
+  },
+  "product-creation": {
+    "overview": {
+      "heading": "Product creation",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+    }
   }
 }

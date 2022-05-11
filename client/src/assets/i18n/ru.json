@@ -181,5 +181,11 @@
       "heading": "Наш список агенств",
       "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
     }
+  },
+  "product-creation": {
+    "overview": {
+      "heading": "Создание продукта",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+    }
   }
 }
