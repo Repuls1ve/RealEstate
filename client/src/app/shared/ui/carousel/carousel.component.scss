@@ -1,0 +1,81 @@
+@use "src/assets/scss/brand-colors";
+@use "src/assets/scss/breakpoints";
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &-indicators {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    bottom: 16px;
+
+    .indicator {
+      width: 15px;
+      height: 15px;
+      background: transparent;
+      border: 1px solid rgba($color: brand-colors.$greyscale-10, $alpha: 0.8);
+      border-radius: 50%;
+      cursor: pointer;
+
+      &.active {
+        background-color: rgba($color: brand-colors.$greyscale-10, $alpha: 0.8);
+        border: none;
+      }
+
+      @include breakpoints.tablet {
+        width: 13px;
+        height: 13px;
+      }
+    }
+  }
+
+  &-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .carousel-item {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
+    }
+  }
+
+  &-control-next,
+  &-control-prev {
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+
+    .next-icon,
+    .prev-icon {
+      width: 36px;
+      height: 36px;
+      fill: brand-colors.$greyscale-10;
+    }
+  }
+
+  &-control-next {
+    right: 0;
+  }
+
+  &-control-prev {
+    left: 0;
+  }
+}
