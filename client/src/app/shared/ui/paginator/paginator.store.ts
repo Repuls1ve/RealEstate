@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { filter, map, Observable, pairwise, skip, tap, withLatestFrom } from 'rxjs'
-import { PaginationHelper, PaginationParams } from '../../helpers/pagination/pagination.helper'
+import { PaginationHelper, PaginationParams } from '@shared/helpers/pagination/pagination.helper'
 
 export interface PaginatorState {
   /**

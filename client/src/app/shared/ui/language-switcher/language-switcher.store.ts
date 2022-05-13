@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { TranslateService } from '@ngx-translate/core'
 import { map, Observable, tap } from 'rxjs'
-import { Language, Languages } from 'src/app/core/i18n/i18n.types'
+import { Language, Languages } from '@core/i18n/i18n.types'
 
 @Injectable()
 export class LanguageSwitcherStore extends ComponentStore<{}> {

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { PageEvent } from 'src/app/shared/ui/paginator/paginator.store'
+import { PageEvent } from '@shared/ui/paginator/paginator.store'
 import { AgencyListParams, AgencyListStore } from './agency-list.store'
 
 @Component({

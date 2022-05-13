@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { TranslateService } from '@ngx-translate/core'
 import { catchError, EMPTY, Observable, switchMap, tap } from 'rxjs'
-import { Language, Translatable } from 'src/app/core/i18n/i18n.types'
-import { Product, ProductDetails } from 'src/app/shared/models/product.model'
-import { ProductsService } from '../../data-access/products.service'
-import { Status, Error } from '../../ui/product-listing/product-listing.store'
+import { Language, Translatable } from '@core/i18n/i18n.types'
+import { Product, ProductDetails } from '@shared/models/product.model'
+import { ProductsService } from '@app/products/data-access/products.service'
+import { Status, Error } from '@app/products/ui/product-listing/product-listing.store'
 
 export interface ProductDetailState {
   product: Product | null

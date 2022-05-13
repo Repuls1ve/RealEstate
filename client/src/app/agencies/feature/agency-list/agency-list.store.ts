@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { Observable, switchMap, tap } from 'rxjs'
-import { Error, Status } from 'src/app/products/ui/product-listing/product-listing.store'
-import { Agency } from 'src/app/shared/models/agency.model'
-import { AgenciesService } from '../../data-access/agencies.service'
+import { Error, Status } from '@app/products/ui/product-listing/product-listing.store'
+import { Agency } from '@app/shared/models/agency.model'
+import { AgenciesService } from '@app/agencies/data-access/agencies.service'
 
 export interface AgencyListParams {
   page: string

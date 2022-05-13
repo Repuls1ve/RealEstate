@@ -1,9 +1,9 @@
 import { EventEmitter, Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { map, Observable, tap } from 'rxjs'
-import { Period } from 'src/app/products/feature/product-catalog/product-catalog.store'
-import { Category, PropertyStatus, PropertyStatuses } from '../../models/product.model'
-import { ButtonTheme, ButtonThemes } from '../controls/button/button.component'
+import { Period } from '@app/products/feature/product-catalog/product-catalog.store'
+import { Category, PropertyStatus, PropertyStatuses } from '@shared/models/product.model'
+import { ButtonTheme, ButtonThemes } from '@shared/ui/controls/button/button.component'
 
 export type SearchFormStatus = Exclude<PropertyStatus, 'any'>
 

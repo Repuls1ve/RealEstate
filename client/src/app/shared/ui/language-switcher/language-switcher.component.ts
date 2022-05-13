@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { Language } from 'src/app/core/i18n/i18n.types'
+import { Language } from '@core/i18n/i18n.types'
 import { LanguageSwitcherStore } from './language-switcher.store'
 
 @Component({

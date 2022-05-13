@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { catchError, EMPTY, Observable, switchMap, tap } from 'rxjs'
-import { ProductsService } from '../../data-access/products.service'
-import { Product } from 'src/app/shared/models/product.model'
-import { Language, Translatable } from 'src/app/core/i18n/i18n.types'
+import { ProductsService } from '@app/products/data-access/products.service'
+import { Product } from '@shared/models/product.model'
+import { Language, Translatable } from '@core/i18n/i18n.types'
 import { TranslateService } from '@ngx-translate/core'
 
 export type Error = string | null

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, Output } from '@angular/core'
 import { FormArray, FormBuilder, Validators } from '@angular/forms'
-import { Categories, PropertyStatuses } from 'src/app/shared/models/product.model'
-import { Step } from 'src/app/shared/ui/stepper/stepper.store'
+import { Categories, PropertyStatuses } from '@shared/models/product.model'
+import { Step } from '@shared/ui/stepper/stepper.store'
 import { ProductCreationFormStore, ProductCreationFormValues } from './product-creation-form.store'
 
 export const ProductCreationFormSteps: Step[] = [

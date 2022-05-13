@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
-import { PageEvent } from 'src/app/shared/ui/paginator/paginator.store'
-import { SearchFormParams } from 'src/app/shared/ui/search-form/search-form.store'
+import { PageEvent } from '@shared/ui/paginator/paginator.store'
+import { SearchFormParams } from '@shared/ui/search-form/search-form.store'
 import { ProductCatalogStore } from './product-catalog.store'
 
 @Component({

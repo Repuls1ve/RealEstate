@@ -1,5 +1,5 @@
-@use "src/assets/scss/typography";
-@use "src/assets/scss/brand-colors";
+@use "typography";
+@use "brand-colors";
 
 * {
   font-family: typography.$font-primary;

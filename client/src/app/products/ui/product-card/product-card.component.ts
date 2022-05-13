@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { Product } from 'src/app/shared/models/product.model'
+import { Product } from '@shared/models/product.model'
 
 @Component({
   selector: 'product-card',

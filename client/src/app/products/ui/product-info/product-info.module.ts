@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core'
 import { TranslateModule } from '@ngx-translate/core'
 import { AngularSvgIconModule as SvgIconModule } from 'angular-svg-icon'
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader'
-import { TimesPipeModule } from 'src/app/shared/pipes/times/times.module'
-import { CarouselModule } from 'src/app/shared/ui/carousel/carousel.module'
+import { TimesPipeModule } from '@shared/pipes/times/times.module'
+import { CarouselModule } from '@shared/ui/carousel/carousel.module'
 import { ProductInfoComponent } from './product-info.component'
 
 @NgModule({

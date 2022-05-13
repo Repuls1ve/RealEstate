@@ -4,8 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { ReactiveComponentModule } from '@ngrx/component'
 import { TranslateModule } from '@ngx-translate/core'
 import { NgxChartsModule } from '@swimlane/ngx-charts'
-import { ButtonModule } from 'src/app/shared/ui/controls/button/button.module'
-import { TextFieldModule } from 'src/app/shared/ui/controls/text-field/text-field.module'
+import { ButtonModule } from '@shared/ui/controls/button/button.module'
+import { TextFieldModule } from '@shared/ui/controls/text-field/text-field.module'
 import { ProductPaymentComponent } from './product-payment.component'
 
 @NgModule({

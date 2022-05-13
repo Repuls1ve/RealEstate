@@ -3,7 +3,7 @@ import { ComponentStore } from '@ngrx/component-store'
 import { TranslateService } from '@ngx-translate/core'
 import { SingleSeries } from '@swimlane/ngx-charts'
 import { tap } from 'rxjs'
-import { MortgagePaymentParams, PaymentHelper } from 'src/app/shared/helpers/payment/payment.helper'
+import { MortgagePaymentParams, PaymentHelper } from '@shared/helpers/payment/payment.helper'
 
 export interface ProductPaymentParams extends MortgagePaymentParams {
   insurance: number
