@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model, FilterQuery } from 'mongoose'
 import { Paginated, PaginationMetaInfo } from 'src/common/types/pagination.type'
 import { CreateProductDto } from '../dtos/create-product.dto'
+import { FindLatestProductsDto } from '../dtos/find-latest-products.dto'
 import { FindProductDto } from '../dtos/find-product.dto'
 import { FindProductsDto, Period } from '../dtos/find-products.dto'
 import { Category, PropertyStatus } from '../entities/product.entity'
@@ -58,6 +59,14 @@ export class ProductsService {
     }
 
     return results
+  }
+
+  public async findLatest(findLatestProductsDto: FindLatestProductsDto): Promise<ProductDocument[]> {
+    const { limit } = findLatestProductsDto
+
+    return this.productModel.find()
+      .sort({ createdAt: 'desc' })
+      .limit(limit)
   }
 
   public async findOne(findProductDto: FindProductDto): Promise<ProductDocument> {
