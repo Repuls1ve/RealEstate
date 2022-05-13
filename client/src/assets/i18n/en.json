@@ -1,76 +1,71 @@
 {
-  "nav": {
-    "home": "Home",
-    "agencies": "Agencies",
-    "catalog": "Catalog"
-  },
-  "search-form": {
-    "type": {
-      "sell": "Sell",
-      "rent": "Rent"
+  "pages": {
+    "home": {
+      "overview": {
+        "title": "Discover your perfect home",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+      }
     },
-    "attributes": {
-      "period": {
-        "label": "Period",
-        "options": {
-          "last-day": "Last day",
-          "last-3-days": "Last 3 days",
-          "last-week": "Last week",
-          "last-month": "Last month",
-          "last-year": "Last year",
-          "any": "All time"
-        }
-      },
-      "category": {
-        "label": "Category",
-        "options": {
-          "apartments": "Apartments",
-          "condominium": "Condominium",
-          "duplex": "Duplex Home",
-          "multi-family": "Multi-Family Home",
-          "single-family": "Single-Family Home",
-          "townhouse": "Townhouse",
-          "any": "All Categories"
-        }
-      },
-      "range": "Range"
+    "catalog": {
+      "overview": {
+        "title": "Explore catalog without limitations",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+      }
     },
-    "button": "Search"
-  },
-  "listings": {
-    "heading": {
-      "title": "Newest Listings",
-      "view-button": "View All"
+    "product-creation": {
+      "overview": {
+        "title": "Product creation",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+      }
+    },
+    "product-detail": {},
+    "agency-list": {
+      "overview": {
+        "title": "Our Agencies List",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+      }
     }
   },
-  "footer": {
-    "heading": "Make your home more modern",
-    "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim",
-    "services": {
-      "heading": "Our services",
-      "home-rent": "Home rent",
-      "villa-rent": "Villa rent",
-      "sell": "Apartment sell"
+  "forms": {
+    "search": {
+      "status": {
+        "sell": "Sell",
+        "rent": "Rent"
+      },
+      "fields": {
+        "period": {
+          "label": "Period",
+          "options": {
+            "last-day": "Last day",
+            "last-3-days": "Last 3 days",
+            "last-week": "Last week",
+            "last-month": "Last month",
+            "last-year": "Last year",
+            "any": "All time"
+          }
+        },
+        "category": {
+          "label": "Category",
+          "options": {
+            "apartments": "Apartments",
+            "condominium": "Condominium",
+            "duplex": "Duplex Home",
+            "multi-family": "Multi-Family Home",
+            "single-family": "Single-Family Home",
+            "townhouse": "Townhouse",
+            "any": "All Categories"
+          }
+        },
+        "range": {
+          "label": "Range"
+        }
+      },
+      "search-button": "Search"
     },
-    "support": {
-      "heading": "Support",
-      "customer": "Customer services",
-      "contact": "Email us",
-      "privacy": "Privacy policy"
-    },
-    "media": {
-      "heading": "Social media",
-      "facebook": "Facebook",
-      "instagram": "Instagram",
-      "twitter": "Twitter"
-    }
+    "product-creation": {}
   },
-  "home": {
-    "discover": {
-      "heading": "Discover your perfect home",
-      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
-    },
-    "benefits": {
+  "components": {
+    "home-benefits": {
       "heading": {
         "title": "We help you to find your dream house",
         "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
@@ -94,98 +89,121 @@
         }
       }
     },
-    "contact": {
+    "home-contact": {
       "title": "Get luxury and cheap housing and guaranteed forever",
-      "button": "Contact now"
-    }
-  },
-  "catalog": {
-    "explore": {
-      "title": "Explore catalog without limitations",
-      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
-    }
-  },
-  "payment-calculator": {
-    "title": "Payment Calculator",
-    "inputs": {
-      "tax": {
-        "label": "Property Tax",
-        "errors": {
-          "number": "Should be a non-negative number",
-          "required": "Required field"
+      "contact-button": "Contact now"
+    },
+    "product-payment": {
+      "title": "Payment Calculator",
+      "fields": {
+        "tax": {
+          "label": "Property Tax",
+          "errors": {
+            "number": "Should be a non-negative number",
+            "required": "Required field"
+          }
+        },
+        "insurance": {
+          "label":  "Home Insurance",
+          "errors": {
+            "number": "Should be a non-negative number",
+            "required": "Required field"
+          }
+        },
+        "deposit": {
+          "label": "Down Payment",
+          "errors": {
+            "number": "Should be a non-negative number",
+            "required": "Required field"
+          }
+        },
+        "interest": {
+          "label": "Interest Rate (Yearly %)",
+          "errors": {
+            "number": "Should be a non-negative number",
+            "required": "Required field"
+          }
+        },
+        "term": {
+          "label": "Loan Term (Years)",
+          "errors": {
+            "number": "Minimal term - 1 year",
+            "required": "Required field"
+          }
+        },
+        "total": {
+          "label": "Total Payment",
+          "errors": {
+            "number": "Should be a non-negative number",
+            "required": "Required field"
+          }
         }
       },
-      "insurance": {
-        "label":  "Home Insurance",
-        "errors": {
-          "number": "Should be a non-negative number",
-          "required": "Required field"
-        }
+      "chart": {
+        "label": "Monthly payment",
+        "principal": "Principal & interest",
+        "tax": "Property tax",
+        "insurance": "Home Insurance"
       },
-      "deposit": {
-        "label": "Down Payment",
-        "errors": {
-          "number": "Should be a non-negative number",
-          "required": "Required field"
-        }
+      "calculate-button": "Calculate"
+    },
+    "product-listing": {
+      "title": "Newest Listings",
+      "view-button": "View All"
+    },
+    "product-info": {
+      "description": "Description",
+      "overview": "Overview",
+      "details": {
+        "title": "Details",
+        "property-id": "Property ID",
+        "price": "Price",
+        "property-size": "Property Size",
+        "category": "Category",
+        "year": "Year Built",
+        "property-status": "Property Status" 
       },
-      "interest": {
-        "label": "Interest Rate (Yearly %)",
-        "errors": {
-          "number": "Should be a non-negative number",
-          "required": "Required field"
-        }
+      "address": "Address"
+    },
+    "agency-card": {
+      "contact-button": "Contact now"
+    },
+    "sidebar": {
+      "home": "Home",
+      "agencies": "Agencies",
+      "catalog": "Catalog"
+    },
+    "header": {
+      "home": "Home",
+      "agencies": "Agencies",
+      "catalog": "Catalog"
+    },
+    "footer": {
+      "heading": "Make your home more modern",
+      "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim",
+      "services": {
+        "heading": "Our services",
+        "home-rent": "Home rent",
+        "villa-rent": "Villa rent",
+        "sell": "Apartment sell"
       },
-      "term": {
-        "label": "Loan Term (Years)",
-        "errors": {
-          "number": "Minimal term - 1 year",
-          "required": "Required field"
-        }
+      "support": {
+        "heading": "Support",
+        "customer": "Customer services",
+        "contact": "Email us",
+        "privacy": "Privacy policy"
       },
-      "total": {
-        "label": "Total Payment",
-        "errors": {
-          "number": "Should be a non-negative number",
-          "required": "Required field"
-        }
+      "media": {
+        "heading": "Social media",
+        "facebook": "Facebook",
+        "instagram": "Instagram",
+        "twitter": "Twitter"
+      },
+      "navigation": {
+        "home": "Home",
+        "agencies": "Agencies",
+        "catalog": "Catalog"
       }
-    },
-    "chart": {
-      "label": "Monthly payment",
-      "principal": "Principal & interest",
-      "tax": "Property tax",
-      "insurance": "Home Insurance"
-    },
-    "calculate-button": "Calculate"
-  },
-  "product-info": {
-    "description": "Description",
-    "overview": "Overview",
-    "details": {
-      "title": "Details",
-      "property-id": "Property ID",
-      "price": "Price",
-      "property-size": "Property Size",
-      "category": "Category",
-      "year": "Year Built",
-      "property-status": "Property Status" 
-    },
-    "address": "Address"
-  },
-  "agency-card": {
-    "contact-button": "Contact now"
-  },
-  "agency-list": {
-    "overview": {
-      "heading": "Our Agencies List",
-      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
-    }
-  },
-  "product-creation": {
-    "overview": {
-      "heading": "Product creation",
-      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
     }
   }
 }

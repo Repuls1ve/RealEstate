@@ -16,20 +16,20 @@ export type BenefitsAccordion = BenefitsExpansionPanel[]
 export class HomeBenefitsComponent {
   public readonly accordion: BenefitsAccordion = [
     {
-      title: 'home.benefits.accordion.warranty.title',
-      description: 'home.benefits.accordion.warranty.description'
+      title: 'components.home-benefits.accordion.warranty.title',
+      description: 'components.home-benefits.accordion.warranty.description'
     },
     {
-      title: 'home.benefits.accordion.cheap.title',
-      description: 'home.benefits.accordion.cheap.description'
+      title: 'components.home-benefits.accordion.cheap.title',
+      description: 'components.home-benefits.accordion.cheap.description'
     },
     {
-      title: 'home.benefits.accordion.location.title',
-      description: 'home.benefits.accordion.location.description'
+      title: 'components.home-benefits.accordion.location.title',
+      description: 'components.home-benefits.accordion.location.description'
     },
     {
-      title: 'home.benefits.accordion.tax.title',
-      description: 'home.benefits.accordion.tax.description'
+      title: 'components.home-benefits.accordion.tax.title',
+      description: 'components.home-benefits.accordion.tax.description'
     }
   ] 
 }

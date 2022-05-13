@@ -49,16 +49,21 @@
     }
   }
 
-  .img {
+  .img,
+  .carousel {
     margin: 16px 0;
     width: 100%;
-    aspect-ratio: 3 / 1;
+    aspect-ratio: 3 / 1.25;
     object-fit: cover;
     object-position: center;
     border-radius: 16px;
 
+    @include breakpoints.laptop {
+      aspect-ratio: 2 / 1;
+    }
+
     @include breakpoints.tablet {
-      aspect-ratio: 2 / 1.5;
+      aspect-ratio: 4 / 3;
     }
   }
 
