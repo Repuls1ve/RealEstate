@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { TranslateService } from '@ngx-translate/core'
-import { Languages } from './core/i18n/i18n.types'
+import { Languages } from '@core/i18n/i18n.types'
 
 @Component({
   selector: 'estate-app',

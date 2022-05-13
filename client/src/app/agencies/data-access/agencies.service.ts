@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { map, Observable, timer } from 'rxjs'
-import { Agency, MockAgency } from 'src/app/shared/models/agency.model'
-import { environment } from 'src/environments/environment'
+import { Agency, MockAgency } from '@shared/models/agency.model'
+import { environment } from '@environments/environment'
 
 @Injectable({
   providedIn: 'root'

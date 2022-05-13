@@ -1,4 +1,4 @@
-import { Translatable } from 'src/app/core/i18n/i18n.types'
+import { Translatable } from '@core/i18n/i18n.types'
 import { Agency, MockAgency } from './agency.model'
 
 export interface Product {

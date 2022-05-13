@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { ProductCreationFormParams } from '../../ui/product-creation-form/product-creation-form.store'
+import { ProductCreationFormParams } from '@app/products/ui/product-creation-form/product-creation-form.store'
 import { ProductCreationStore } from './product-creation.store'
 
 @Component({

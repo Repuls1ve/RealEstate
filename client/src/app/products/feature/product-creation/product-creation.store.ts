@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { map, Observable, switchMap } from 'rxjs'
-import { ProductsService } from '../../data-access/products.service'
-import { ProductCreationFormParams } from '../../ui/product-creation-form/product-creation-form.store'
+import { ProductsService } from '@app/products/data-access/products.service'
+import { ProductCreationFormParams } from '@app/products/ui/product-creation-form/product-creation-form.store'
 
 export interface ProductCreationState {}
 

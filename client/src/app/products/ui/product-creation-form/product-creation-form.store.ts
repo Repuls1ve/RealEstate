@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { filter, map, Observable, tap } from 'rxjs'
-import { Step } from 'src/app/shared/ui/stepper/stepper.store'
+import { Step } from '@shared/ui/stepper/stepper.store'
 
 export type TranslatableField = 'title' | 'description' | 'size' | 'position' | 'city' | 'state' | 'area' | 'country' | 'overview'
 

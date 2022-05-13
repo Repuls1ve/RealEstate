@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { delay, map, Observable, timer } from 'rxjs'
-import { Translatable } from 'src/app/core/i18n/i18n.types'
-import { Paginated, PaginationParams } from 'src/app/core/types/pagination.type'
-import { Category, MockTranslatableProduct, Product, ProductDetails, PropertyStatus } from 'src/app/shared/models/product.model'
-import { environment } from 'src/environments/environment'
-import { Period } from '../feature/product-catalog/product-catalog.store'
+import { Translatable } from '@core/i18n/i18n.types'
+import { Paginated, PaginationParams } from '@core/types/pagination.type'
+import { Category, MockTranslatableProduct, Product, ProductDetails, PropertyStatus } from '@shared/models/product.model'
+import { environment } from '@environments/environment'
+import { Period } from '@app/products/feature/product-catalog/product-catalog.store'
 
 export interface GetProductsParams extends PaginationParams {
   readonly priceMin?: number

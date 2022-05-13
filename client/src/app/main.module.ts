@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
-import { CoreModule } from './core/core.module'
-import { MainComponent } from './main.component'
-import { LayoutModule } from './shared/ui/layout/layout.module'
+import { CoreModule } from '@core/core.module'
+import { MainComponent } from '@app/main.component'
+import { LayoutModule } from '@shared/ui/layout/layout.module'
 
 @NgModule({
   imports: [
