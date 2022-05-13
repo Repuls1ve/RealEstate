@@ -17,7 +17,7 @@ export class ProductDetailPage {
   constructor(
     private readonly productDetailStore: ProductDetailStore,
     private readonly translate: TranslateService,
-    public readonly route: ActivatedRoute
+    private readonly route: ActivatedRoute
   ) {}
 
   public ngOnInit(): void {

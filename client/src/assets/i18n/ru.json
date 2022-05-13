@@ -1,78 +1,73 @@
 {
-  "nav": {
-    "home": "Главная",
-    "agencies": "Агенства",
-    "catalog": "Каталог"
-  },
-  "search-form": {
-    "type": {
-      "sell": "Продажа",
-      "rent": "Аренда"
+  "pages": {
+    "home": {
+      "overview": {
+        "title": "Откройте для себя свой идеальный дом",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+      }
     },
-    "attributes": {
-      "period": {
-        "label": "Период публикации",
-        "options": {
-          "last-day": "За день",
-          "last-3-days": "За последние 3 дня",
-          "last-week": "За неделю",
-          "last-month": "За месяц",
-          "last-year": "За год",
-          "any": "За всё время"
-        }
-      },
-      "category": {
-        "label": "Категория",
-        "options": {
-          "apartments": "Апартаменты",
-          "condominium": "Кондоминиум",
-          "duplex": "Двухуровневый дом",
-          "multi-family": "Многоквартирный дом",
-          "single-family": "Индивидуальный дом",
-          "townhouse": "Особняк",
-          "any": "Все категории"
-        }
-      },
-      "range": "Цена"
+    "catalog": {
+      "overview": {
+        "title": "Исследуйте каталог без ограничений",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+      }
     },
-    "button": "Поиск"
-  },
-  "listings": {
-    "heading": {
-      "title": "Новые объявления",
-      "view-button": "Смотреть все"
+    "product-creation": {
+      "overview": {
+        "title": "Создание продукта",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+      }
+    },
+    "product-detail": {},
+    "agency-list": {
+      "overview": {
+        "title": "Наш список агенств",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+      }
     }
   },
-  "footer": {
-    "heading": "Сделайте свой дом более современным",
-    "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim",
-    "services": {
-      "heading": "Наши услуги",
-      "home-rent": "Аренда домов",
-      "villa-rent": "Аренда вилл",
-      "sell": "Продажа квартир"
+  "forms": {
+    "search": {
+      "status": {
+        "sell": "Продажа",
+        "rent": "Аренда"
+      },
+      "fields": {
+        "period": {
+          "label": "Период публикации",
+          "options": {
+            "last-day": "За день",
+            "last-3-days": "За последние 3 дня",
+            "last-week": "За неделю",
+            "last-month": "За месяц",
+            "last-year": "За год",
+            "any": "За всё время"
+          }
+        },
+        "category": {
+          "label": "Категория",
+          "options": {
+            "apartments": "Апартаменты",
+            "condominium": "Кондоминиум",
+            "duplex": "Двухуровневый дом",
+            "multi-family": "Многоквартирный дом",
+            "single-family": "Индивидуальный дом",
+            "townhouse": "Особняк",
+            "any": "Все категории"
+          }
+        },
+        "range": {
+          "label": "Range"
+        }
+      },
+      "search-button": "Search"
     },
-    "support": {
-      "heading": "Поддержка",
-      "customer": "Обслуживание клиентов",
-      "contact": "Связаться по электронной почте",
-      "privacy": "Политика конфиденциальности"
-    },
-    "media": {
-      "heading": "Социальные сети",
-      "facebook": "Facebook",
-      "instagram": "Instagram",
-      "twitter": "Twitter"
-    }
+    "product-creation": {}
   },
-  "home": {
-    "discover": {
-      "heading": "Откройте для себя свой идеальный дом",
-      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
-    },
-    "benefits": {
+  "components": {
+    "home-benefits": {
       "heading": {
-        "title": "Мы поможем найти дом вашей мечты",
+        "title": "Мы поможем вам найти дом вашей мечты",
         "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
       },
       "accordion": {
@@ -81,11 +76,11 @@
           "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat"
         },
         "cheap": {
-          "title": "Выгодные цены по сравнению с конкурентами",
+          "title": "Самый дешевый по сравнению с другими конкурентами",
           "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat"
         },
         "location": {
-          "title": "Удобное местоположение",
+          "title": "Стратегическое расположение",
           "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat"
         },
         "tax": {
@@ -94,98 +89,121 @@
         }
       }
     },
-    "contact": {
+    "home-contact": {
       "title": "Получите роскошное и дешевое жилье с гарантией навсегда",
-      "button": "Связаться сейчас"
-    }
-  },
-  "catalog": {
-    "explore": {
-      "title": "Исследуйте каталог без ограничений",
-      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
-    }
-  },
-  "payment-calculator": {
-    "title": "Платёжный калькулятор",
-    "inputs": {
-      "tax": {
-        "label": "Налог на имущество",
-        "errors": {
-          "number": "Не может быть отрицательным числом",
-          "required": "Обязательное поле"
+      "contact-button": "Связаться сейчас"
+    },
+    "product-payment": {
+      "title": "Калькулятор оплаты",
+      "fields": {
+        "tax": {
+          "label": "Налог на имущество",
+          "errors": {
+            "number": "Не может быть отрицательным числом",
+            "required": "Обязательное поле"
+          }
+        },
+        "insurance": {
+          "label":  "Страхование",
+          "errors": {
+            "number": "Не может быть отрицательным числом",
+            "required": "Обязательное поле"
+          }
+        },
+        "deposit": {
+          "label": "Первоначальный взнос",
+          "errors": {
+            "number": "Не может быть отрицательным числом",
+            "required": "Обязательное поле"
+          }
+        },
+        "interest": {
+          "label": "Ставка, %",
+          "errors": {
+            "number": "Не может быть отрицательным числом",
+            "required": "Обязательное поле"
+          }
+        },
+        "term": {
+          "label": "Срок кредита",
+          "errors": {
+            "number": "Минимальный срок - 1 год",
+            "required": "Обязательное поле"
+          }
+        },
+        "total": {
+          "label": "Полная стоимость",
+          "errors": {
+            "number": "Не может быть отрицательным числом",
+            "required": "Обязательное поле"
+          }
         }
       },
-      "insurance": {
-        "label":  "Страхование",
-        "errors": {
-          "number": "Не может быть отрицательным числом",
-          "required": "Обязательное поле"
-        }
+      "chart": {
+        "label": "Ежемесячный платёж",
+        "principal": "Основной платёж",
+        "tax": "Налог на имущество",
+        "insurance": "Страхование"
       },
-      "deposit": {
-        "label": "Первоначальный взнос",
-        "errors": {
-          "number": "Не может быть отрицательным числом",
-          "required": "Обязательное поле"
-        }
+      "calculate-button": "Рассчитать"
+    },
+    "product-listing": {
+      "title": "Новейшие объявления",
+      "view-button": "Посмотреть все"
+    },
+    "product-info": {
+      "description": "Описание",
+      "overview": "Обзор",
+      "details": {
+        "title": "Подробности",
+        "property-id": "Артикул",
+        "price": "Price",
+        "property-size": "Площадь",
+        "category": "Категория",
+        "year": "Год постройки",
+        "property-status": "Статус" 
       },
-      "interest": {
-        "label": "Ставка, %",
-        "errors": {
-          "number": "Не может быть отрицательным числом",
-          "required": "Обязательное поле"
-        }
+      "address": "Адрес"
+    },
+    "agency-card": {
+      "contact-button": "Связаться"
+    },
+    "sidebar": {
+      "home": "Главная",
+      "agencies": "Агенства",
+      "catalog": "Каталог"
+    },
+    "header": {
+      "home": "Главная",
+      "agencies": "Агенства",
+      "catalog": "Каталог"
+    },
+    "footer": {
+      "heading": "Сделайте свой дом более современным",
+      "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim",
+      "services": {
+        "heading": "Наши услуги",
+        "home-rent": "Аренда домов",
+        "villa-rent": "Аренда вилл",
+        "sell": "Продажа квартир"
       },
-      "term": {
-        "label": "Срок кредита",
-        "errors": {
-          "number": "Минимальный срок - 1 год",
-          "required": "Обязательное поле"
-        }
+      "support": {
+        "heading": "Поддержка",
+        "customer": "Обслуживание клиентов",
+        "contact": "Связаться по электронной почте",
+        "privacy": "Политика конфиденциальности"
       },
-      "total": {
-        "label": "Полная стоимость",
-        "errors": {
-          "number": "Не может быть отрицательным числом",
-          "required": "Обязательное поле"
-        }
+      "media": {
+        "heading": "Социальные сети",
+        "facebook": "Facebook",
+        "instagram": "Instagram",
+        "twitter": "Twitter"
+      },
+      "navigation": {
+        "home": "Главная",
+        "agencies": "Агенства",
+        "catalog": "Каталог"
       }
-    },
-    "chart": {
-      "label": "Ежемесячный платёж",
-      "principal": "Основной платёж",
-      "tax": "Налог на имущество",
-      "insurance": "Страхование"
-    },
-    "calculate-button": "Рассчитать"
-  },
-  "product-info": {
-    "description": "Описание",
-    "overview": "Обзор",
-    "details": {
-      "title": "Подробности",
-      "property-id": "Артикул",
-      "price": "Цена",
-      "property-size": "Площадь",
-      "category": "Категория",
-      "year": "Год постройки",
-      "property-status": "Статус" 
-    },
-    "address": "Адрес"
-  },
-  "agency-card": {
-    "contact-button": "Связаться"
-  },
-  "agency-list": {
-    "overview": {
-      "heading": "Наш список агенств",
-      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
-    }
-  },
-  "product-creation": {
-    "overview": {
-      "heading": "Создание продукта",
-      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
     }
   }
 }
