@@ -14,7 +14,7 @@ import { ProductDetailPage } from './product-detail.page'
     ProductListingModule,
     ProductPaymentModule,
     ReactiveComponentModule,
-    ProductDetailPageRoutingModule,
+    ProductDetailPageRoutingModule
   ],
   declarations: [ProductDetailPage]
 })

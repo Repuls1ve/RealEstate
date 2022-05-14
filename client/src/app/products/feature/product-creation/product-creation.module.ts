@@ -12,7 +12,7 @@ import { ProductCreationPage } from './product-creation.page'
     TranslateModule,
     ReactiveComponentModule,
     ProductCreationFormModule,
-    ProductCreationRoutingModule,
+    ProductCreationRoutingModule
   ],
   declarations: [ProductCreationPage]
 })

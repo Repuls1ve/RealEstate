@@ -17,7 +17,7 @@ export class LanguageSwitcherStore extends ComponentStore<{}> {
     }))
   )
 
-  public readonly useLanguage = this.effect((lang$: Observable<Language>) => lang$.pipe(
-    tap(lang => this.translate.use(lang))
-  ))
+  public readonly useLanguage = this.effect((lang$: Observable<Language>) =>
+    lang$.pipe(tap(lang => this.translate.use(lang)))
+  )
 }

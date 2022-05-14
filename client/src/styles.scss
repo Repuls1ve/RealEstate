@@ -1,5 +1,5 @@
-@use "typography";
-@use "brand-colors";
+@use 'typography';
+@use 'brand-colors';
 
 * {
   font-family: typography.$font-primary;
@@ -28,9 +28,9 @@ ul {
 
 ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip {
   .tooltip-caret.position-top {
-    border-top-color: brand-colors.$greyscale-10;;
+    border-top-color: brand-colors.$greyscale-10;
   }
 
-  background-color: brand-colors.$greyscale-10;;
+  background-color: brand-colors.$greyscale-10;
   box-shadow: 0 4px 6px 0 rgba($color: black, $alpha: 0.2);
 }

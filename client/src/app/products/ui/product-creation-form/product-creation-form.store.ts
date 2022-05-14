@@ -3,7 +3,16 @@ import { ComponentStore } from '@ngrx/component-store'
 import { filter, map, Observable, tap } from 'rxjs'
 import { Step } from '@shared/ui/stepper/stepper.store'
 
-export type TranslatableField = 'title' | 'description' | 'size' | 'position' | 'city' | 'state' | 'area' | 'country' | 'overview'
+export type TranslatableField =
+  | 'title'
+  | 'description'
+  | 'size'
+  | 'position'
+  | 'city'
+  | 'state'
+  | 'area'
+  | 'country'
+  | 'overview'
 
 export interface ProductCreationFormValues {
   readonly uid: string
@@ -30,7 +39,7 @@ export interface ProductCreationFormParams extends Omit<ProductCreationFormValue
   readonly year: number
 }
 
-export interface ProductCreationFormState  {
+export interface ProductCreationFormState {
   readonly steps: Step[]
 }
 
@@ -53,32 +62,32 @@ export class ProductCreationFormStore extends ComponentStore<ProductCreationForm
 
   public readonly stepId$ = this.select(state => state.steps.find(step => step.isActive)?.id)
 
-  public readonly vm$ = this.select(
-    this.steps$,
-    this.stepId$,
-    (steps, stepId) => ({
-      steps,
-      stepId
-    })
+  public readonly vm$ = this.select(this.steps$, this.stepId$, (steps, stepId) => ({
+    steps,
+    stepId
+  }))
+
+  public readonly nextStep = this.effect($ =>
+    $.pipe(
+      map(() => this.get().steps),
+      filter(steps => !steps[steps.length - 1].isActive),
+      map(steps => {
+        const stepIndex = steps.findIndex(step => step.isActive)
+
+        return steps.map((step, index) => ({ ...step, isActive: index == stepIndex + 1 }))
+      }),
+      tap(updated => this.setSteps(updated))
+    )
   )
 
-  public readonly nextStep = this.effect($ => $.pipe(
-    map(() => this.get().steps),
-    filter(steps => !steps[steps.length - 1].isActive),
-    map(steps => {
-      const stepIndex = steps.findIndex(step => step.isActive)
-
-      return steps.map((step, index) => ({...step, isActive: index == stepIndex + 1}))
-    }),
-    tap(updated => this.setSteps(updated))
-  ))
-
-  public readonly onSubmit = this.effect((values$: Observable<ProductCreationFormValues>) => values$.pipe(
-    map(values => ({
-      ...values,
-      price: Number(values.price),
-      year: Number(values.year)
-    })),
-    tap(params => this.create$.emit(params))
-  ))
+  public readonly onSubmit = this.effect((values$: Observable<ProductCreationFormValues>) =>
+    values$.pipe(
+      map(values => ({
+        ...values,
+        price: Number(values.price),
+        year: Number(values.year)
+      })),
+      tap(params => this.create$.emit(params))
+    )
+  )
 }

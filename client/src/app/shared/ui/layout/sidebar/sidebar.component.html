@@ -1,40 +1,26 @@
 <aside class="sidebar" [class.folded]="!visible">
   <div class="head">
-    <svg-icon
-    svgClass="logo-icon"
-    class="logo"
-    src="/assets/svg/logo.svg"
-    ></svg-icon>
+    <svg-icon svgClass="logo-icon" class="logo" src="/assets/svg/logo.svg"></svg-icon>
     <button class="close-button" (click)="requestSidebarClose()">
-      <svg-icon
-      svgClass="close-icon"
-      class="close"
-      src="/assets/svg/close.svg"
-      ></svg-icon>
+      <svg-icon svgClass="close-icon" class="close" src="/assets/svg/close.svg"></svg-icon>
     </button>
   </div>
   <nav class="nav-content">
     <ul class="nav-links">
       <li>
-        <a
-        routerLink="home"
-        routerLinkActive="active"
-        (click)="requestSidebarClose()"
-        >{{ 'components.sidebar.home' | translate}}</a>
+        <a routerLink="home" routerLinkActive="active" (click)="requestSidebarClose()">{{
+          'components.sidebar.home' | translate
+        }}</a>
       </li>
       <li>
-        <a
-        routerLink="catalog"
-        routerLinkActive="active"
-        (click)="requestSidebarClose()"
-        >{{ 'components.sidebar.catalog' | translate }}</a>
+        <a routerLink="catalog" routerLinkActive="active" (click)="requestSidebarClose()">{{
+          'components.sidebar.catalog' | translate
+        }}</a>
       </li>
       <li>
-        <a
-        routerLink="agencies"
-        routerLinkActive="active"
-        (click)="requestSidebarClose()"
-        >{{ 'components.sidebar.agencies' | translate }}</a>
+        <a routerLink="agencies" routerLinkActive="active" (click)="requestSidebarClose()">{{
+          'components.sidebar.agencies' | translate
+        }}</a>
       </li>
     </ul>
   </nav>

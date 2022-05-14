@@ -1,11 +1,7 @@
 <div class="product-info" *ngIf="!isLoading && product; else loader">
   <h1 class="title">{{ product.title }}</h1>
   <div class="location">
-    <svg-icon
-    src="/assets/svg/location.svg"
-    class="location-icon"
-    svgClass="icon"
-    ></svg-icon>
+    <svg-icon src="/assets/svg/location.svg" class="location-icon" svgClass="icon"></svg-icon>
     <p class="position">{{ product.location.position }}</p>
   </div>
   <carousel class="carousel"></carousel>
@@ -31,7 +27,7 @@
         </li>
         <li class="row">
           <span class="head">{{ 'components.product-info.details.price' | translate }}</span>
-          <span class="data">{{ product.details.price | currency : 'USD' : 'symbol' : '2.0-2' }}</span>
+          <span class="data">{{ product.details.price | currency: 'USD':'symbol':'2.0-2' }}</span>
         </li>
         <li class="row">
           <span class="head">{{ 'components.product-info.details.property-size' | translate }}</span>
@@ -68,18 +64,15 @@
       <ngx-skeleton-loader class="property-title-loader loader"></ngx-skeleton-loader>
       <div class="description-text-loaders">
         <ngx-skeleton-loader
-        class="description-text-loader loader"
-        *ngFor="let index of 3 | times"
+          class="description-text-loader loader"
+          *ngFor="let index of 3 | times"
         ></ngx-skeleton-loader>
       </div>
     </div>
     <div class="overview">
       <ngx-skeleton-loader class="property-title-loader loader"></ngx-skeleton-loader>
       <div class="overview-list">
-        <ngx-skeleton-loader
-        class="overview-item-loader loader"
-        *ngFor="let index of 4 | times"
-        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader class="overview-item-loader loader" *ngFor="let index of 4 | times"></ngx-skeleton-loader>
       </div>
     </div>
     <div class="details">

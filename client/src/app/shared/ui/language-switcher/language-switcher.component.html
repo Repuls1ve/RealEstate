@@ -1,12 +1,4 @@
 <div class="language-switcher" *ngrxLet="vm$ as vm">
-  <button
-  class="language-select"
-  [class.active]="vm.en"
-  (click)="useLanguage('en')"
-  >En</button>
-  <button
-  class="language-select"
-  [class.active]="vm.ru"
-  (click)="useLanguage('ru')"
-  >Ru</button>
+  <button class="language-select" [class.active]="vm.en" (click)="useLanguage('en')">En</button>
+  <button class="language-select" [class.active]="vm.ru" (click)="useLanguage('ru')">Ru</button>
 </div>

@@ -5,11 +5,6 @@ import { AgenciesModule } from './agencies/agencies.module'
 import { ProductsModule } from './products/products.module'
 
 @Module({
-  imports: [
-    ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGODB_URI),
-    ProductsModule,
-    AgenciesModule
-  ]
+  imports: [ConfigModule.forRoot(), MongooseModule.forRoot(process.env.MONGODB_URI), ProductsModule, AgenciesModule]
 })
 export class MainModule {}

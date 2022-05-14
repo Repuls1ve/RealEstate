@@ -104,7 +104,7 @@
           }
         },
         "insurance": {
-          "label":  "Home Insurance",
+          "label": "Home Insurance",
           "errors": {
             "number": "Should be a non-negative number",
             "required": "Required field"
@@ -161,7 +161,7 @@
         "property-size": "Property Size",
         "category": "Category",
         "year": "Year Built",
-        "property-status": "Property Status" 
+        "property-status": "Property Status"
       },
       "address": "Address"
     },

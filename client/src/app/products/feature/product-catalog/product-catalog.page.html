@@ -5,18 +5,15 @@
     <search-form (search)="onSearch($event)"></search-form>
   </section>
   <main>
-    <product-results
-    [products]="vm.products"
-    [isLoading]="vm.loading"
-    ></product-results>
+    <product-results [products]="vm.products" [isLoading]="vm.loading"></product-results>
     <div class="pagination">
       <paginator
-      *ngIf="vm.meta"
-      [length]="vm.meta.totalItems"
-      [pageSize]="vm.meta.limit"
-      [pageIndex]="vm.pageIndex"
-      (page)="changePage($event)"
-      [delta]="2"
+        *ngIf="vm.meta"
+        [length]="vm.meta.totalItems"
+        [pageSize]="vm.meta.limit"
+        [pageIndex]="vm.pageIndex"
+        (page)="changePage($event)"
+        [delta]="2"
       ></paginator>
     </div>
   </main>

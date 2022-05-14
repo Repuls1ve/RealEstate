@@ -5,11 +5,7 @@ import { AccordionModule } from '@shared/ui/accordion/accordion.module'
 import { HomeBenefitsComponent } from './home-benefits.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    AccordionModule
-  ],
+  imports: [CommonModule, TranslateModule, AccordionModule],
   declarations: [HomeBenefitsComponent],
   exports: [HomeBenefitsComponent]
 })

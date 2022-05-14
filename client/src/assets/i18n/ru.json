@@ -104,7 +104,7 @@
           }
         },
         "insurance": {
-          "label":  "Страхование",
+          "label": "Страхование",
           "errors": {
             "number": "Не может быть отрицательным числом",
             "required": "Обязательное поле"
@@ -161,7 +161,7 @@
         "property-size": "Площадь",
         "category": "Категория",
         "year": "Год постройки",
-        "property-status": "Статус" 
+        "property-status": "Статус"
       },
       "address": "Адрес"
     },

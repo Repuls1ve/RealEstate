@@ -31,5 +31,5 @@ export class HomeBenefitsComponent {
       title: 'components.home-benefits.accordion.tax.title',
       description: 'components.home-benefits.accordion.tax.description'
     }
-  ] 
+  ]
 }

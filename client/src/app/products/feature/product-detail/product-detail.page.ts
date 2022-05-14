@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { TranslateService } from '@ngx-translate/core'
 import { tap } from 'rxjs'
@@ -11,7 +11,7 @@ import { ProductDetailStore } from './product-detail.store'
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ProductDetailStore]
 })
-export class ProductDetailPage {
+export class ProductDetailPage implements OnInit {
   public readonly vm$ = this.productDetailStore.vm$
 
   constructor(
@@ -26,15 +26,11 @@ export class ProductDetailPage {
   }
 
   private observeLanguageChange(): void {
-    const onLanguageChange$ = this.translate.onLangChange.pipe(
-      tap(() => this.productDetailStore.updateLanguage())
-    )
+    const onLanguageChange$ = this.translate.onLangChange.pipe(tap(() => this.productDetailStore.updateLanguage()))
     this.productDetailStore.subscribeTo(onLanguageChange$)
   }
 
   private observeParamsChange(): void {
-    this.route.params.subscribe(params => 
-      this.productDetailStore.fetchProduct(params['id'])
-    )
+    this.route.params.subscribe(params => this.productDetailStore.fetchProduct(params['id']))
   }
 }

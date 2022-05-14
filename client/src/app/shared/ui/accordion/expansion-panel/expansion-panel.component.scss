@@ -1,12 +1,12 @@
-@use "brand-colors";
-@use "typography";
-@use "breakpoints";
+@use 'brand-colors';
+@use 'typography';
+@use 'breakpoints';
 
 .expansion-panel {
   border-radius: 8px;
   border: 1px solid brand-colors.$greyscale-30;
   transition: box-shadow 0.3s ease-out;
-  
+
   .summary {
     padding: 16px;
     cursor: pointer;

@@ -5,11 +5,7 @@ import { AgencyCardModule } from '../agency-card/agency-card.module'
 import { AgencyResultsComponent } from './agency-results.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TimesPipeModule,
-    AgencyCardModule
-  ],
+  imports: [CommonModule, TimesPipeModule, AgencyCardModule],
   declarations: [AgencyResultsComponent],
   exports: [AgencyResultsComponent]
 })

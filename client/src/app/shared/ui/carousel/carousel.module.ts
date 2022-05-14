@@ -5,11 +5,7 @@ import { AngularSvgIconModule as SvgIconModule } from 'angular-svg-icon'
 import { CarouselComponent } from './carousel.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SvgIconModule,
-    ReactiveComponentModule
-  ],
+  imports: [CommonModule, SvgIconModule, ReactiveComponentModule],
   declarations: [CarouselComponent],
   exports: [CarouselComponent]
 })

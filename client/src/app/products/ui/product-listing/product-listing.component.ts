@@ -28,9 +28,7 @@ export class ProductListingComponent implements OnInit {
   }
 
   private observeLanguageChange(): void {
-    const onLanguageChange$ = this.translate.onLangChange.pipe(
-      tap(() => this.productListingStore.updateLanguage())
-    )
+    const onLanguageChange$ = this.translate.onLangChange.pipe(tap(() => this.productListingStore.updateLanguage()))
     this.productListingStore.subscribeTo(onLanguageChange$)
   }
 }

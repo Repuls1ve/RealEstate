@@ -1,14 +1,14 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { ProductDetails as IProductDetails } from '../entities/product.entity'
 
-@Schema({_id: false})
+@Schema({ _id: false })
 export class ProductDetails implements IProductDetails {
   @Prop({
     type: String,
     required: true
   })
   public readonly uid: IProductDetails['uid']
-  
+
   @Prop({
     type: Number,
     required: true

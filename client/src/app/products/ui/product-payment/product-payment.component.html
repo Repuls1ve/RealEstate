@@ -1,9 +1,5 @@
 <ng-container *ngrxLet="vm$ as vm">
-  <form
-  [formGroup]="form"
-  (ngSubmit)="calculatePayment()"
-  class="payment-calculator"
-  >
+  <form [formGroup]="form" (ngSubmit)="calculatePayment()" class="payment-calculator">
     <h2 class="title">{{ 'components.product-payment.title' | translate }}</h2>
     <div class="input-fields">
       <div class="field">
@@ -16,18 +12,13 @@
             {{ 'components.product-payment.fields.tax.errors.required' | translate }}
           </strong>
         </div>
-        <input
-        id="tax"
-        class="currency-input"
-        formControlName="tax"
-        shared-text-field
-        type="number"
-        min="0"
-        >
+        <input id="tax" class="currency-input" formControlName="tax" shared-text-field type="number" min="0" />
       </div>
       <div class="field">
         <div class="field-head">
-          <label class="label" for="insurance">{{ 'components.product-payment.fields.insurance.label' | translate }}</label>
+          <label class="label" for="insurance">{{
+            'components.product-payment.fields.insurance.label' | translate
+          }}</label>
           <strong class="error" *ngIf="insurance.errors?.['min']">
             {{ 'components.product-payment.fields.insurance.errors.number' | translate }}
           </strong>
@@ -36,17 +27,19 @@
           </strong>
         </div>
         <input
-        id="insurance"
-        class="currency-input"
-        formControlName="insurance"
-        shared-text-field
-        type="number"
-        min="0"
-        >
+          id="insurance"
+          class="currency-input"
+          formControlName="insurance"
+          shared-text-field
+          type="number"
+          min="0"
+        />
       </div>
       <div class="field">
         <div class="field-head">
-          <label class="label" for="down-payment">{{ 'components.product-payment.fields.deposit.label' | translate }}</label>
+          <label class="label" for="down-payment">{{
+            'components.product-payment.fields.deposit.label' | translate
+          }}</label>
           <strong class="error" *ngIf="deposit.errors?.['min']">
             {{ 'components.product-payment.fields.deposit.errors.number' | translate }}
           </strong>
@@ -55,17 +48,19 @@
           </strong>
         </div>
         <input
-        id="down-payment"
-        class="currency-input"
-        formControlName="deposit"
-        shared-text-field
-        type="number"
-        min="0"
-        >
+          id="down-payment"
+          class="currency-input"
+          formControlName="deposit"
+          shared-text-field
+          type="number"
+          min="0"
+        />
       </div>
       <div class="field">
         <div class="field-head">
-          <label class="label" for="interest-rate">{{ 'components.product-payment.fields.interest.label' | translate }}</label>
+          <label class="label" for="interest-rate">{{
+            'components.product-payment.fields.interest.label' | translate
+          }}</label>
           <strong class="error" *ngIf="interest.errors?.['min']">
             {{ 'components.product-payment.fields.interest.errors.number' | translate }}
           </strong>
@@ -73,13 +68,7 @@
             {{ 'components.product-payment.fields.interest.errors.required' | translate }}
           </strong>
         </div>
-        <input
-        id="interest-rate"
-        formControlName="interest"
-        shared-text-field
-        type="number"
-        min="0"
-        >
+        <input id="interest-rate" formControlName="interest" shared-text-field type="number" min="0" />
       </div>
       <div class="field">
         <div class="field-head">
@@ -91,17 +80,13 @@
             {{ 'components.product-payment.fields.term.errors.required' | translate }}
           </strong>
         </div>
-        <input
-        id="loan-term"
-        formControlName="term"
-        shared-text-field
-        type="number"
-        min="1"
-        >
+        <input id="loan-term" formControlName="term" shared-text-field type="number" min="1" />
       </div>
       <div class="field">
         <div class="field-head">
-          <label class="label" for="total-payment">{{ 'components.product-payment.fields.total.label' | translate }}</label>
+          <label class="label" for="total-payment">{{
+            'components.product-payment.fields.total.label' | translate
+          }}</label>
           <strong class="error" *ngIf="total.errors?.['min']">
             {{ 'components.product-payment.fields.total.errors.number' | translate }}
           </strong>
@@ -110,27 +95,23 @@
           </strong>
         </div>
         <input
-        id="total-payment"
-        class="currency-input"
-        formControlName="total"
-        shared-text-field
-        type="number"
-        min="0"
-        >
+          id="total-payment"
+          class="currency-input"
+          formControlName="total"
+          shared-text-field
+          type="number"
+          min="0"
+        />
       </div>
     </div>
     <div class="chart-container">
       <ngx-charts-advanced-pie-chart
-      [results]="vm.results"
-      [label]="'components.product-payment.chart.label' | translate"
+        [results]="vm.results"
+        [label]="'components.product-payment.chart.label' | translate"
       ></ngx-charts-advanced-pie-chart>
     </div>
-    <button
-    class="calculate-button"
-    type="submit"
-    shared-button
-    color="secondary"
-    [disabled]="form.invalid"
-    >{{ 'components.product-payment.calculate-button' | translate }}</button>
+    <button class="calculate-button" type="submit" shared-button color="secondary" [disabled]="form.invalid">
+      {{ 'components.product-payment.calculate-button' | translate }}
+    </button>
   </form>
 </ng-container>

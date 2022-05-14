@@ -26,10 +26,7 @@ export class SearchFormComponent {
   @Output()
   public readonly search = this.searchFormStore.search$
 
-  constructor(
-    private readonly searchFormStore: SearchFormStore,
-    private readonly fb: FormBuilder,
-  ) {}
+  constructor(private readonly searchFormStore: SearchFormStore, private readonly fb: FormBuilder) {}
 
   public changeStatus(status: SearchFormStatus): void {
     this.searchFormStore.changeStatus(status)

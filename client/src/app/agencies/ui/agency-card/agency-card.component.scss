@@ -1,6 +1,6 @@
-@use "brand-colors";
-@use "typography";
-@use "breakpoints";
+@use 'brand-colors';
+@use 'typography';
+@use 'breakpoints';
 
 .agency-card {
   width: 100%;
@@ -35,13 +35,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-  
+
         .icon {
           width: 20px;
           fill: brand-colors.$primary-70;
         }
       }
-  
+
       .address {
         font-family: typography.$font-secondary;
         font-weight: typography.$medium;
@@ -61,7 +61,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-  
+
         .icon {
           width: 20px;
         }
@@ -91,7 +91,7 @@
 
 .skeleton-loader {
   width: 100%;
-  
+
   .loader ::ng-deep .loader {
     height: 100%;
     margin-bottom: 0;

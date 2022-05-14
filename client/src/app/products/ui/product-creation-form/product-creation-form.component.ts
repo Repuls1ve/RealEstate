@@ -65,10 +65,7 @@ export class ProductCreationFormComponent implements OnInit {
   @Output()
   public readonly create = this.productCreationFormStore.create$
 
-  constructor(
-    private readonly productCreationFormStore: ProductCreationFormStore,
-    private readonly fb: FormBuilder
-  ) {}
+  constructor(private readonly productCreationFormStore: ProductCreationFormStore, private readonly fb: FormBuilder) {}
 
   public ngOnInit(): void {
     this.setSteps(ProductCreationFormSteps)

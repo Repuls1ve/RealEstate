@@ -7,13 +7,7 @@ import { LanguageSwitcherModule } from '@shared/ui/language-switcher/language-sw
 import { SidebarComponent } from './sidebar.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    SvgIconModule,
-    TranslateModule,
-    LanguageSwitcherModule
-  ],
+  imports: [CommonModule, RouterModule, SvgIconModule, TranslateModule, LanguageSwitcherModule],
   declarations: [SidebarComponent],
   exports: [SidebarComponent]
 })

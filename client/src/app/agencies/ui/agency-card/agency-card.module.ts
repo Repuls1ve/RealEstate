@@ -8,14 +8,7 @@ import { ButtonModule } from 'src/app/shared/ui/controls/button/button.module'
 import { AgencyCardComponent } from './agency-card.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ButtonModule,
-    SvgIconModule,
-    TranslateModule,
-    TimesPipeModule,
-    NgxSkeletonLoaderModule
-  ],
+  imports: [CommonModule, ButtonModule, SvgIconModule, TranslateModule, TimesPipeModule, NgxSkeletonLoaderModule],
   declarations: [AgencyCardComponent],
   exports: [AgencyCardComponent]
 })

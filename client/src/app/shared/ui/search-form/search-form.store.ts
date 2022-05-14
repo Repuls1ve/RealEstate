@@ -52,31 +52,34 @@ export class SearchFormStore extends ComponentStore<SearchFormState> {
 
   public readonly theme$ = this.select(state => state.theme)
 
-  public readonly vm$ = this.select(
-    this.theme$,
-    theme => ({
-      theme
-    })
-  )
-  
-  public readonly changeStatus = this.effect((selected$: Observable<SearchFormStatus>) => selected$.pipe(
-    tap(selected => this.setStatus(selected)),
-    tap(selected => this.setTheme({
-      sell: selected == PropertyStatuses.Sell ? ButtonThemes.Contained : ButtonThemes.Outlined,
-      rent: selected == PropertyStatuses.Rent ? ButtonThemes.Contained : ButtonThemes.Outlined
-    }))
-  ))
+  public readonly vm$ = this.select(this.theme$, theme => ({
+    theme
+  }))
 
-  public readonly onSubmit = this.effect((values$: Observable<SearchFormValues>) => values$.pipe(
-    map(values => ({
-      ...values,
-      status: this.get().status,
-      period: values.period == Period.Any ? values.period : Number(values.period),
-      price: {
-        min: values.price.min ? Number(values.price.min) : null,
-        max: values.price.max ? Number(values.price.max) : null
-      }
-    })),
-    tap(params => this.search$.emit(params))
-  ))
+  public readonly changeStatus = this.effect((selected$: Observable<SearchFormStatus>) =>
+    selected$.pipe(
+      tap(selected => this.setStatus(selected)),
+      tap(selected =>
+        this.setTheme({
+          sell: selected == PropertyStatuses.Sell ? ButtonThemes.Contained : ButtonThemes.Outlined,
+          rent: selected == PropertyStatuses.Rent ? ButtonThemes.Contained : ButtonThemes.Outlined
+        })
+      )
+    )
+  )
+
+  public readonly onSubmit = this.effect((values$: Observable<SearchFormValues>) =>
+    values$.pipe(
+      map(values => ({
+        ...values,
+        status: this.get().status,
+        period: values.period == Period.Any ? values.period : Number(values.period),
+        price: {
+          min: values.price.min ? Number(values.price.min) : null,
+          max: values.price.max ? Number(values.price.max) : null
+        }
+      })),
+      tap(params => this.search$.emit(params))
+    )
+  )
 }

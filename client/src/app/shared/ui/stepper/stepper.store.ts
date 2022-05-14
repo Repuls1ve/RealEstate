@@ -29,17 +29,22 @@ export class StepperStore extends ComponentStore<StepperState> {
 
   public readonly vm$ = this.select(store => store)
 
-  public readonly changeSteps = this.effect((steps$: Observable<Step[]>) => steps$.pipe(
-    tap(steps => this.setSteps(steps)),
-    tap(steps => this.stepsChange$.emit(steps))
-  ))
+  public readonly changeSteps = this.effect((steps$: Observable<Step[]>) =>
+    steps$.pipe(
+      tap(steps => this.setSteps(steps)),
+      tap(steps => this.stepsChange$.emit(steps))
+    )
+  )
 
-  public readonly onStepChange = this.effect((step$: Observable<Step>) => step$.pipe(
-    map(step => this.get().steps.map(target => target.id == step.id ?
-      { ...step, isActive: true } :
-      { ...target, isActive: false })
-    ),
-    tap(steps => this.setSteps(steps)),
-    tap(steps => this.stepsChange$.emit(steps))
-  ))
+  public readonly onStepChange = this.effect((step$: Observable<Step>) =>
+    step$.pipe(
+      map(step =>
+        this.get().steps.map(target =>
+          target.id == step.id ? { ...step, isActive: true } : { ...target, isActive: false }
+        )
+      ),
+      tap(steps => this.setSteps(steps)),
+      tap(steps => this.stepsChange$.emit(steps))
+    )
+  )
 }

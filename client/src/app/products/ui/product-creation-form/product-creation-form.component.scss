@@ -1,6 +1,6 @@
-@use "brand-colors";
-@use "typography";
-@use "breakpoints";
+@use 'brand-colors';
+@use 'typography';
+@use 'breakpoints';
 
 .product-creation-form {
   display: flex;
@@ -27,7 +27,8 @@
       height: 200px;
     }
 
-    input::placeholder, textarea::placeholder {
+    input::placeholder,
+    textarea::placeholder {
       font-weight: typography.$regular;
       text-transform: capitalize;
     }

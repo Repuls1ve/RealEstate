@@ -11,10 +11,8 @@ export class AgenciesService {
   private readonly baseURL = environment.baseURL
 
   constructor(http: HttpClient) {}
-  
+
   public getAgencies(quantity: number): Observable<Agency[]> {
-    return timer(2700).pipe(
-      map(() => Array(quantity).fill(MockAgency))
-    )
+    return timer(2700).pipe(map(() => Array(quantity).fill(MockAgency)))
   }
 }

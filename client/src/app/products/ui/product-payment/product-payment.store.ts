@@ -29,20 +29,24 @@ export class ProductPaymentStore extends ComponentStore<ProductPaymentState> {
 
   public readonly subscribeTo = this.effect<unknown>(origin$ => origin$)
 
-  public readonly calculatePayment = this.effect<ProductPaymentParams>(params$ => params$.pipe(
-    tap(params => this.setResults([
-      {
-        name: this.translate.instant('components.product-payment.chart.principal'),
-        value: PaymentHelper.calculateMortgage(params)
-      },
-      {
-        name: this.translate.instant('components.product-payment.chart.insurance'),
-        value: params.insurance
-      },
-      {
-        name: this.translate.instant('components.product-payment.chart.tax'),
-        value: params.tax
-      }
-    ]))
-  ))
+  public readonly calculatePayment = this.effect<ProductPaymentParams>(params$ =>
+    params$.pipe(
+      tap(params =>
+        this.setResults([
+          {
+            name: this.translate.instant('components.product-payment.chart.principal'),
+            value: PaymentHelper.calculateMortgage(params)
+          },
+          {
+            name: this.translate.instant('components.product-payment.chart.insurance'),
+            value: params.insurance
+          },
+          {
+            name: this.translate.instant('components.product-payment.chart.tax'),
+            value: params.tax
+          }
+        ])
+      )
+    )
+  )
 }

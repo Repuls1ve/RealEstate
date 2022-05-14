@@ -16,10 +16,7 @@ export interface ProductDetailState {
 
 @Injectable()
 export class ProductDetailStore extends ComponentStore<ProductDetailState> {
-  constructor(
-    private readonly productsService: ProductsService,
-    private readonly translate: TranslateService
-  ) {
+  constructor(private readonly productsService: ProductsService, private readonly translate: TranslateService) {
     super({
       product: null,
       translations: null,
@@ -54,46 +51,47 @@ export class ProductDetailStore extends ComponentStore<ProductDetailState> {
 
   public readonly product$ = this.select(state => state.product)
 
-  public readonly vm$ = this.select(
-    this.product$,
-    this.loading$,
-    this.error$,
-    (product, loading, error) => ({
-      product,
-      loading,
-      error
-    })
-  )
+  public readonly vm$ = this.select(this.product$, this.loading$, this.error$, (product, loading, error) => ({
+    product,
+    loading,
+    error
+  }))
 
   public readonly subscribeTo = this.effect<unknown>($ => $)
 
-  public readonly updateLanguage = this.effect($ => $.pipe(
-    tap(() => {
-      const translations = this.get().translations
-      const language = this.translate.currentLang as Language
+  public readonly updateLanguage = this.effect($ =>
+    $.pipe(
+      tap(() => {
+        const translations = this.get().translations
+        const language = this.translate.currentLang as Language
 
-      if (translations) {
-        this.setProduct(translations[language])
-      }
-    })
-  ))
-
-  public readonly fetchProduct = this.effect((uid$: Observable<ProductDetails['uid']>) => uid$.pipe(
-    tap(() => this.setStatus(Status.Loading)),
-    switchMap(uid => this.productsService.getProduct(uid).pipe(
-      tapResponse(
-        translations => {
-          this.setTranslations(translations)
-          this.updateLanguage()
-          this.setStatus(Status.Success)
-          this.setError(null)
-        },
-        error => {
-          this.setStatus(Status.Error)
-          this.setError(error as Error)
+        if (translations) {
+          this.setProduct(translations[language])
         }
-      ),
-      catchError(() => EMPTY)
-    ))
-  ))
+      })
+    )
+  )
+
+  public readonly fetchProduct = this.effect((uid$: Observable<ProductDetails['uid']>) =>
+    uid$.pipe(
+      tap(() => this.setStatus(Status.Loading)),
+      switchMap(uid =>
+        this.productsService.getProduct(uid).pipe(
+          tapResponse(
+            translations => {
+              this.setTranslations(translations)
+              this.updateLanguage()
+              this.setStatus(Status.Success)
+              this.setError(null)
+            },
+            error => {
+              this.setStatus(Status.Error)
+              this.setError(error as Error)
+            }
+          ),
+          catchError(() => EMPTY)
+        )
+      )
+    )
+  )
 }

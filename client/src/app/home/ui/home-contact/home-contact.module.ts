@@ -5,11 +5,7 @@ import { ButtonModule } from '@shared/ui/controls/button/button.module'
 import { HomeContactComponent } from './home-contact.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    ButtonModule
-  ],
+  imports: [CommonModule, TranslateModule, ButtonModule],
   declarations: [HomeContactComponent],
   exports: [HomeContactComponent]
 })

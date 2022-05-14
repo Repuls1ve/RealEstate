@@ -34,8 +34,6 @@ export class AgencyListPage implements OnInit {
   }
 
   private observeParamsChange(): void {
-    this.route.queryParams.subscribe(params => 
-      this.agencyListStore.fetchAgencies(params)
-    )
+    this.route.queryParams.subscribe(params => this.agencyListStore.fetchAgencies(params))
   }
 }

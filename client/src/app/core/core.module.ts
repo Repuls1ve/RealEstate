@@ -9,16 +9,7 @@ import { CoreRoutingModule } from './core-routing.module'
 import { TranslateConfig } from './i18n/i18n.config'
 
 @NgModule({
-  imports: [
-    TranslateModule.forRoot(TranslateConfig),
-    NgxMaskModule.forRoot(),
-    SvgIconModule.forRoot()
-  ],
-  exports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    CoreRoutingModule
-  ]
+  imports: [TranslateModule.forRoot(TranslateConfig), NgxMaskModule.forRoot(), SvgIconModule.forRoot()],
+  exports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, CoreRoutingModule]
 })
 export class CoreModule {}

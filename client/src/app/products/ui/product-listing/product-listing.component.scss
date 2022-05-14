@@ -1,7 +1,7 @@
-@use "brand-colors";
-@use "typography";
-@use "breakpoints";
-@use "variables";
+@use 'brand-colors';
+@use 'typography';
+@use 'breakpoints';
+@use 'variables';
 
 .product-listing {
   margin: 0 variables.$layout-indent;

@@ -8,14 +8,7 @@ import { CarouselModule } from '@shared/ui/carousel/carousel.module'
 import { ProductInfoComponent } from './product-info.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SvgIconModule,
-    CarouselModule,
-    TranslateModule,
-    TimesPipeModule,
-    NgxSkeletonLoaderModule
-  ],
+  imports: [CommonModule, SvgIconModule, CarouselModule, TranslateModule, TimesPipeModule, NgxSkeletonLoaderModule],
   declarations: [ProductInfoComponent],
   exports: [ProductInfoComponent]
 })

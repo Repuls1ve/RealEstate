@@ -1,39 +1,19 @@
 <div class="carousel" *ngrxLet="vm$ as vm">
   <div class="carousel-inner">
-    <img
-    [src]="vm.active.source"
-    [alt]="vm.active.alt"
-    class="carousel-item"
-    >
+    <img [src]="vm.active.source" [alt]="vm.active.alt" class="carousel-item" />
   </div>
   <ul class="carousel-indicators">
     <li
-    class="indicator"
-    *ngFor="let image of vm.images"
-    [class.active]="image.isActive"
-    (click)="selectImage(image)"
+      class="indicator"
+      *ngFor="let image of vm.images"
+      [class.active]="image.isActive"
+      (click)="selectImage(image)"
     ></li>
   </ul>
-  <button
-  type="button"
-  class="carousel-control-next"
-  (click)="nextImage()"
-  >
-    <svg-icon
-    svgClass="next-icon"
-    alt="control-next"
-    src="/assets/svg/chevron-right.svg"
-    ></svg-icon>
+  <button type="button" class="carousel-control-next" (click)="nextImage()">
+    <svg-icon svgClass="next-icon" alt="control-next" src="/assets/svg/chevron-right.svg"></svg-icon>
   </button>
-  <button
-  type="button"
-  class="carousel-control-prev"
-  (click)="previousImage()"
-  >
-    <svg-icon
-    svgClass="prev-icon"
-    alt="control-prev"
-    src="/assets/svg/chevron-left.svg"
-    ></svg-icon>
+  <button type="button" class="carousel-control-prev" (click)="previousImage()">
+    <svg-icon svgClass="prev-icon" alt="control-prev" src="/assets/svg/chevron-left.svg"></svg-icon>
   </button>
 </div>

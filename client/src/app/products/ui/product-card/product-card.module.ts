@@ -6,12 +6,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader'
 import { ProductCardComponent } from './product-card.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    SvgIconModule,
-    NgxSkeletonLoaderModule
-  ],
+  imports: [CommonModule, RouterModule, SvgIconModule, NgxSkeletonLoaderModule],
   declarations: [ProductCardComponent],
   exports: [ProductCardComponent]
 })

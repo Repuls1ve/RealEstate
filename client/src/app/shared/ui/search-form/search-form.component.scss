@@ -1,6 +1,6 @@
-@use "brand-colors";
-@use "typography";
-@use "breakpoints";
+@use 'brand-colors';
+@use 'typography';
+@use 'breakpoints';
 
 :host {
   width: 100%;
@@ -44,7 +44,8 @@
       display: flex;
       flex-direction: column;
 
-      label, legend {
+      label,
+      legend {
         margin-bottom: 6px;
         font-size: 1rem;
         line-height: 200%;
@@ -56,7 +57,7 @@
       .price-range {
         width: 100%;
         display: flex;
-        gap: 12px;  
+        gap: 12px;
 
         .min-price,
         .max-price {

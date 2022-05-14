@@ -21,7 +21,7 @@ export class LayoutStore extends ComponentStore<LayoutState> {
     isSidebarOpened: state.isSidebarOpened
   }))
 
-  public readonly toggleSidebar = this.effect((opened$: Observable<boolean>) => opened$.pipe(
-    tap(opened => this.setSidebarStatus(opened))
-  )) 
+  public readonly toggleSidebar = this.effect((opened$: Observable<boolean>) =>
+    opened$.pipe(tap(opened => this.setSidebarStatus(opened)))
+  )
 }
