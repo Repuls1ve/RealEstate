@@ -6,7 +6,7 @@ import { ProductDetailsSchema } from './product-details.schema'
 import { ProductLocationSchema } from './product-location.schema'
 import { ProductPhotoSchema } from './product-photo.schema'
 
-@Schema({_id: false})
+@Schema({ _id: false })
 export class ProductEntity implements IProductEntity {
   @Prop({
     type: String,

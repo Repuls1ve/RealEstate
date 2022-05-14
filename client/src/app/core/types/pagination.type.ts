@@ -4,10 +4,10 @@ export interface Paginated<T = any> {
 }
 
 export interface PaginationMetaInfo {
-  readonly limit: number 
+  readonly limit: number
   readonly totalItems: number
   readonly currentPage: number
-  readonly totalPages: number 
+  readonly totalPages: number
 }
 
 export interface PaginationParams {

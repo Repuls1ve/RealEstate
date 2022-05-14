@@ -4,10 +4,7 @@ import { TranslateModule } from '@ngx-translate/core'
 import { StepComponent } from './step.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule
-  ],
+  imports: [CommonModule, TranslateModule],
   declarations: [StepComponent],
   exports: [StepComponent]
 })

@@ -4,10 +4,7 @@ import { ReactiveComponentModule } from '@ngrx/component'
 import { LanguageSwitcherComponent } from './language-switcher.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveComponentModule
-  ],
+  imports: [CommonModule, ReactiveComponentModule],
   declarations: [LanguageSwitcherComponent],
   exports: [LanguageSwitcherComponent]
 })

@@ -82,21 +82,25 @@ export class AgencyListStore extends ComponentStore<AgencyListState> {
     })
   )
 
-  public readonly fetchAgencies = this.effect((params$: Observable<Partial<AgencyListParams>>) => params$.pipe(
-    tap(params => this.setParams(params)),
-    tap(() => this.setStatus(Status.Loading)),
-    switchMap(params => this.agenciesService.getAgencies(4).pipe(
-      tapResponse(
-        agencies => {
-          this.setAgencies(agencies)
-          this.setStatus(Status.Success)
-          this.setError(null)
-        },
-        error => {
-          this.setStatus(Status.Error)
-          this.setError(error as Error)
-        }
+  public readonly fetchAgencies = this.effect((params$: Observable<Partial<AgencyListParams>>) =>
+    params$.pipe(
+      tap(params => this.setParams(params)),
+      tap(() => this.setStatus(Status.Loading)),
+      switchMap(params =>
+        this.agenciesService.getAgencies(4).pipe(
+          tapResponse(
+            agencies => {
+              this.setAgencies(agencies)
+              this.setStatus(Status.Success)
+              this.setError(null)
+            },
+            error => {
+              this.setStatus(Status.Error)
+              this.setError(error as Error)
+            }
+          )
+        )
       )
-    ))
-  ))
+    )
+  )
 }

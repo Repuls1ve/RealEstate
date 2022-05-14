@@ -25,10 +25,7 @@ export interface ProductListingState {
 
 @Injectable()
 export class ProductListingStore extends ComponentStore<ProductListingState> {
-  constructor(
-    private readonly productsService: ProductsService,
-    private readonly translate: TranslateService
-  ) {
+  constructor(private readonly productsService: ProductsService, private readonly translate: TranslateService) {
     super({
       quantity: 0,
       products: [],
@@ -88,34 +85,40 @@ export class ProductListingStore extends ComponentStore<ProductListingState> {
 
   public readonly subscribeTo = this.effect<unknown>($ => $)
 
-  public readonly updateLanguage = this.effect($ => $.pipe(
-    tap(() => {
-      const translations = this.get().translations
-      const language = this.translate.currentLang as Language
+  public readonly updateLanguage = this.effect($ =>
+    $.pipe(
+      tap(() => {
+        const translations = this.get().translations
+        const language = this.translate.currentLang as Language
 
-      if (translations) {
-        this.setProducts(translations.map(translation => translation[language]))
-      }
-    })
-  ))
-
-  public readonly fetchProducts = this.effect((quantity$: Observable<number>) => quantity$.pipe(
-    tap(quantity => this.setQuantity(quantity)),
-    tap(() => this.setStatus(Status.Loading)),
-    switchMap(quantity => this.productsService.getNewestProducts(quantity).pipe(
-      tapResponse(
-        translations => {
-          this.setTranslations(translations)
-          this.updateLanguage()
-          this.setStatus(Status.Success)
-          this.setError(null)
-        },
-        error => {
-          this.setStatus(Status.Error)
-          this.setError(error as Error)
+        if (translations) {
+          this.setProducts(translations.map(translation => translation[language]))
         }
-      ),
-      catchError(() => EMPTY)
-    ))
-  ))
+      })
+    )
+  )
+
+  public readonly fetchProducts = this.effect((quantity$: Observable<number>) =>
+    quantity$.pipe(
+      tap(quantity => this.setQuantity(quantity)),
+      tap(() => this.setStatus(Status.Loading)),
+      switchMap(quantity =>
+        this.productsService.getLatestProducts(quantity).pipe(
+          tapResponse(
+            translations => {
+              this.setTranslations(translations)
+              this.updateLanguage()
+              this.setStatus(Status.Success)
+              this.setError(null)
+            },
+            error => {
+              this.setStatus(Status.Error)
+              this.setError(error as Error)
+            }
+          ),
+          catchError(() => EMPTY)
+        )
+      )
+    )
+  )
 }

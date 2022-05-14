@@ -39,9 +39,7 @@ export class ProductPaymentComponent implements OnInit {
   }
 
   private observeLanguageChange(): void {
-    const onLanguageChange$ = this.translate.onLangChange.pipe(
-      tap(() => this.calculatePayment())
-    )
+    const onLanguageChange$ = this.translate.onLangChange.pipe(tap(() => this.calculatePayment()))
     this.productPaymentStore.subscribeTo(onLanguageChange$)
   }
 

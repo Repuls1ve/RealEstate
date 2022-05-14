@@ -1,6 +1,3 @@
-<button
-class="stepper-step"
-[class.active]="step.isActive"
-[disabled]="step.isActive"
-(click)="onStepChange()"
->{{ step.label | translate }}</button>
+<button class="stepper-step" [class.active]="step.isActive" [disabled]="step.isActive" (click)="onStepChange()">
+  {{ step.label | translate }}
+</button>

@@ -4,10 +4,7 @@ import { MainComponent } from '@app/main.component'
 import { LayoutModule } from '@shared/ui/layout/layout.module'
 
 @NgModule({
-  imports: [
-    CoreModule,
-    LayoutModule
-  ],
+  imports: [CoreModule, LayoutModule],
   declarations: [MainComponent],
   bootstrap: [MainComponent]
 })

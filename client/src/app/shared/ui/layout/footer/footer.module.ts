@@ -5,11 +5,7 @@ import { AngularSvgIconModule as SvgIconModule } from 'angular-svg-icon'
 import { FooterComponent } from './footer.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SvgIconModule,
-    TranslateModule,
-  ],
+  imports: [CommonModule, SvgIconModule, TranslateModule],
   declarations: [FooterComponent],
   exports: [FooterComponent]
 })

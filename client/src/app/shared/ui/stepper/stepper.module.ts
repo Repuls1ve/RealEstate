@@ -5,11 +5,7 @@ import { StepModule } from './step/step.module'
 import { StepperComponent } from './stepper.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    StepModule,
-    ReactiveComponentModule
-  ],
+  imports: [CommonModule, StepModule, ReactiveComponentModule],
   declarations: [StepperComponent],
   exports: [StepperComponent]
 })

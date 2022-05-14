@@ -117,79 +117,89 @@ export class ProductCatalogStore extends ComponentStore<ProductCatalogState> {
     })
   )
 
-  public readonly updateLanguage = this.effect($ => $.pipe(
-    tap(() => {
-      const translations = this.get().translations
-      const language = this.translate.currentLang as Language
+  public readonly updateLanguage = this.effect($ =>
+    $.pipe(
+      tap(() => {
+        const translations = this.get().translations
+        const language = this.translate.currentLang as Language
 
-      if (translations) {
-        this.setProducts(translations.map(translation => translation[language]))
-      }
-    })
-  ))
-
-  public readonly observeLanguageChange = this.effect($ => $.pipe(
-    switchMap(() => this.translate.onLangChange.pipe(
-      tap(() => this.updateLanguage())
-    ))
-  ))
-
-  public readonly observeParamsChange = this.effect($ => $.pipe(
-    switchMap(() => this.route.queryParams.pipe(
-      tap(params => this.fetchProducts(params))
-    ))
-  ))
-
-  public readonly onSearch = this.effect((params$: Observable<SearchFormParams>) => params$.pipe(
-    map(params => ({
-      priceMin: params.price.min ?? undefined,
-      priceMax: params.price.max ?? undefined,
-      status: params.status,
-      period: params.period,
-      category: params.category,
-      page: 1
-    })),
-    tap(params => this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: params
-    }))
-  ))
-
-  public readonly changePage = this.effect((event$: Observable<PageEvent>) => event$.pipe(
-    map(event => ({ page: ++event.pageIndex })),
-    tap(params => this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: params,
-      queryParamsHandling: 'merge'
-    }))
-  ))
-
-  public readonly fetchProducts = this.effect((params$: Observable<Partial<ProductCatalogParams>>) => params$.pipe(
-    map(params => ({
-      ...params.priceMin && { priceMin: params.priceMin },
-      ...params.priceMax && { priceMax: params.priceMax },
-      status: params.status || PropertyStatuses.Any,
-      period: params.period || Period.Any,
-      category: params.category || Categories.Any,
-      page: params.page || 1,
-      limit: params.limit || 8
-    })),
-    tap(params => this.setParams(params)),
-    tap(() => this.setStatus(Status.Loading)),
-    switchMap(params => this.productsService.getProducts(params).pipe(
-      tapResponse(
-        result => {
-          this.setMeta(result.meta)
-          this.setTranslations(result.data)
-          this.setStatus(Status.Success)
-          this.setError(null)
-          this.updateLanguage()
-        },
-        error => {
-          this.setStatus(Status.Error)
-          this.setError(error as Error)
+        if (translations) {
+          this.setProducts(translations.map(translation => translation[language]))
         }
+      })
+    )
+  )
+
+  public readonly observeLanguageChange = this.effect($ =>
+    $.pipe(switchMap(() => this.translate.onLangChange.pipe(tap(() => this.updateLanguage()))))
+  )
+
+  public readonly observeParamsChange = this.effect($ =>
+    $.pipe(switchMap(() => this.route.queryParams.pipe(tap(params => this.fetchProducts(params)))))
+  )
+
+  public readonly onSearch = this.effect((params$: Observable<SearchFormParams>) =>
+    params$.pipe(
+      map(params => ({
+        priceMin: params.price.min ?? undefined,
+        priceMax: params.price.max ?? undefined,
+        status: params.status,
+        period: params.period,
+        category: params.category,
+        page: 1
+      })),
+      tap(params =>
+        this.router.navigate([], {
+          relativeTo: this.route,
+          queryParams: params
+        })
       )
-    ))
-  ))
+    )
+  )
+
+  public readonly changePage = this.effect((event$: Observable<PageEvent>) =>
+    event$.pipe(
+      map(event => ({ page: ++event.pageIndex })),
+      tap(params =>
+        this.router.navigate([], {
+          relativeTo: this.route,
+          queryParams: params,
+          queryParamsHandling: 'merge'
+        })
+      )
+    )
+  )
+
+  public readonly fetchProducts = this.effect((params$: Observable<Partial<ProductCatalogParams>>) =>
+    params$.pipe(
+      map(params => ({
+        ...(params.priceMin && { priceMin: params.priceMin }),
+        ...(params.priceMax && { priceMax: params.priceMax }),
+        status: params.status || PropertyStatuses.Any,
+        period: params.period || Period.Any,
+        category: params.category || Categories.Any,
+        page: params.page || 1,
+        limit: params.limit || 8
+      })),
+      tap(params => this.setParams(params)),
+      tap(() => this.setStatus(Status.Loading)),
+      switchMap(params =>
+        this.productsService.getProducts(params).pipe(
+          tapResponse(
+            result => {
+              this.setMeta(result.meta)
+              this.setTranslations(result.data)
+              this.setStatus(Status.Success)
+              this.setError(null)
+              this.updateLanguage()
+            },
+            error => {
+              this.setStatus(Status.Error)
+              this.setError(error as Error)
+            }
+          )
+        )
+      )
+    )
+  )
 }

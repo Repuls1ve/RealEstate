@@ -1,7 +1,7 @@
-@use "brand-colors";
-@use "typography";
-@use "breakpoints";
-@use "variables";
+@use 'brand-colors';
+@use 'typography';
+@use 'breakpoints';
+@use 'variables';
 
 $products-gap: 16px;
 
@@ -94,7 +94,7 @@ $products-gap: 16px;
     display: flex;
     flex-wrap: wrap;
     gap: $products-gap;
-    
+
     .product {
       width: calc(20% - $products-gap);
 

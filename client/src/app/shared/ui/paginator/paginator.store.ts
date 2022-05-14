@@ -15,7 +15,7 @@ export interface PaginatorState {
   pageSize: number
 
   /**
-   * The current total number of items being paged 
+   * The current total number of items being paged
    */
   length: number
 
@@ -78,9 +78,7 @@ export class PaginatorStore extends ComponentStore<PaginatorState> {
     }
   })
 
-  public readonly numberOfPages$ = this.select(
-    ({ pageSize, length }) => Math.ceil(length / pageSize)
-  )
+  public readonly numberOfPages$ = this.select(({ pageSize, length }) => Math.ceil(length / pageSize))
 
   public readonly pages$ = this.select(state => {
     const params: PaginationParams = {
@@ -93,19 +91,13 @@ export class PaginatorStore extends ComponentStore<PaginatorState> {
     return PaginationHelper.paginate(params)
   })
 
-  public readonly hasPreviousPage$ = this.select(
-    ({ pageIndex }) => pageIndex >= 1
-  )
+  public readonly hasPreviousPage$ = this.select(({ pageIndex }) => pageIndex >= 1)
 
-  public readonly hasNextPage$ = this.select(
-    this.state$,
-    this.numberOfPages$,
-    ({ pageIndex }, numberOfPages) => {
-      const maxPageIndex = numberOfPages - 1
+  public readonly hasNextPage$ = this.select(this.state$, this.numberOfPages$, ({ pageIndex }, numberOfPages) => {
+    const maxPageIndex = numberOfPages - 1
 
-      return pageIndex < maxPageIndex
-    }
-  )
+    return pageIndex < maxPageIndex
+  })
 
   public readonly vm$ = this.select(
     this.state$,
@@ -140,22 +132,28 @@ export class PaginatorStore extends ComponentStore<PaginatorState> {
     { debounce: true }
   ).pipe(skip(1))
 
-  public readonly changePage = this.effect((page$: Observable<number>) => page$.pipe(
-    map(page => page - 1),
-    withLatestFrom(this.numberOfPages$),
-    filter(([pageIndex, numberOfPages]) => pageIndex <= numberOfPages && pageIndex >= 0),
-    tap(([pageIndex]) => this.setPageIndex(pageIndex))
-  ))
+  public readonly changePage = this.effect((page$: Observable<number>) =>
+    page$.pipe(
+      map(page => page - 1),
+      withLatestFrom(this.numberOfPages$),
+      filter(([pageIndex, numberOfPages]) => pageIndex <= numberOfPages && pageIndex >= 0),
+      tap(([pageIndex]) => this.setPageIndex(pageIndex))
+    )
+  )
 
-  public readonly nextPage = this.effect(origin$ => origin$.pipe(
-    withLatestFrom(this.hasNextPage$),
-    filter(([, hasNextPage]) => hasNextPage),
-    tap(() => this.setPageIndex(this.get().pageIndex + 1))
-  ))
+  public readonly nextPage = this.effect(origin$ =>
+    origin$.pipe(
+      withLatestFrom(this.hasNextPage$),
+      filter(([, hasNextPage]) => hasNextPage),
+      tap(() => this.setPageIndex(this.get().pageIndex + 1))
+    )
+  )
 
-  public readonly previousPage = this.effect(origin$ => origin$.pipe(
-    withLatestFrom(this.hasPreviousPage$),
-    filter(([, hasPreviousPage]) => hasPreviousPage),
-    tap(() => this.setPageIndex(this.get().pageIndex - 1))
-  ))
+  public readonly previousPage = this.effect(origin$ =>
+    origin$.pipe(
+      withLatestFrom(this.hasPreviousPage$),
+      filter(([, hasPreviousPage]) => hasPreviousPage),
+      tap(() => this.setPageIndex(this.get().pageIndex - 1))
+    )
+  )
 }

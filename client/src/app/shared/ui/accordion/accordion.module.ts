@@ -13,11 +13,6 @@ import { ExpansionPanelContentComponent } from './expansion-panel/expansion-pane
     ExpansionPanelTitleComponent,
     ExpansionPanelContentComponent
   ],
-  exports: [
-    AccordionComponent,
-    ExpansionPanelComponent,
-    ExpansionPanelTitleComponent,
-    ExpansionPanelContentComponent
-  ]
+  exports: [AccordionComponent, ExpansionPanelComponent, ExpansionPanelTitleComponent, ExpansionPanelContentComponent]
 })
 export class AccordionModule {}

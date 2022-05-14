@@ -1,6 +1,6 @@
-@use "brand-colors";
-@use "typography";
-@use "breakpoints";
+@use 'brand-colors';
+@use 'typography';
+@use 'breakpoints';
 
 .product-card {
   width: 100%;
@@ -55,7 +55,6 @@
       height: 100%;
       margin: 0;
     }
-
   }
 
   .location {

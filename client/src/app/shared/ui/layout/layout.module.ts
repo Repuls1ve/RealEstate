@@ -7,13 +7,7 @@ import { LayoutComponent } from './layout.component'
 import { SidebarModule } from './sidebar/sidebar.module'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveComponentModule,
-    HeaderModule,
-    FooterModule,
-    SidebarModule
-  ],
+  imports: [CommonModule, ReactiveComponentModule, HeaderModule, FooterModule, SidebarModule],
   declarations: [LayoutComponent],
   exports: [LayoutComponent]
 })

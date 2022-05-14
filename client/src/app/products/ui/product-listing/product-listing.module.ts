@@ -8,14 +8,7 @@ import { ProductCardModule } from '../product-card/product-card.module'
 import { ProductListingComponent } from './product-listing.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ButtonModule,
-    TranslateModule,
-    TimesPipeModule,
-    ProductCardModule,
-    ReactiveComponentModule
-  ],
+  imports: [CommonModule, ButtonModule, TranslateModule, TimesPipeModule, ProductCardModule, ReactiveComponentModule],
   declarations: [ProductListingComponent],
   exports: [ProductListingComponent]
 })

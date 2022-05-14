@@ -4,17 +4,14 @@
     <p class="description">{{ 'pages.agency-list.overview.description' | translate }}</p>
   </section>
   <main class="main">
-    <agency-results
-    [agencies]="vm.agencies"
-    [isLoading]="vm.loading"
-    ></agency-results>
+    <agency-results [agencies]="vm.agencies" [isLoading]="vm.loading"></agency-results>
     <div class="pagination">
       <paginator
-      [length]="133"
-      [pageIndex]="vm.pageIndex"
-      (page)="changePage($event)"
-      [pageSize]="6"
-      [delta]="2"
+        [length]="133"
+        [pageIndex]="vm.pageIndex"
+        (page)="changePage($event)"
+        [pageSize]="6"
+        [delta]="2"
       ></paginator>
     </div>
   </main>

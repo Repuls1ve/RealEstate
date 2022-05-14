@@ -12,15 +12,17 @@ export class HomeStore extends ComponentStore<HomeState> {
     super({})
   }
 
-  public readonly onSearch = this.effect((params$: Observable<SearchFormParams>) => params$.pipe(
-    map(params => ({
-      priceMin: params.price.min ?? undefined,
-      priceMax: params.price.max ?? undefined,
-      status: params.status,
-      period: params.period,
-      category: params.category,
-      page: 1
-    })),
-    tap(params => this.router.navigate(['/catalog'], { queryParams: params }))
-  ))
+  public readonly onSearch = this.effect((params$: Observable<SearchFormParams>) =>
+    params$.pipe(
+      map(params => ({
+        priceMin: params.price.min ?? undefined,
+        priceMax: params.price.max ?? undefined,
+        status: params.status,
+        period: params.period,
+        category: params.category,
+        page: 1
+      })),
+      tap(params => this.router.navigate(['/catalog'], { queryParams: params }))
+    )
+  )
 }

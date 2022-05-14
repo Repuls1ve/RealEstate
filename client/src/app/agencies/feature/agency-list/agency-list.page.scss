@@ -1,7 +1,7 @@
-@use "brand-colors";
-@use "typography";
-@use "breakpoints";
-@use "variables";
+@use 'brand-colors';
+@use 'typography';
+@use 'breakpoints';
+@use 'variables';
 
 .agency-list-page {
   width: 100%;
@@ -17,27 +17,27 @@
     padding: 128px 15%;
     border-radius: 16px;
     margin: 0 variables.$layout-indent;
-  
+
     .heading {
       font-size: 4.5rem;
       font-weight: typography.$bold;
       text-align: center;
       color: brand-colors.$greyscale-10;
       margin-bottom: 24px;
-  
+
       @include breakpoints.laptop {
         font-size: 4rem;
       }
-  
+
       @include breakpoints.tablet {
         font-size: 3.5rem;
       }
-  
+
       @include breakpoints.tablet-sm {
         font-size: 3rem;
       }
     }
-  
+
     .description {
       font-size: 1rem;
       line-height: 130%;
@@ -46,11 +46,11 @@
       color: brand-colors.$greyscale-10;
       margin-bottom: 64px;
     }
-  
+
     @include breakpoints.tablet {
       padding: 64px 10%;
     }
-  
+
     @include breakpoints.tablet-sm {
       padding: 52px 8%;
     }

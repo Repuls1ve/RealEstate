@@ -7,14 +7,9 @@ export interface PaginationParams {
 
 export class PaginationHelper {
   public static paginate(params: PaginationParams): number[] {
-    const {
-      pageIndex,
-      pageSize,
-      length,
-      delta
-    } = params
+    const { pageIndex, pageSize, length, delta } = params
 
-    const pagesCount = this.getPagesCount({length, pageSize})
+    const pagesCount = this.getPagesCount({ length, pageSize })
     const range = this.getRange(pagesCount)
 
     const left = range.slice(Math.max(0, pageIndex - delta), pageIndex)
@@ -28,10 +23,7 @@ export class PaginationHelper {
   }
 
   public static getPagesCount(params: Pick<PaginationParams, 'length' | 'pageSize'>): number {
-    const {
-      length,
-      pageSize
-    } = params
+    const { length, pageSize } = params
 
     return Math.ceil(length / pageSize)
   }

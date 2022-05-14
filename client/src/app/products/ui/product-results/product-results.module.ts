@@ -7,13 +7,7 @@ import { ProductCardModule } from '../product-card/product-card.module'
 import { ProductResultsComponent } from './product-results.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    ProductCardModule,
-    NgxSkeletonLoaderModule,
-    TimesPipeModule    
-  ],
+  imports: [CommonModule, TranslateModule, ProductCardModule, NgxSkeletonLoaderModule, TimesPipeModule],
   declarations: [ProductResultsComponent],
   exports: [ProductResultsComponent]
 })

@@ -1,18 +1,10 @@
 <div class="agency-results">
   <div class="agencies">
     <ng-container *ngIf="!isLoading && agencies; else loader">
-      <agency-card
-      class="agency-card-wrapper"
-      [agency]="agency"
-      *ngFor="let agency of agencies"
-      ></agency-card>
+      <agency-card class="agency-card-wrapper" [agency]="agency" *ngFor="let agency of agencies"></agency-card>
     </ng-container>
     <ng-template #loader>
-      <agency-card
-      class="agency-card-wrapper"
-      [isLoading]="true"
-      *ngFor="let loader of 4 | times"
-      ></agency-card>
+      <agency-card class="agency-card-wrapper" [isLoading]="true" *ngFor="let loader of 4 | times"></agency-card>
     </ng-template>
   </div>
 </div>
