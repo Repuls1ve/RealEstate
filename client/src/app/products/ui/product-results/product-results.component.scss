@@ -5,16 +5,16 @@
 
 $products-gap: 16px;
 
-.search-results {
+.product-results {
   margin: 0 variables.$layout-indent;
   padding: 0 60px;
 
-  .heading {
+  .overview-column {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 12px;
 
-    .title {
+    .results-for {
       font-size: 2rem;
       line-height: 150%;
       font-weight: typography.$bold;
@@ -22,7 +22,7 @@ $products-gap: 16px;
       color: brand-colors.$greyscale-80;
     }
 
-    .title-loader {
+    .results-for-loader {
       max-width: 450px;
       height: 48px;
 
@@ -32,29 +32,52 @@ $products-gap: 16px;
       }
     }
 
-    .filters {
-      display: flex;
-      justify-content: space-between;
+    .results-count {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: typography.$bold;
+      line-height: 150%;
+      color: brand-colors.$greyscale-75;
+    }
 
-      .count {
+    .results-count-loader {
+      min-width: 170px;
+      height: 32px;
+
+      ::ng-deep .loader {
+        height: 100%;
+        margin-bottom: 0;
+      }
+    }
+
+    .price-restrictions {
+      display: flex;
+      gap: 5px;
+
+      &-from,
+      &-to {
         display: inline-flex;
         align-items: center;
         font-size: 1rem;
         font-weight: typography.$bold;
         line-height: 150%;
-        text-transform: capitalize;
         color: brand-colors.$greyscale-75;
       }
+    }
 
-      .count-loader {
-        min-width: 170px;
-        height: 32px;
+    .period-restrictions {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: typography.$bold;
+      line-height: 150%;
+      color: brand-colors.$greyscale-75;
+    }
 
-        ::ng-deep .loader {
-          height: 100%;
-          margin-bottom: 0;
-        }
-      }
+    .filters {
+      display: flex;
+      justify-content: space-between;
 
       .sorting {
         display: flex;

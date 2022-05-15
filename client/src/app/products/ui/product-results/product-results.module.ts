@@ -5,9 +5,17 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader'
 import { TimesPipeModule } from '@shared/pipes/times/times.module'
 import { ProductCardModule } from '../product-card/product-card.module'
 import { ProductResultsComponent } from './product-results.component'
+import { ReactiveComponentModule } from '@ngrx/component'
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, ProductCardModule, NgxSkeletonLoaderModule, TimesPipeModule],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    TimesPipeModule,
+    ProductCardModule,
+    NgxSkeletonLoaderModule,
+    ReactiveComponentModule
+  ],
   declarations: [ProductResultsComponent],
   exports: [ProductResultsComponent]
 })

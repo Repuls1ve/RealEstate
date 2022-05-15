@@ -165,6 +165,31 @@
       },
       "address": "Address"
     },
+    "product-results": {
+      "overview": {
+        "results-for": "Result for \"{{ category }}\", {{ status }}",
+        "results-count": "Displaying {{ displayed }} items of {{ total }} available",
+        "period": "Last {{ period }} days only",
+        "price-restrictions": {
+          "from": "From {{ priceMin }}$",
+          "to": "to {{ priceMax }}$"
+        },
+        "categories": {
+          "apartments": "Apartments",
+          "condominium": "Condominium",
+          "duplex": "Duplex Home",
+          "multi-family": "Multi-Family Home",
+          "single-family": "Single-Family Home",
+          "townhouse": "Townhouse",
+          "any": "All Categories"
+        },
+        "statuses": {
+          "sell": "Sell",
+          "rent": "Rent",
+          "any": "Sell & Rent"
+        }
+      }
+    },
     "agency-card": {
       "contact-button": "Contact now"
     },
