@@ -38,7 +38,7 @@ export class ProductsService {
   }
 
   public getProduct(uid: ProductDetails['uid']): Observable<Translatable<Product>> {
-    return this.http.get<Translatable<Product>>(this.baseURL + `products/${uid}`).pipe(delay(1500))
+    return this.http.get<Translatable<Product>>(this.baseURL + `products/one/${uid}`).pipe(delay(1500))
   }
 
   public createProduct(params: CreateProductParams): Observable<Translatable<Product>> {
