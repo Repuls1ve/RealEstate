@@ -157,13 +157,38 @@
       "details": {
         "title": "Подробности",
         "property-id": "Артикул",
-        "price": "Price",
+        "price": "Цена",
         "property-size": "Площадь",
         "category": "Категория",
         "year": "Год постройки",
         "property-status": "Статус"
       },
       "address": "Адрес"
+    },
+    "product-results": {
+      "overview": {
+        "results-for": "Объявления {{ category }}, {{ status }}",
+        "results-count": "Показаны {{ displayed }} объявлений из {{ total }} доступных",
+        "period": "За последние {{ period }} дней",
+        "price-restrictions": {
+          "from": "Цена от {{ priceMin }}$",
+          "to": "до {{ priceMax }}$"
+        },
+        "categories": {
+          "apartments": "Апартаментов",
+          "condominium": "Кондоминиумов",
+          "duplex": "Двухуровневых домов",
+          "multi-family": "Многоквартирных домов",
+          "single-family": "Индивидуальных домов",
+          "townhouse": "Особняков",
+          "any": "Всех категорий"
+        },
+        "statuses": {
+          "sell": "Продажа",
+          "rent": "Аренда",
+          "any": "Продажа и Аренда"
+        }
+      }
     },
     "agency-card": {
       "contact-button": "Связаться"

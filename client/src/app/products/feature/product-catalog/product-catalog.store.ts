@@ -94,7 +94,14 @@ export class ProductCatalogStore extends ComponentStore<ProductCatalogState> {
 
   public readonly products$ = this.select(state => state.products)
 
+  public readonly params$ = this.select(state => state.params)
+
   public readonly meta$ = this.select(state => state.meta)
+
+  public readonly results$ = this.select(this.meta$, this.params$, (meta, params) => ({
+    ...params,
+    totalItems: meta?.totalItems ?? 0
+  }))
 
   public readonly pageIndex$ = this.select(state => {
     const page = state.params.page
@@ -104,12 +111,14 @@ export class ProductCatalogStore extends ComponentStore<ProductCatalogState> {
 
   public readonly vm$ = this.select(
     this.products$,
+    this.results$,
     this.pageIndex$,
     this.loading$,
     this.error$,
     this.meta$,
-    (products, pageIndex, loading, error, meta) => ({
+    (products, results, pageIndex, loading, error, meta) => ({
       products,
+      results,
       pageIndex,
       loading,
       error,

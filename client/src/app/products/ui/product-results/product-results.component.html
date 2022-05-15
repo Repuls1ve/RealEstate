@@ -1,25 +1,45 @@
-<div class="search-results">
-  <div class="heading">
-    <h2 class="title" *ngIf="!isLoading">Result for "South Gate"</h2>
-    <ngx-skeleton-loader class="title-loader" *ngIf="isLoading"></ngx-skeleton-loader>
-    <div class="filters">
-      <span class="count" *ngIf="!isLoading">Displaying 8 Results</span>
-      <ngx-skeleton-loader class="count-loader" *ngIf="isLoading"></ngx-skeleton-loader>
-      <div class="sorting" *ngIf="!isLoading">
-        <label for="sort" class="label">Sort By:</label>
-        <select id="sort" class="sort" shared-select>
-          <option>Default Order</option>
-        </select>
+<ng-container *ngrxLet="vm$ as vm">
+  <div class="product-results" *ngIf="!vm.loading; else loader">
+    <div class="overview-column">
+      <h2 class="results-for">
+        {{ 'components.product-results.overview.results-for' | translate : vm.results }}
+      </h2>
+      <span class="period-restrictions" *ngIf="vm.periodSpecified" >
+        {{ 'components.product-results.overview.period' | translate : vm.period }}
+      </span>
+      <div class="price-restrictions" *ngIf="vm.restrictions">
+        <span class="price-restrictions-from" *ngIf="vm.meta.priceMin">
+          {{ 'components.product-results.overview.price-restrictions.from' | translate : vm.price }}
+        </span>
+        <span class="price-restrictions-to" *ngIf="vm.meta.priceMax">
+          {{ 'components.product-results.overview.price-restrictions.to' | translate : vm.price }}
+        </span>
       </div>
-      <ngx-skeleton-loader class="sorting-loader" *ngIf="isLoading"></ngx-skeleton-loader>
+      <span class="results-count">
+        {{ 'components.product-results.overview.results-count' | translate : vm.count }}
+      </span>
+    </div>
+    <div class="products">
+      <product-card
+      *ngFor="let product of vm.products"
+      [product]="product"
+      class="product"
+      ></product-card>
     </div>
   </div>
-  <div class="products">
-    <ng-container *ngIf="!isLoading">
-      <product-card class="product" [product]="product" *ngFor="let product of products"></product-card>
-    </ng-container>
-    <ng-container *ngIf="isLoading">
-      <product-card class="product" [isLoading]="true" *ngFor="let loader of 8 | times"></product-card>
-    </ng-container>
-  </div>
-</div>
+  <ng-template #loader>
+    <div class="product-results">
+      <div class="overview-column">
+        <ngx-skeleton-loader class="results-for-loader"></ngx-skeleton-loader>
+        <ngx-skeleton-loader class="results-count-loader"></ngx-skeleton-loader>
+      </div>
+      <div class="products">
+        <product-card
+        *ngFor="let loader of vm.limit | times"
+        [isLoading]="true"
+        class="product"
+        ></product-card>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>
