@@ -7,6 +7,7 @@ import { HomeBenefitsModule } from '@app/home/ui/home-benefits/home-benefits.mod
 import { HomeContactModule } from '@app/home/ui/home-contact/home-contact.module'
 import { HomePageRoutingModule } from './home-routing.module'
 import { HomePage } from './home.page'
+import { ProductCategoriesModule } from '@app/products/ui/product-categories/product-categories.module'
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { HomePage } from './home.page'
     SearchFormModule,
     HomeContactModule,
     HomeBenefitsModule,
+    ProductCategoriesModule,
     HomePageRoutingModule,
     ProductListingModule
   ],

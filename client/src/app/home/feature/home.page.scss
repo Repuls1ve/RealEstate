@@ -18,6 +18,15 @@
     }
   }
 
+  .categories-wrapper {
+    margin: 0 variables.$layout-indent;
+    padding: 10px 60px;
+
+    @include breakpoints.tablet {
+      padding: 0;
+    }
+  }
+
   .discover {
     display: flex;
     flex-direction: column;

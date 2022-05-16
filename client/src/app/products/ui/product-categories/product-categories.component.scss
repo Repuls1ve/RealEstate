@@ -1,0 +1,60 @@
+@use "brand-colors";
+@use "typography";
+@use "breakpoints";
+@use "variables";
+
+$products-gap: 16px;
+
+.product-categories {
+  width: 100%;
+
+  .title {
+    font-size: 3rem;
+    line-height: 135%;
+    text-align: center;
+    color: brand-colors.$greyscale-80;
+    font-weight: typography.$bold;
+    text-transform: capitalize;
+    margin-bottom: 24px;
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 160%;
+    text-align: center;
+    color: brand-colors.$greyscale-70;
+    font-family: typography.$font-secondary;
+    margin-bottom: 48px;
+  }
+
+  .categories {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 42px;
+  }
+
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $products-gap;
+
+    .product {
+      width: calc(25% - $products-gap);
+
+      @include breakpoints.laptop {
+        width: calc(33.33% - $products-gap);
+      }
+
+      @include breakpoints.tablet {
+        width: calc(50% - $products-gap);
+      }
+
+      @include breakpoints.tablet-sm {
+        width: 100%;
+      }
+    }
+  }
+}

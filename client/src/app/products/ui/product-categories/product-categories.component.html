@@ -1,0 +1,46 @@
+<div class="product-categories" *ngrxLet="vm$ as vm">
+  <h2 class="title">Listing Categories</h2>
+  <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+  <div class="categories">
+    <button
+    shared-button
+    color="secondary"
+    [theme]="vm.themes.any"
+    (click)="changeCategory('any')"
+    >All</button>
+    <button
+    shared-button
+    color="secondary"
+    [theme]="vm.themes.apartments"
+    (click)="changeCategory('apartments')"
+    >Apartments</button>
+    <button
+    shared-button
+    color="secondary"
+    [theme]="vm.themes.townhouse"
+    (click)="changeCategory('townhouse')"
+    >Townhouses</button>
+    <button
+    shared-button
+    color="secondary"
+    [theme]="vm.themes.condominium"
+    (click)="changeCategory('condominium')"
+    >Condominiums</button>
+  </div>
+  <div class="products">
+    <ng-container *ngIf="!vm.loading">
+      <product-card
+      *ngFor="let product of vm.products"
+      [product]="product"
+      class="product"
+      ></product-card>
+    </ng-container>
+    <ng-container *ngIf="vm.loading">
+      <product-card
+      [isLoading]="true"
+      *ngFor="let loader of vm.quantity | times"
+      class="product"
+      ></product-card>
+    </ng-container>
+  </div>
+</div>
