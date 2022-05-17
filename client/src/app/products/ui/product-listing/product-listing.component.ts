@@ -18,17 +18,13 @@ export class ProductListingComponent implements OnInit {
     this.productListingStore.fetchProducts(value)
   }
 
-  constructor(
-    private readonly productListingStore: ProductListingStore,
-    private readonly translate: TranslateService
-  ) {}
+  constructor(private readonly productListingStore: ProductListingStore) {}
 
   public ngOnInit(): void {
     this.observeLanguageChange()
   }
 
   private observeLanguageChange(): void {
-    const onLanguageChange$ = this.translate.onLangChange.pipe(tap(() => this.productListingStore.updateLanguage()))
-    this.productListingStore.subscribeTo(onLanguageChange$)
+    this.productListingStore.observeLanguageChange()
   }
 }

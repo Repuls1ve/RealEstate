@@ -57,8 +57,6 @@ export class ProductDetailStore extends ComponentStore<ProductDetailState> {
     error
   }))
 
-  public readonly subscribeTo = this.effect<unknown>($ => $)
-
   public readonly updateLanguage = this.effect($ =>
     $.pipe(
       tap(() => {
@@ -70,6 +68,10 @@ export class ProductDetailStore extends ComponentStore<ProductDetailState> {
         }
       })
     )
+  )
+
+  public readonly observeLanguageChange = this.effect($ =>
+    $.pipe(switchMap(() => this.translate.onLangChange.pipe(tap(() => this.updateLanguage()))))
   )
 
   public readonly fetchProduct = this.effect((uid$: Observable<ProductDetails['uid']>) =>
