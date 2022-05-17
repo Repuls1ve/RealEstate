@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
 import { TranslateService } from '@ngx-translate/core'
 import { SingleSeries } from '@swimlane/ngx-charts'
-import { tap } from 'rxjs'
+import { Observable, tap } from 'rxjs'
 import { MortgagePaymentParams, PaymentHelper } from '@shared/helpers/payment/payment.helper'
 
 export interface ProductPaymentParams extends MortgagePaymentParams {
@@ -29,7 +29,7 @@ export class ProductPaymentStore extends ComponentStore<ProductPaymentState> {
 
   public readonly subscribeTo = this.effect<unknown>(origin$ => origin$)
 
-  public readonly calculatePayment = this.effect<ProductPaymentParams>(params$ =>
+  public readonly calculatePayment = this.effect((params$: Observable<ProductPaymentParams>) =>
     params$.pipe(
       tap(params =>
         this.setResults([

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { Observable, switchMap, tap } from 'rxjs'
 import { Error, Status } from '@app/products/ui/product-listing/product-listing.store'
-import { Agency } from '@app/shared/models/agency.model'
+import { Agency } from '@shared/models/agency.model'
 import { AgenciesService } from '@app/agencies/data-access/agencies.service'
 
 export interface AgencyListParams {
@@ -86,7 +86,7 @@ export class AgencyListStore extends ComponentStore<AgencyListState> {
     params$.pipe(
       tap(params => this.setParams(params)),
       tap(() => this.setStatus(Status.Loading)),
-      switchMap(params =>
+      switchMap(() =>
         this.agenciesService.getAgencies(4).pipe(
           tapResponse(
             agencies => {
