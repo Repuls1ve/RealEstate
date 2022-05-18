@@ -1,0 +1,36 @@
+<div class="home-reviews" *ngrxLet="vm$ as vm">
+  <div class="review">
+    <h2 class="title">{{ vm.review.title }}</h2>
+    <p class="description">{{ vm.review.description }}</p>
+    <div class="row">
+      <span class="author">{{ vm.review.author }}</span>
+      <div class="controls">
+        <button
+        type="button"
+        class="prev-control"
+        (click)="previousReview()"
+        >
+          <svg-icon
+          src="/assets/svg/arrow-left.svg"
+          svgClass="prev-icon"
+          ></svg-icon>
+        </button>
+        <button
+        type="button"
+        class="next-control"
+        (click)="nextReview()"
+        >
+          <svg-icon
+          src="/assets/svg/arrow-right.svg"
+          svgClass="next-icon"
+          ></svg-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <img
+  class="img"
+  src="/assets/img/img-placeholder.png"
+  alt="image-placeholder"
+  >
+</div>

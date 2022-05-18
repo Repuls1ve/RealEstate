@@ -1,0 +1,107 @@
+@use "brand-colors";
+@use "typography";
+@use "breakpoints";
+@use "variables";
+
+.home-reviews {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 65px;
+  padding: 75px 100px;
+  background-color: brand-colors.$primary-70;
+
+  .review {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .title {
+      font-size: 3rem;
+      text-transform: capitalize;
+      color: brand-colors.$greyscale-10;
+      font-weight: typography.$bold;
+
+      @include breakpoints.laptop {
+        font-size: 2.5rem;
+      }
+
+      @include breakpoints.tablet {
+        font-size: 2rem;
+      }
+    }
+
+    .description {
+      font-family: typography.$font-secondary;
+      font-size: 1rem;
+      color: brand-colors.$greyscale-10;
+      line-height: 165%;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+
+      .author {
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        line-height: 150%;
+        font-weight: typography.$bold;
+        color: brand-colors.$greyscale-10;
+
+        @include breakpoints.tablet {
+          font-size: 1.25rem;
+        }
+      }
+
+      .controls {
+        display: flex;
+        gap: 32px;
+        
+        .prev-control,
+        .next-control {
+          border: none;
+          background-color: transparent;
+          height: 25px;
+          width: 25px;
+
+          .next-icon,
+          .prev-icon {
+            height: 25px;
+          }
+        }
+      }
+    }
+
+    @include breakpoints.tablet {
+      width: 100%;
+    }
+  }
+
+  .img {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+
+    @include breakpoints.tablet {
+      width: 75%;
+    }
+
+    @include breakpoints.tablet-sm {
+      width: 100%;
+    }
+
+    @include breakpoints.mobile {
+      display: none;
+    }
+  }
+
+  @include breakpoints.tablet {
+    flex-direction: column;
+    padding: 7% calc(variables.$layout-indent + 16px);
+  }
+}

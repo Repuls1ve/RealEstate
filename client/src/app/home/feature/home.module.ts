@@ -8,12 +8,14 @@ import { HomeContactModule } from '@app/home/ui/home-contact/home-contact.module
 import { HomePageRoutingModule } from './home-routing.module'
 import { HomePage } from './home.page'
 import { ProductCategoriesModule } from '@app/products/ui/product-categories/product-categories.module'
+import { HomeReviewsModule } from '../ui/home-reviews/home-reviews.module'
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule,
     SearchFormModule,
+    HomeReviewsModule,
     HomeContactModule,
     HomeBenefitsModule,
     ProductCategoriesModule,
