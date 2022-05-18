@@ -3,7 +3,7 @@ import { Categories } from '@shared/models/product.model'
 import { ProductCategoriesState, ProductCategoriesStore } from './product-categories.store'
 
 @Component({
-  selector: 'product-categoies',
+  selector: 'product-categories',
   templateUrl: './product-categories.component.html',
   styleUrls: ['./product-categories.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
