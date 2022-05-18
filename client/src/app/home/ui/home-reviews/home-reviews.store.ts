@@ -20,7 +20,7 @@ export class HomeReviewsStore extends ComponentStore<HomeReviewsState> {
   constructor() {
     super({
       reviews: [],
-      active: 0
+      active: NaN
     })
   }
 
@@ -68,6 +68,7 @@ export class HomeReviewsStore extends ComponentStore<HomeReviewsState> {
   public readonly nextReview = this.effect(source$ =>
     source$.pipe(
       filter(() => this.get().reviews.length > 1),
+      filter(() => !isNaN(this.get().active)),
       tap(() => {
         const { reviews, active: activeId } = this.get()
 
@@ -86,6 +87,7 @@ export class HomeReviewsStore extends ComponentStore<HomeReviewsState> {
   public readonly previousReview = this.effect(source$ =>
     source$.pipe(
       filter(() => this.get().reviews.length > 1),
+      filter(() => !isNaN(this.get().active)),
       tap(() => {
         const { reviews, active: activeId } = this.get()
 
