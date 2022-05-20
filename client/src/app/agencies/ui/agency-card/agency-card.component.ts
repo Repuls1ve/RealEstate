@@ -12,7 +12,7 @@ export class AgencyCardComponent {
   public agency: Agency | undefined | null = MockAgency
 
   @Input()
-  public isLoading = false
+  public loading = false
 
   @Output()
   public readonly contact = new EventEmitter<Agency>()

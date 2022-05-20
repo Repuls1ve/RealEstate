@@ -4,7 +4,7 @@
     <p class="description">{{ 'pages.agency-list.overview.description' | translate }}</p>
   </section>
   <main class="main">
-    <agency-results [agencies]="vm.agencies" [isLoading]="vm.loading"></agency-results>
+    <agency-results [agencies]="vm.agencies" [loading]="vm.loading"></agency-results>
     <div class="pagination">
       <paginator
         [length]="133"
