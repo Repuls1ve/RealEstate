@@ -37,7 +37,7 @@
     </ng-container>
     <ng-container *ngIf="vm.loading">
       <product-card
-      [isLoading]="true"
+      [loading]="true"
       *ngFor="let loader of vm.quantity | times"
       class="product"
       ></product-card>

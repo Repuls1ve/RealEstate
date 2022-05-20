@@ -12,7 +12,7 @@ export class ProductCardComponent {
   public product: Product | null | undefined
 
   @Input()
-  public isLoading = false
+  public loading = false
 
   public get productLink(): string {
     return `/catalog/product-detail/${this.product!.details.uid}`

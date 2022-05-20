@@ -12,5 +12,5 @@ export class AgencyResultsComponent {
   public agencies: Agency[] | null = null
 
   @Input()
-  public isLoading = false
+  public loading = false
 }

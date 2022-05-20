@@ -1,6 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'
-import { TranslateService } from '@ngx-translate/core'
-import { tap } from 'rxjs'
 import { ProductListingStore } from './product-listing.store'
 
 @Component({

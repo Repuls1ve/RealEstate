@@ -12,5 +12,5 @@ export class ProductInfoComponent {
   public product: Product | null | undefined
 
   @Input()
-  public isLoading = false
+  public loading = false
 }
