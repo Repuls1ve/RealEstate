@@ -1,4 +1,5 @@
 @use 'brand-colors';
+@use 'typography';
 @use 'breakpoints';
 
 .stepper {
@@ -21,6 +22,32 @@
 
     @include breakpoints.tablet-sm {
       flex-direction: column;
+    }
+  }
+
+  &-step {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 56px;
+    background-color: brand-colors.$primary-70;
+    border: 1px solid brand-colors.$greyscale-10;
+    border-radius: 8px;
+    font-family: typography.$font-secondary;
+    font-weight: typography.$semi-bold;
+    font-size: 1rem;
+    line-height: 200%;
+    color: brand-colors.$greyscale-10;
+
+    &.active {
+      background-color: brand-colors.$greyscale-10;
+      color: brand-colors.$primary-70;
+    }
+
+    &:disabled {
+      cursor: default;
     }
   }
 }

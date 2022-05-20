@@ -14,14 +14,35 @@ export class StepperComponent {
   @Input()
   public set steps(value: Step[]) {
     this.stepperStore.setSteps(value)
+    this.selectFirstStep()
   }
 
   @Output()
-  public readonly stepsChange = this.stepperStore.stepsChange$
+  public readonly stepChange = this.stepperStore.stepChange$
 
   constructor(private readonly stepperStore: StepperStore) {}
 
-  public onStepChange(step: Step): void {
-    this.stepperStore.onStepChange(step)
+  public selectStep(id: Step['id']): void {
+    this.stepperStore.selectStep(id)
+  }
+
+  public selectFirstStep(): void {
+    this.stepperStore.selectFirstStep()
+  }
+
+  public selectLastStep(): void {
+    this.stepperStore.selectLastStep()
+  }
+
+  public selectNextStep(): void {
+    this.stepperStore.selectNextStep()
+  }
+
+  public selectPreviousStep(): void {
+    this.stepperStore.selectPreviousStep()
+  }
+
+  public isStepActive(step: Step, active: Step['id']): boolean {
+    return step.id === active
   }
 }

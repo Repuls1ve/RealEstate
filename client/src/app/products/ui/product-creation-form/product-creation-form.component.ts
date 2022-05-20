@@ -1,24 +1,21 @@
 import { ChangeDetectionStrategy, Component, OnInit, Output } from '@angular/core'
 import { FormArray, FormBuilder, Validators } from '@angular/forms'
 import { Categories, PropertyStatuses } from '@shared/models/product.model'
-import { Step } from '@shared/ui/stepper/stepper.store'
+import { Step, StepEvent } from '@shared/ui/stepper/stepper.store'
 import { ProductCreationFormStore, ProductCreationFormValues } from './product-creation-form.store'
 
 export const ProductCreationFormSteps: Step[] = [
   {
     id: 1,
-    label: 'General',
-    isActive: true
+    label: 'General'
   },
   {
     id: 2,
-    label: 'Location',
-    isActive: false
+    label: 'Location'
   },
   {
     id: 3,
-    label: 'Translate',
-    isActive: false
+    label: 'Translate'
   }
 ]
 
@@ -75,10 +72,6 @@ export class ProductCreationFormComponent implements OnInit {
     this.productCreationFormStore.setSteps(steps)
   }
 
-  public nextStep(): void {
-    this.productCreationFormStore.nextStep()
-  }
-
   public addOverview(): void {
     this.overview.push(this.fb.control(''))
   }
@@ -86,6 +79,11 @@ export class ProductCreationFormComponent implements OnInit {
   public onSubmit(): void {
     this.form.reset()
     this.productCreationFormStore.onSubmit(this.form.value as ProductCreationFormValues)
+  }
+
+  public onStepChange(event: StepEvent): void {
+    console.log('emitted!')
+    this.productCreationFormStore.onStepChange(event)
   }
 
   public get overview(): FormArray {

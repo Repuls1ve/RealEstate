@@ -1,7 +1,12 @@
 <div class="stepper" *ngrxLet="vm$ as vm">
   <ul class="stepper-list">
     <li class="stepper-list-item" *ngFor="let step of vm.steps">
-      <stepper-step [step]="step" (stepChange)="onStepChange(step)"></stepper-step>
+      <button
+      class="stepper-step"
+      [class.active]="isStepActive(step, vm.active)"
+      [disabled]="isStepActive(step, vm.active)"
+      (click)="selectStep(step.id)"
+      >{{ step.label | translate }}</button>
     </li>
   </ul>
 </div>

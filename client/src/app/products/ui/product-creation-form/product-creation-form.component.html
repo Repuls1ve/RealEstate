@@ -1,6 +1,15 @@
 <ng-container *ngrxLet="vm$ as vm">
-  <stepper [steps]="vm.steps" (stepsChange)="setSteps($event)"></stepper>
-  <form class="product-creation-form" [formGroup]="form" [ngSwitch]="vm.stepId" (ngSubmit)="onSubmit()">
+  <stepper
+  #stepper
+  [steps]="vm.steps"
+  (stepChange)="onStepChange($event)"
+  ></stepper>
+  <form
+  class="product-creation-form"
+  [formGroup]="form"
+  [ngSwitch]="vm.stepId"
+  (ngSubmit)="onSubmit()"
+  >
     <ng-container *ngSwitchCase="1">
       <div class="form-field-group">
         <div class="form-field">
@@ -69,7 +78,7 @@
         <label for="agency-id">Agency Id</label>
         <input id="agency-id" placeholder="Add agency id" shared-text-field formControlName="agency" />
       </div>
-      <button class="next-button" color="secondary" shared-button (click)="nextStep()">Next step</button>
+      <button class="next-button" color="secondary" shared-button (click)="stepper.selectNextStep()">Next step</button>
     </ng-container>
     <ng-container *ngSwitchCase="2">
       <div class="form-field-group">
@@ -102,7 +111,7 @@
           <input id="contry" placeholder="Add country" shared-text-field formControlName="country" />
         </div>
       </div>
-      <button class="next-button" color="secondary" shared-button (click)="nextStep()">Next step</button>
+      <button class="next-button" color="secondary" shared-button (click)="stepper.selectNextStep()">Next step</button>
     </ng-container>
     <ng-container *ngSwitchCase="3" formGroupName="translation">
       <div class="form-field">
