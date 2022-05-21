@@ -1,14 +1,16 @@
 <div class="catalog-page" *ngrxLet="vm$ as vm">
   <section class="explore">
     <h1 class="title">{{ 'pages.catalog.overview.title' | translate }}</h1>
-    <p class="description">{{ 'pages.catalog.overview.description' | translate }}</p>
+    <p class="description">
+      {{ 'pages.catalog.overview.description' | translate }}
+    </p>
     <search-form (search)="onSearch($event)"></search-form>
   </section>
   <main>
     <product-results
-    [products]="vm.products"
-    [loading]="vm.loading"
-    [meta]="vm.results"
+      [products]="vm.products"
+      [loading]="vm.loading"
+      [meta]="vm.results"
     ></product-results>
     <div class="pagination">
       <paginator

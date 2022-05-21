@@ -2,19 +2,36 @@
   <div class="agency-detail">
     <span class="agency-name">{{ agency.title }}</span>
     <div class="agency-location">
-      <svg-icon src="/assets/svg/location.svg" class="location-icon" svgClass="icon"></svg-icon>
+      <svg-icon
+        src="/assets/svg/location.svg"
+        class="location-icon"
+        svgClass="icon"
+      ></svg-icon>
       <span class="address">{{ agency.location }}</span>
     </div>
     <div class="agency-phone">
-      <svg-icon src="/assets/svg/phone.svg" class="phone-icon" svgClass="icon"></svg-icon>
+      <svg-icon
+        src="/assets/svg/phone.svg"
+        class="phone-icon"
+        svgClass="icon"
+      ></svg-icon>
       <a class="phone" [href]="'tel:' + agency.phone">{{ agency.phone }}</a>
     </div>
     <div class="agency-email">
-      <svg-icon src="/assets/svg/mail.svg" class="email-icon" svgClass="icon"></svg-icon>
+      <svg-icon
+        src="/assets/svg/mail.svg"
+        class="email-icon"
+        svgClass="icon"
+      ></svg-icon>
       <a class="email" [href]="'mailto:' + agency.email">{{ agency.email }}</a>
     </div>
   </div>
-  <button class="contact-button" color="secondary" (click)="onContact()" shared-button>
+  <button
+    class="contact-button"
+    color="secondary"
+    (click)="onContact()"
+    shared-button
+  >
     {{ 'components.agency-card.contact-button' | translate }}
   </button>
 </div>
@@ -22,8 +39,13 @@
   <div class="agency-card skeleton-loader">
     <div class="agency-detail">
       <ngx-skeleton-loader class="name-loader loader"></ngx-skeleton-loader>
-      <ngx-skeleton-loader class="detail-loader loader" *ngFor="let i of 3 | times"></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        class="detail-loader loader"
+        *ngFor="let i of 3 | times"
+      ></ngx-skeleton-loader>
     </div>
-    <ngx-skeleton-loader class="contact-button button-loader loader"></ngx-skeleton-loader>
+    <ngx-skeleton-loader
+      class="contact-button button-loader loader"
+    ></ngx-skeleton-loader>
   </div>
 </ng-template>

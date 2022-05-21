@@ -1,33 +1,78 @@
-<form class="search-form" [formGroup]="form" (ngSubmit)="onSubmit()" *ngrxLet="vm$ as vm">
+<form
+  class="search-form"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  *ngrxLet="vm$ as vm"
+>
   <div class="search-type">
-    <button shared-button type="button" class="switch" [theme]="vm.theme.sell" (click)="changeStatus('sell')">
+    <button
+      shared-button
+      type="button"
+      class="switch"
+      [theme]="vm.theme.sell"
+      (click)="changeStatus('sell')"
+    >
       {{ 'forms.search.status.sell' | translate }}
     </button>
-    <button shared-button type="button" class="switch" [theme]="vm.theme.rent" (click)="changeStatus('rent')">
+    <button
+      shared-button
+      type="button"
+      class="switch"
+      [theme]="vm.theme.rent"
+      (click)="changeStatus('rent')"
+    >
       {{ 'forms.search.status.rent' | translate }}
     </button>
   </div>
   <div class="search-attributes">
     <div class="search-attribute">
-      <label for="period">{{ 'forms.search.fields.period.label' | translate }}</label>
+      <label for="period">{{
+        'forms.search.fields.period.label' | translate
+      }}</label>
       <select id="period" shared-select formControlName="period">
-        <option value="1">{{ 'forms.search.fields.period.options.last-day' | translate }}</option>
-        <option value="3">{{ 'forms.search.fields.period.options.last-3-days' | translate }}</option>
-        <option value="7">{{ 'forms.search.fields.period.options.last-week' | translate }}</option>
-        <option value="31">{{ 'forms.search.fields.period.options.last-month' | translate }}</option>
-        <option value="365">{{ 'forms.search.fields.period.options.last-year' | translate }}</option>
-        <option value="any" [defaultSelected]="true">{{ 'forms.search.fields.period.options.any' | translate }}</option>
+        <option value="1">
+          {{ 'forms.search.fields.period.options.last-day' | translate }}
+        </option>
+        <option value="3">
+          {{ 'forms.search.fields.period.options.last-3-days' | translate }}
+        </option>
+        <option value="7">
+          {{ 'forms.search.fields.period.options.last-week' | translate }}
+        </option>
+        <option value="31">
+          {{ 'forms.search.fields.period.options.last-month' | translate }}
+        </option>
+        <option value="365">
+          {{ 'forms.search.fields.period.options.last-year' | translate }}
+        </option>
+        <option value="any" [defaultSelected]="true">
+          {{ 'forms.search.fields.period.options.any' | translate }}
+        </option>
       </select>
     </div>
     <div class="search-attribute">
-      <label for="category">{{ 'forms.search.fields.category.label' | translate }}</label>
+      <label for="category">{{
+        'forms.search.fields.category.label' | translate
+      }}</label>
       <select id="category" shared-select formControlName="category">
-        <option value="apartments">{{ 'forms.search.fields.category.options.apartments' | translate }}</option>
-        <option value="condominium">{{ 'forms.search.fields.category.options.condominium' | translate }}</option>
-        <option value="duplex">{{ 'forms.search.fields.category.options.duplex' | translate }}</option>
-        <option value="multi-family">{{ 'forms.search.fields.category.options.multi-family' | translate }}</option>
-        <option value="single-family">{{ 'forms.search.fields.category.options.single-family' | translate }}</option>
-        <option value="townhouse">{{ 'forms.search.fields.category.options.townhouse' | translate }}</option>
+        <option value="apartments">
+          {{ 'forms.search.fields.category.options.apartments' | translate }}
+        </option>
+        <option value="condominium">
+          {{ 'forms.search.fields.category.options.condominium' | translate }}
+        </option>
+        <option value="duplex">
+          {{ 'forms.search.fields.category.options.duplex' | translate }}
+        </option>
+        <option value="multi-family">
+          {{ 'forms.search.fields.category.options.multi-family' | translate }}
+        </option>
+        <option value="single-family">
+          {{ 'forms.search.fields.category.options.single-family' | translate }}
+        </option>
+        <option value="townhouse">
+          {{ 'forms.search.fields.category.options.townhouse' | translate }}
+        </option>
         <option value="any" [defaultSelected]="true">
           {{ 'forms.search.fields.category.options.any' | translate }}
         </option>
@@ -58,7 +103,11 @@
     </fieldset>
     <button shared-button type="submit" color="secondary" class="submit-button">
       {{ 'forms.search.search-button' | translate }}
-      <svg-icon src="/assets/svg/search.svg" class="search" svgClass="search-icon"></svg-icon>
+      <svg-icon
+        src="/assets/svg/search.svg"
+        class="search"
+        svgClass="search-icon"
+      ></svg-icon>
     </button>
   </div>
 </form>

@@ -5,7 +5,14 @@
   <div class="content">
     <ng-content></ng-content>
   </div>
-  <app-sidebar [visible]="vm.isSidebarOpened" (sidebarCloseRequest)="toggleSidebar(false)"></app-sidebar>
-  <div *ngIf="vm.isSidebarOpened" class="backdrop" (click)="toggleSidebar(false)"></div>
+  <app-sidebar
+    [visible]="vm.isSidebarOpened"
+    (sidebarCloseRequest)="toggleSidebar(false)"
+  ></app-sidebar>
+  <div
+    *ngIf="vm.isSidebarOpened"
+    class="backdrop"
+    (click)="toggleSidebar(false)"
+  ></div>
   <app-footer></app-footer>
 </div>

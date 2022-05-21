@@ -1,7 +1,7 @@
-@use 'variables';
-@use 'typography';
-@use 'brand-colors';
-@use 'breakpoints';
+@use "variables";
+@use "typography";
+@use "brand-colors";
+@use "breakpoints";
 
 .payment-calculator {
   width: 100%;
@@ -51,7 +51,7 @@
 
       .currency-input {
         padding-left: 50px;
-        background-image: url('/assets/svg/coin-dollar.svg');
+        background-image: url("/assets/svg/coin-dollar.svg");
         background-repeat: no-repeat;
         background-position: 16px center;
         background-size: 24px;

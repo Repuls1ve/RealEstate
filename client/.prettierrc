@@ -4,5 +4,19 @@
   "endOfLine": "crlf",
   "semi": false,
   "printWidth": 120,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "overrides": [
+    {
+      "files": "**/*.html",
+      "options": {
+        "printWidth": 80
+      }
+    },
+    {
+      "files": "**/*.scss",
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
 }

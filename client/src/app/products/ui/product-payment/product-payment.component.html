@@ -1,18 +1,36 @@
 <ng-container *ngrxLet="vm$ as vm">
-  <form [formGroup]="form" (ngSubmit)="calculatePayment()" class="payment-calculator">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="calculatePayment()"
+    class="payment-calculator"
+  >
     <h2 class="title">{{ 'components.product-payment.title' | translate }}</h2>
     <div class="input-fields">
       <div class="field">
         <div class="field-head">
-          <label class="label" for="tax">{{ 'components.product-payment.fields.tax.label' | translate }}</label>
+          <label class="label" for="tax">{{
+            'components.product-payment.fields.tax.label' | translate
+          }}</label>
           <strong class="error" *ngIf="tax.errors?.['min']">
-            {{ 'components.product-payment.fields.tax.errors.number' | translate }}
+            {{
+              'components.product-payment.fields.tax.errors.number' | translate
+            }}
           </strong>
           <strong class="error" *ngIf="tax.errors?.['required']">
-            {{ 'components.product-payment.fields.tax.errors.required' | translate }}
+            {{
+              'components.product-payment.fields.tax.errors.required'
+                | translate
+            }}
           </strong>
         </div>
-        <input id="tax" class="currency-input" formControlName="tax" shared-text-field type="number" min="0" />
+        <input
+          id="tax"
+          class="currency-input"
+          formControlName="tax"
+          shared-text-field
+          type="number"
+          min="0"
+        />
       </div>
       <div class="field">
         <div class="field-head">
@@ -20,10 +38,16 @@
             'components.product-payment.fields.insurance.label' | translate
           }}</label>
           <strong class="error" *ngIf="insurance.errors?.['min']">
-            {{ 'components.product-payment.fields.insurance.errors.number' | translate }}
+            {{
+              'components.product-payment.fields.insurance.errors.number'
+                | translate
+            }}
           </strong>
           <strong class="error" *ngIf="insurance.errors?.['required']">
-            {{ 'components.product-payment.fields.insurance.errors.required' | translate }}
+            {{
+              'components.product-payment.fields.insurance.errors.required'
+                | translate
+            }}
           </strong>
         </div>
         <input
@@ -41,10 +65,16 @@
             'components.product-payment.fields.deposit.label' | translate
           }}</label>
           <strong class="error" *ngIf="deposit.errors?.['min']">
-            {{ 'components.product-payment.fields.deposit.errors.number' | translate }}
+            {{
+              'components.product-payment.fields.deposit.errors.number'
+                | translate
+            }}
           </strong>
           <strong class="error" *ngIf="deposit.errors?.['required']">
-            {{ 'components.product-payment.fields.deposit.errors.required' | translate }}
+            {{
+              'components.product-payment.fields.deposit.errors.required'
+                | translate
+            }}
           </strong>
         </div>
         <input
@@ -62,25 +92,50 @@
             'components.product-payment.fields.interest.label' | translate
           }}</label>
           <strong class="error" *ngIf="interest.errors?.['min']">
-            {{ 'components.product-payment.fields.interest.errors.number' | translate }}
+            {{
+              'components.product-payment.fields.interest.errors.number'
+                | translate
+            }}
           </strong>
           <strong class="error" *ngIf="interest.errors?.['required']">
-            {{ 'components.product-payment.fields.interest.errors.required' | translate }}
+            {{
+              'components.product-payment.fields.interest.errors.required'
+                | translate
+            }}
           </strong>
         </div>
-        <input id="interest-rate" formControlName="interest" shared-text-field type="number" min="0" />
+        <input
+          id="interest-rate"
+          formControlName="interest"
+          shared-text-field
+          type="number"
+          min="0"
+        />
       </div>
       <div class="field">
         <div class="field-head">
-          <label class="label" for="loan-term">{{ 'components.product-payment.fields.term.label' | translate }}</label>
+          <label class="label" for="loan-term">{{
+            'components.product-payment.fields.term.label' | translate
+          }}</label>
           <strong class="error" *ngIf="term.errors?.['min']">
-            {{ 'components.product-payment.fields.term.errors.number' | translate }}
+            {{
+              'components.product-payment.fields.term.errors.number' | translate
+            }}
           </strong>
           <strong class="error" *ngIf="term.errors?.['required']">
-            {{ 'components.product-payment.fields.term.errors.required' | translate }}
+            {{
+              'components.product-payment.fields.term.errors.required'
+                | translate
+            }}
           </strong>
         </div>
-        <input id="loan-term" formControlName="term" shared-text-field type="number" min="1" />
+        <input
+          id="loan-term"
+          formControlName="term"
+          shared-text-field
+          type="number"
+          min="1"
+        />
       </div>
       <div class="field">
         <div class="field-head">
@@ -88,10 +143,16 @@
             'components.product-payment.fields.total.label' | translate
           }}</label>
           <strong class="error" *ngIf="total.errors?.['min']">
-            {{ 'components.product-payment.fields.total.errors.number' | translate }}
+            {{
+              'components.product-payment.fields.total.errors.number'
+                | translate
+            }}
           </strong>
           <strong class="error" *ngIf="total.errors?.['required']">
-            {{ 'components.product-payment.fields.total.errors.required' | translate }}
+            {{
+              'components.product-payment.fields.total.errors.required'
+                | translate
+            }}
           </strong>
         </div>
         <input
@@ -110,7 +171,13 @@
         [label]="'components.product-payment.chart.label' | translate"
       ></ngx-charts-advanced-pie-chart>
     </div>
-    <button class="calculate-button" type="submit" shared-button color="secondary" [disabled]="form.invalid">
+    <button
+      class="calculate-button"
+      type="submit"
+      shared-button
+      color="secondary"
+      [disabled]="form.invalid"
+    >
       {{ 'components.product-payment.calculate-button' | translate }}
     </button>
   </form>
