@@ -15,3 +15,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_REALESTATE_1AB39 }}'
           channelId: live
           projectId: realestate-1ab39
+          entryPoint: './client'
