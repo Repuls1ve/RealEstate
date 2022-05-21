@@ -2,28 +2,42 @@
   <div class="product-results" *ngIf="!vm.loading; else loader">
     <div class="overview-column">
       <h2 class="results-for">
-        {{ 'components.product-results.overview.results-for' | translate : vm.results }}
+        {{
+          'components.product-results.overview.results-for'
+            | translate: vm.results
+        }}
       </h2>
-      <span class="period-restrictions" *ngIf="vm.periodSpecified" >
-        {{ 'components.product-results.overview.period' | translate : vm.period }}
+      <span class="period-restrictions" *ngIf="vm.periodSpecified">
+        {{
+          'components.product-results.overview.period' | translate: vm.period
+        }}
       </span>
       <div class="price-restrictions" *ngIf="vm.restrictions">
         <span class="price-restrictions-from" *ngIf="vm.meta.priceMin">
-          {{ 'components.product-results.overview.price-restrictions.from' | translate : vm.price }}
+          {{
+            'components.product-results.overview.price-restrictions.from'
+              | translate: vm.price
+          }}
         </span>
         <span class="price-restrictions-to" *ngIf="vm.meta.priceMax">
-          {{ 'components.product-results.overview.price-restrictions.to' | translate : vm.price }}
+          {{
+            'components.product-results.overview.price-restrictions.to'
+              | translate: vm.price
+          }}
         </span>
       </div>
       <span class="results-count">
-        {{ 'components.product-results.overview.results-count' | translate : vm.count }}
+        {{
+          'components.product-results.overview.results-count'
+            | translate: vm.count
+        }}
       </span>
     </div>
     <div class="products">
       <product-card
-      *ngFor="let product of vm.products"
-      [product]="product"
-      class="product"
+        *ngFor="let product of vm.products"
+        [product]="product"
+        class="product"
       ></product-card>
     </div>
   </div>
@@ -35,9 +49,9 @@
       </div>
       <div class="products">
         <product-card
-        *ngFor="let loader of vm.limit | times"
-        [loading]="true"
-        class="product"
+          *ngFor="let loader of vm.limit | times"
+          [loading]="true"
+          class="product"
         ></product-card>
       </div>
     </div>

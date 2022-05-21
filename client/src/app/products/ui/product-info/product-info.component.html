@@ -1,16 +1,24 @@
 <div class="product-info" *ngIf="!loading && product; else loader">
   <h1 class="title">{{ product.title }}</h1>
   <div class="location">
-    <svg-icon src="/assets/svg/location.svg" class="location-icon" svgClass="icon"></svg-icon>
+    <svg-icon
+      src="/assets/svg/location.svg"
+      class="location-icon"
+      svgClass="icon"
+    ></svg-icon>
     <p class="position">{{ product.location.position }}</p>
   </div>
   <carousel class="carousel"></carousel>
   <div class="description">
-    <h2 class="property-title">{{ 'components.product-info.description' | translate }}</h2>
+    <h2 class="property-title">
+      {{ 'components.product-info.description' | translate }}
+    </h2>
     <p class="description-text">{{ product.description }}</p>
   </div>
   <div class="overview">
-    <h2 class="property-title">{{ 'components.product-info.overview' | translate }}</h2>
+    <h2 class="property-title">
+      {{ 'components.product-info.overview' | translate }}
+    </h2>
     <ul class="overview-list">
       <li class="overview-list-item" *ngFor="let overview of product.overview">
         <p>{{ overview }}</p>
@@ -18,40 +26,58 @@
     </ul>
   </div>
   <div class="details">
-    <h2 class="property-title">{{ 'components.product-info.details.title' | translate }}</h2>
+    <h2 class="property-title">
+      {{ 'components.product-info.details.title' | translate }}
+    </h2>
     <div class="details-properties">
       <ul class="details-list">
         <li class="row">
-          <span class="head">{{ 'components.product-info.details.property-id' | translate }}</span>
+          <span class="head">{{
+            'components.product-info.details.property-id' | translate
+          }}</span>
           <span class="data">{{ product.details.uid }}</span>
         </li>
         <li class="row">
-          <span class="head">{{ 'components.product-info.details.price' | translate }}</span>
-          <span class="data">{{ product.details.price | currency: 'USD':'symbol':'2.0-2' }}</span>
+          <span class="head">{{
+            'components.product-info.details.price' | translate
+          }}</span>
+          <span class="data">{{
+            product.details.price | currency: 'USD':'symbol':'2.0-2'
+          }}</span>
         </li>
         <li class="row">
-          <span class="head">{{ 'components.product-info.details.property-size' | translate }}</span>
+          <span class="head">{{
+            'components.product-info.details.property-size' | translate
+          }}</span>
           <span class="data">{{ product.details.size }}</span>
         </li>
         <li class="row">
-          <span class="head">{{ 'components.product-info.details.category' | translate }}</span>
+          <span class="head">{{
+            'components.product-info.details.category' | translate
+          }}</span>
           <span class="data">{{ product.details.category }}</span>
         </li>
       </ul>
       <ul class="details-list">
         <li class="row">
-          <span class="head">{{ 'components.product-info.details.year' | translate }}</span>
+          <span class="head">{{
+            'components.product-info.details.year' | translate
+          }}</span>
           <span class="data">{{ product.details.year }}</span>
         </li>
         <li class="row">
-          <span class="head">{{ 'components.product-info.details.property-status' | translate }}</span>
+          <span class="head">{{
+            'components.product-info.details.property-status' | translate
+          }}</span>
           <span class="data">{{ product.details.status }}</span>
         </li>
       </ul>
     </div>
   </div>
   <div class="address">
-    <h2 class="property-title">{{ 'components.product-info.address' | translate }}</h2>
+    <h2 class="property-title">
+      {{ 'components.product-info.address' | translate }}
+    </h2>
     <div class="map"></div>
   </div>
 </div>
@@ -61,7 +87,9 @@
     <ngx-skeleton-loader class="position-loader loader"></ngx-skeleton-loader>
     <ngx-skeleton-loader class="img-loader loader"></ngx-skeleton-loader>
     <div class="description">
-      <ngx-skeleton-loader class="property-title-loader loader"></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        class="property-title-loader loader"
+      ></ngx-skeleton-loader>
       <div class="description-text-loaders">
         <ngx-skeleton-loader
           class="description-text-loader loader"
@@ -70,30 +98,47 @@
       </div>
     </div>
     <div class="overview">
-      <ngx-skeleton-loader class="property-title-loader loader"></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        class="property-title-loader loader"
+      ></ngx-skeleton-loader>
       <div class="overview-list">
-        <ngx-skeleton-loader class="overview-item-loader loader" *ngFor="let index of 4 | times"></ngx-skeleton-loader>
+        <ngx-skeleton-loader
+          class="overview-item-loader loader"
+          *ngFor="let index of 4 | times"
+        ></ngx-skeleton-loader>
       </div>
     </div>
     <div class="details">
-      <ngx-skeleton-loader class="property-title-loader loader"></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        class="property-title-loader loader"
+      ></ngx-skeleton-loader>
       <div class="details-properties">
         <ul class="details-list">
           <li class="row" *ngFor="let index of 4 | times">
-            <ngx-skeleton-loader class="details-head-loader loader"></ngx-skeleton-loader>
-            <ngx-skeleton-loader class="details-data-loader loader"></ngx-skeleton-loader>
+            <ngx-skeleton-loader
+              class="details-head-loader loader"
+            ></ngx-skeleton-loader>
+            <ngx-skeleton-loader
+              class="details-data-loader loader"
+            ></ngx-skeleton-loader>
           </li>
         </ul>
         <ul class="details-list">
           <li class="row" *ngFor="let index of 2 | times">
-            <ngx-skeleton-loader class="details-head-loader loader"></ngx-skeleton-loader>
-            <ngx-skeleton-loader class="details-data-loader loader"></ngx-skeleton-loader>
+            <ngx-skeleton-loader
+              class="details-head-loader loader"
+            ></ngx-skeleton-loader>
+            <ngx-skeleton-loader
+              class="details-data-loader loader"
+            ></ngx-skeleton-loader>
           </li>
         </ul>
       </div>
     </div>
     <div class="address">
-      <ngx-skeleton-loader class="property-title-loader loader"></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        class="property-title-loader loader"
+      ></ngx-skeleton-loader>
       <ngx-skeleton-loader class="map-loader loader"></ngx-skeleton-loader>
     </div>
   </div>

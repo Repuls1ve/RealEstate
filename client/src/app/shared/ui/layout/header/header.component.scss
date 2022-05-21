@@ -1,6 +1,6 @@
-@use 'brand-colors';
-@use 'typography';
-@use 'breakpoints';
+@use "brand-colors";
+@use "typography";
+@use "breakpoints";
 
 .header {
   width: 100%;
@@ -29,7 +29,7 @@
         font-weight: typography.$semi-bold;
 
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           margin: auto auto -15px;
           left: 0;

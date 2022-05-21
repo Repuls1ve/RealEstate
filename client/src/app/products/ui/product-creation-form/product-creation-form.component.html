@@ -1,24 +1,34 @@
 <ng-container *ngrxLet="vm$ as vm">
   <stepper
-  #stepper
-  [steps]="vm.steps"
-  (stepChange)="onStepChange($event)"
+    #stepper
+    [steps]="vm.steps"
+    (stepChange)="onStepChange($event)"
   ></stepper>
   <form
-  class="product-creation-form"
-  [formGroup]="form"
-  [ngSwitch]="vm.stepId"
-  (ngSubmit)="onSubmit()"
+    class="product-creation-form"
+    [formGroup]="form"
+    [ngSwitch]="vm.stepId"
+    (ngSubmit)="onSubmit()"
   >
     <ng-container *ngSwitchCase="1">
       <div class="form-field-group">
         <div class="form-field">
           <label for="property-title">Property title</label>
-          <input id="property-title" placeholder="Add listing title" shared-text-field formControlName="title" />
+          <input
+            id="property-title"
+            placeholder="Add listing title"
+            shared-text-field
+            formControlName="title"
+          />
         </div>
         <div class="form-field">
           <label for="">Price</label>
-          <input id="price" placeholder="Add price" shared-text-field formControlName="price" />
+          <input
+            id="price"
+            placeholder="Add price"
+            shared-text-field
+            formControlName="price"
+          />
         </div>
       </div>
       <div class="form-field">
@@ -37,33 +47,69 @@
         </div>
         <div class="form-field">
           <label for="uid">Identifier</label>
-          <input id="uid" placeholder="Add identifier" shared-text-field formControlName="uid" />
+          <input
+            id="uid"
+            placeholder="Add identifier"
+            shared-text-field
+            formControlName="uid"
+          />
         </div>
       </div>
       <div class="form-field-group">
         <div class="form-field">
           <label for="">Property size</label>
-          <input id="property-size" placeholder="Add property size" shared-text-field formControlName="size" />
+          <input
+            id="property-size"
+            placeholder="Add property size"
+            shared-text-field
+            formControlName="size"
+          />
         </div>
         <div class="form-field">
           <label for="">Year</label>
-          <input id="year" placeholder="Add built year" shared-text-field formControlName="year" />
+          <input
+            id="year"
+            placeholder="Add built year"
+            shared-text-field
+            formControlName="year"
+          />
         </div>
       </div>
       <div class="form-field-group">
         <div class="form-field">
           <label for="category">Category</label>
           <select id="category" shared-select formControlName="category">
-            <option value="apartments">{{ 'search-form.attributes.category.options.apartments' | translate }}</option>
-            <option value="condominium">{{ 'search-form.attributes.category.options.condominium' | translate }}</option>
-            <option value="duplex">{{ 'search-form.attributes.category.options.duplex' | translate }}</option>
+            <option value="apartments">
+              {{
+                'search-form.attributes.category.options.apartments' | translate
+              }}
+            </option>
+            <option value="condominium">
+              {{
+                'search-form.attributes.category.options.condominium'
+                  | translate
+              }}
+            </option>
+            <option value="duplex">
+              {{ 'search-form.attributes.category.options.duplex' | translate }}
+            </option>
             <option value="multi-family">
-              {{ 'search-form.attributes.category.options.multi-family' | translate }}
+              {{
+                'search-form.attributes.category.options.multi-family'
+                  | translate
+              }}
             </option>
             <option value="single-family">
-              {{ 'search-form.attributes.category.options.single-family' | translate }}
+              {{
+                'search-form.attributes.category.options.single-family'
+                  | translate
+              }}
             </option>
-            <option value="townhouse">{{ 'search-form.attributes.category.options.townhouse' | translate }}</option>
+            <option value="townhouse">
+              {{
+                'search-form.attributes.category.options.townhouse' | translate
+              }}
+            </option>
           </select>
         </div>
         <div class="form-field">
@@ -76,47 +122,101 @@
       </div>
       <div class="form-field">
         <label for="agency-id">Agency Id</label>
-        <input id="agency-id" placeholder="Add agency id" shared-text-field formControlName="agency" />
+        <input
+          id="agency-id"
+          placeholder="Add agency id"
+          shared-text-field
+          formControlName="agency"
+        />
       </div>
-      <button class="next-button" color="secondary" shared-button (click)="stepper.selectNextStep()">Next step</button>
+      <button
+        class="next-button"
+        color="secondary"
+        shared-button
+        (click)="stepper.selectNextStep()"
+      >
+        Next step
+      </button>
     </ng-container>
     <ng-container *ngSwitchCase="2">
       <div class="form-field-group">
         <div class="form-field">
           <label for="position">Position</label>
-          <input id="position" placeholder="Add position" shared-text-field formControlName="position" />
+          <input
+            id="position"
+            placeholder="Add position"
+            shared-text-field
+            formControlName="position"
+          />
         </div>
         <div class="form-field">
           <label for="city">City</label>
-          <input id="city" placeholder="Add city" shared-text-field formControlName="city" />
+          <input
+            id="city"
+            placeholder="Add city"
+            shared-text-field
+            formControlName="city"
+          />
         </div>
       </div>
       <div class="form-field-group">
         <div class="form-field">
           <label for="state">State</label>
-          <input id="state" placeholder="Add state" shared-text-field formControlName="state" />
+          <input
+            id="state"
+            placeholder="Add state"
+            shared-text-field
+            formControlName="state"
+          />
         </div>
         <div class="form-field">
           <label for="zip">Zip Code</label>
-          <input id="zip" placeholder="Add zip code" shared-text-field formControlName="zip" />
+          <input
+            id="zip"
+            placeholder="Add zip code"
+            shared-text-field
+            formControlName="zip"
+          />
         </div>
       </div>
       <div class="form-field-group">
         <div class="form-field">
           <label for="area">Area</label>
-          <input id="area" placeholder="Add area" shared-text-field formControlName="area" />
+          <input
+            id="area"
+            placeholder="Add area"
+            shared-text-field
+            formControlName="area"
+          />
         </div>
         <div class="form-field">
           <label for="country">Country</label>
-          <input id="contry" placeholder="Add country" shared-text-field formControlName="country" />
+          <input
+            id="contry"
+            placeholder="Add country"
+            shared-text-field
+            formControlName="country"
+          />
         </div>
       </div>
-      <button class="next-button" color="secondary" shared-button (click)="stepper.selectNextStep()">Next step</button>
+      <button
+        class="next-button"
+        color="secondary"
+        shared-button
+        (click)="stepper.selectNextStep()"
+      >
+        Next step
+      </button>
     </ng-container>
     <ng-container *ngSwitchCase="3" formGroupName="translation">
       <div class="form-field">
         <label for="title-ru">Property Title [RU]</label>
-        <input id="title-ru" placeholder="Add listing title translation" shared-text-field formControlName="title" />
+        <input
+          id="title-ru"
+          placeholder="Add listing title translation"
+          shared-text-field
+          formControlName="title"
+        />
       </div>
       <div class="form-field">
         <label for="description-ru">Description [RU]</label>
@@ -130,26 +230,51 @@
       <div class="form-field-group">
         <div class="form-field">
           <label for="position">Position [RU]</label>
-          <input id="position" placeholder="Add position" shared-text-field formControlName="position" />
+          <input
+            id="position"
+            placeholder="Add position"
+            shared-text-field
+            formControlName="position"
+          />
         </div>
         <div class="form-field">
           <label for="city">City [RU]</label>
-          <input id="city" placeholder="Add city" shared-text-field formControlName="city" />
+          <input
+            id="city"
+            placeholder="Add city"
+            shared-text-field
+            formControlName="city"
+          />
         </div>
       </div>
       <div class="form-field-group">
         <div class="form-field">
           <label for="area">Area [RU]</label>
-          <input id="area" placeholder="Add area" shared-text-field formControlName="area" />
+          <input
+            id="area"
+            placeholder="Add area"
+            shared-text-field
+            formControlName="area"
+          />
         </div>
         <div class="form-field">
           <label for="country">Country [RU]</label>
-          <input id="contry" placeholder="Add country" shared-text-field formControlName="country" />
+          <input
+            id="contry"
+            placeholder="Add country"
+            shared-text-field
+            formControlName="country"
+          />
         </div>
       </div>
       <div class="form-field">
         <label for="state">State [RU]</label>
-        <input id="state" placeholder="Add state" shared-text-field formControlName="state" />
+        <input
+          id="state"
+          placeholder="Add state"
+          shared-text-field
+          formControlName="state"
+        />
       </div>
       <div class="form-field">
         <label for="">Property size [RU]</label>
@@ -160,7 +285,13 @@
           formControlName="size"
         />
       </div>
-      <button class="submit-button" [disabled]="form.invalid" type="submit" color="secondary" shared-button>
+      <button
+        class="submit-button"
+        [disabled]="form.invalid"
+        type="submit"
+        color="secondary"
+        shared-button
+      >
         Create product
       </button>
     </ng-container>

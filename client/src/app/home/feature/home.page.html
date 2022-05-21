@@ -1,7 +1,9 @@
 <div class="home-page">
   <section class="discover">
     <h1 class="heading">{{ 'pages.home.overview.title' | translate }}</h1>
-    <p class="description">{{ 'pages.home.overview.description' | translate }}</p>
+    <p class="description">
+      {{ 'pages.home.overview.description' | translate }}
+    </p>
     <search-form (search)="onSearch($event)"></search-form>
   </section>
   <section>
