@@ -116,6 +116,34 @@
           "placeholder": "Выберите агенство"
         }
       }
+    },
+    "product-location": {
+      "fields": {
+        "position": {
+          "label": "Местоположение",
+          "placeholder": "Укажите местоположение"
+        },
+        "city": {
+          "label": "Город",
+          "placeholder": "Укажите город"
+        },
+        "state": {
+          "label": "Штат",
+          "placeholder": "Укажите штат"
+        },
+        "zip": {
+          "label": "ZIP код",
+          "placeholder": "Укажите ZIP код"
+        },
+        "area": {
+          "label": "Область",
+          "placeholder": "Укажите область"
+        },
+        "country": {
+          "label": "Страна",
+          "placeholder": "Укажите страну"
+        }
+      }
     }
   },
   "components": {

@@ -116,6 +116,34 @@
           "placeholder": "Select agency"
         }
       }
+    },
+    "product-location": {
+      "fields": {
+        "position": {
+          "label": "Position",
+          "placeholder": "Add position"
+        },
+        "city": {
+          "label": "City",
+          "placeholder": "Add city"
+        },
+        "state": {
+          "label": "State",
+          "placeholder": "Add state"
+        },
+        "zip": {
+          "label": "ZIP code",
+          "placeholder": "Add ZIP code"
+        },
+        "area": {
+          "label": "Area",
+          "placeholder": "Add area"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Add country"
+        }
+      }
     }
   },
   "components": {
