@@ -117,6 +117,47 @@
         }
       }
     },
+    "product-translate": {
+      "fields": {
+        "title": {
+          "label": "Property title",
+          "placeholder": "Add title"
+        },
+        "description": {
+          "label": "Description",
+          "placeholder": "Add description"
+        },
+        "overviews": {
+          "label": "Overview",
+          "placeholder": "Add overview",
+          "add-button": "Add overview"
+        },
+        "position": {
+          "label": "Position",
+          "placeholder": "Add position"
+        },
+        "city": {
+          "label": "City",
+          "placeholder": "Add city"
+        },
+        "state": {
+          "label": "State",
+          "placeholder": "Add state"
+        },
+        "size": {
+          "label": "Property size",
+          "placeholder": "Add property size"
+        },
+        "area": {
+          "label": "Area",
+          "placeholder": "Add area"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Add country"
+        }
+      }
+    },
     "product-location": {
       "fields": {
         "position": {
