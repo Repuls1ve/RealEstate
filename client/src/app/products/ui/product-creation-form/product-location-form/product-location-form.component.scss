@@ -1,0 +1,46 @@
+@use "brand-colors";
+@use "typography";
+@use "breakpoints";
+
+.product-location {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+
+  .form-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    label {
+      font-size: 1.15rem;
+      line-height: 200%;
+      font-family: typography.$font-secondary;
+      font-weight: typography.$semi-bold;
+      color: brand-colors.$greyscale-80;
+      text-transform: capitalize;
+    }
+
+    textarea {
+      height: 200px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      font-weight: typography.$regular;
+      text-transform: capitalize;
+    }
+  }
+
+  .form-field-group {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 32px;
+
+    .form-field {
+      flex: 1;
+    }
+  }
+}
