@@ -62,7 +62,61 @@
       },
       "search-button": "Search"
     },
-    "product-creation": {}
+    "product-general": {
+      "fields": {
+        "title": {
+          "label": "Название",
+          "placeholder": "Добавьте название"
+        },
+        "price": {
+          "label": "Цена",
+          "placeholder": "Укажите цену"
+        },
+        "description": {
+          "label": "Описание",
+          "placeholder": "Добавьте описание"
+        },
+        "overviews": {
+          "label": "Краткая сводка",
+          "placeholder": "Добавить сводку",
+          "add-button": "Добавьте сводку"
+        },
+        "identifier": {
+          "label": "Артикул",
+          "placeholder": "Укажите артикул"
+        },
+        "size": {
+          "label": "Площадь",
+          "placeholder": "Укажите площадь"
+        },
+        "year": {
+          "label": "Год постройки",
+          "placeholder": "Укажите год постройки"
+        },
+        "category": {
+          "label": "Категория",
+          "options": {
+            "apartments": "Апартаменты",
+            "condominium": "Кондоминиум",
+            "duplex": "Двухуровневый дом",
+            "multi-family": "Многоквартирный дом",
+            "single-family": "Индивидуальный дом",
+            "townhouse": "Особняк"
+          }
+        },
+        "status": {
+          "label": "Статус",
+          "options": {
+            "sell": "Продажа",
+            "rent": "Аренда"
+          }
+        },
+        "agency": {
+          "label": "Агенство",
+          "placeholder": "Выберите агенство"
+        }
+      }
+    }
   },
   "components": {
     "home-benefits": {
