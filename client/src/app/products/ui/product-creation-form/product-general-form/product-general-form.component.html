@@ -1,0 +1,188 @@
+<div class="product-general" [formGroup]="form" *ngrxLet="vm$ as vm">
+  <div class="form-field-group">
+    <div class="form-field">
+      <label for="property-title">{{
+        'forms.product-general.fields.title.label' | translate
+      }}</label>
+      <input
+        id="property-title"
+        [placeholder]="
+          'forms.product-general.fields.title.placeholder' | translate
+        "
+        shared-text-field
+        formControlName="title"
+      />
+    </div>
+    <div class="form-field">
+      <label for="price">{{
+        'forms.product-general.fields.price.label' | translate
+      }}</label>
+      <input
+        id="price"
+        [placeholder]="
+          'forms.product-general.fields.price.placeholder' | translate
+        "
+        shared-text-field
+        suffix="$"
+        mask="0*"
+        formControlName="price"
+      />
+    </div>
+  </div>
+  <div class="form-field">
+    <label for="description">{{
+      'forms.product-general.fields.description.label' | translate
+    }}</label>
+    <textarea
+      id="description"
+      [placeholder]="
+        'forms.product-general.fields.description.placeholder' | translate
+      "
+      shared-text-area
+      formControlName="description"
+    ></textarea>
+  </div>
+  <div class="form-field-array" formArrayName="overviews">
+    <button
+      class="add-button"
+      type="button"
+      shared-button
+      (click)="addOverview()"
+    >
+      {{ 'forms.product-general.fields.overviews.add-button' | translate }}
+    </button>
+    <div class="form-field-group">
+      <div
+        class="form-field"
+        *ngFor="let overview of overviews.controls; let i = index"
+      >
+        <label [for]="'overview' + i">
+          {{ 'forms.product-general.fields.overviews.label' | translate }}
+        </label>
+        <input
+          [id]="'overview' + i"
+          [placeholder]="
+            'forms.product-general.fields.overviews.placeholder' | translate
+          "
+          shared-text-field
+          [formControlName]="i"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="form-field">
+    <label for="identifier">{{
+      'forms.product-general.fields.identifier.label' | translate
+    }}</label>
+    <input
+      id="identifier"
+      [placeholder]="
+        'forms.product-general.fields.identifier.placeholder' | translate
+      "
+      shared-text-field
+      formControlName="uid"
+    />
+  </div>
+  <div class="form-field-group">
+    <div class="form-field">
+      <label for="property-size">{{
+        'forms.product-general.fields.size.label' | translate
+      }}</label>
+      <input
+        id="property-size"
+        [placeholder]="
+          'forms.product-general.fields.size.placeholder' | translate
+        "
+        shared-text-field
+        suffix="&nbsp;square feet"
+        mask="0*"
+        formControlName="size"
+      />
+    </div>
+    <div class="form-field">
+      <label for="year">{{
+        'forms.product-general.fields.year.label' | translate
+      }}</label>
+      <input
+        id="year"
+        [placeholder]="
+          'forms.product-general.fields.year.placeholder' | translate
+        "
+        shared-text-field
+        mask="0000"
+        formControlName="year"
+      />
+    </div>
+  </div>
+  <div class="form-field-group">
+    <div class="form-field">
+      <label for="category">{{
+        'forms.product-general.fields.category.label' | translate
+      }}</label>
+      <ng-select
+        labelForId="category"
+        formControlName="category"
+        [searchable]="false"
+        [clearable]="false"
+      >
+        <ng-option value="apartments">{{
+          'forms.product-general.fields.category.options.apartments' | translate
+        }}</ng-option>
+        <ng-option value="condominium">{{
+          'forms.product-general.fields.category.options.condominium'
+            | translate
+        }}</ng-option>
+        <ng-option value="duplex">{{
+          'forms.product-general.fields.category.options.duplex' | translate
+        }}</ng-option>
+        <ng-option value="multi-family">{{
+          'forms.product-general.fields.category.options.multi-family'
+            | translate
+        }}</ng-option>
+        <ng-option value="single-family">{{
+          'forms.product-general.fields.category.options.single-family'
+            | translate
+        }}</ng-option>
+        <ng-option value="townhouse">{{
+          'forms.product-general.fields.category.options.townhouse' | translate
+        }}</ng-option>
+      </ng-select>
+    </div>
+    <div class="form-field">
+      <label for="status">{{
+        'forms.product-general.fields.status.label' | translate
+      }}</label>
+      <ng-select
+        labelForId="status"
+        formControlName="status"
+        [searchable]="false"
+        [clearable]="false"
+      >
+        <ng-option value="sell">{{
+          'forms.product-general.fields.status.options.sell' | translate
+        }}</ng-option>
+        <ng-option value="rent">{{
+          'forms.product-general.fields.status.options.rent' | translate
+        }}</ng-option>
+      </ng-select>
+    </div>
+  </div>
+  <div class="form-field">
+    <label for="agency-id">{{
+      'forms.product-general.fields.agency.label' | translate
+    }}</label>
+    <ng-select
+      id="agency-id"
+      bindLabel="title"
+      bindValue="title"
+      [placeholder]="
+        'forms.product-general.fields.agency.placeholder' | translate
+      "
+      formControlName="agency"
+      [clearable]="false"
+      [items]="vm.agencyInput.items"
+      [loading]="vm.agencyInput.loading"
+      (search)="onAgencySearch($event)"
+    ></ng-select>
+  </div>
+</div>
