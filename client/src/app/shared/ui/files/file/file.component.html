@@ -1,0 +1,22 @@
+<div class="file-wrapper" *ngrxLet="vm$ as vm">
+  <div class="file-status">
+    <svg-icon [src]="vm.icon" class="file-status-icon"></svg-icon>
+  </div>
+  <div class="file-content">
+    <div class="row">
+      <span class="file-name">{{ vm.file.name }}</span>
+      <span *ngIf="vm.showSize" class="file-size">{{
+        vm.file.size | fileSize
+      }}</span>
+      <button class="file-remove" type="button" (click)="onRemove()">
+        <svg-icon
+          src="/assets/svg/close.svg"
+          class="file-remove-icon"
+        ></svg-icon>
+      </button>
+    </div>
+    <span *ngIf="vm.file.content" class="file-reject">{{
+      vm.file.content
+    }}</span>
+  </div>
+</div>
