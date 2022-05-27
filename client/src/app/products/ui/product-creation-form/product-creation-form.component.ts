@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, Output } from '@angular/core'
-import { FormArray, FormBuilder, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Categories, PropertyStatuses } from '@shared/models/product.model'
 import { Step, StepEvent } from '@shared/ui/stepper/stepper.store'
 import { ProductCreationFormStore, ProductCreationFormValues } from './product-creation-form.store'
@@ -30,21 +30,27 @@ export class ProductCreationFormComponent implements OnInit {
   public readonly vm$ = this.productCreationFormStore.vm$
 
   public readonly form = this.fb.group({
-    uid: [null, Validators.required],
-    title: [null, Validators.required],
-    description: [null, Validators.required],
-    price: [null, Validators.required],
-    size: [null, Validators.required],
-    year: [null, Validators.required],
-    category: [Categories.Apartments, Validators.required],
-    status: [PropertyStatuses.Sell, Validators.required],
-    position: [null, Validators.required],
-    city: [null, Validators.required],
-    state: [null, Validators.required],
-    zip: [null, Validators.required],
-    area: [null, Validators.required],
-    country: [null, Validators.required],
-    agency: [null, Validators.required],
+    general: this.fb.group({
+      uid: [null, Validators.required],
+      title: [null, Validators.required],
+      description: [null, Validators.required],
+      price: [null, Validators.required],
+      size: [null, Validators.required],
+      year: [null, Validators.required],
+      category: [Categories.Apartments, Validators.required],
+      status: [PropertyStatuses.Sell, Validators.required],
+      agency: [null, Validators.required],
+      overviews: this.fb.array([]),
+      files: [[]]
+    }),
+    location: this.fb.group({
+      position: [null, Validators.required],
+      city: [null, Validators.required],
+      state: [null, Validators.required],
+      zip: [null, Validators.required],
+      area: [null, Validators.required],
+      country: [null, Validators.required]
+    }),
     translation: this.fb.group({
       title: [null, Validators.required],
       description: [null, Validators.required],
@@ -54,9 +60,8 @@ export class ProductCreationFormComponent implements OnInit {
       state: [null, Validators.required],
       area: [null, Validators.required],
       country: [null, Validators.required],
-      overview: this.fb.array([])
-    }),
-    overview: this.fb.array([])
+      overviews: this.fb.array([])
+    })
   })
 
   @Output()
@@ -72,8 +77,8 @@ export class ProductCreationFormComponent implements OnInit {
     this.productCreationFormStore.setSteps(steps)
   }
 
-  public addOverview(): void {
-    this.overview.push(this.fb.control(''))
+  public onStepChange(event: StepEvent): void {
+    this.productCreationFormStore.onStepChange(event)
   }
 
   public onSubmit(): void {
@@ -81,12 +86,11 @@ export class ProductCreationFormComponent implements OnInit {
     this.productCreationFormStore.onSubmit(this.form.value as ProductCreationFormValues)
   }
 
-  public onStepChange(event: StepEvent): void {
-    console.log('emitted!')
-    this.productCreationFormStore.onStepChange(event)
+  public get general(): FormGroup {
+    return this.form.get('general') as FormGroup
   }
 
-  public get overview(): FormArray {
-    return this.form.controls['overview'] as FormArray
+  public get location(): FormGroup {
+    return this.form.get('location') as FormGroup
   }
 }

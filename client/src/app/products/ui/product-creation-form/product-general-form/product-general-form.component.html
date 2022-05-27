@@ -185,4 +185,22 @@
       (search)="onAgencySearch($event)"
     ></ng-select>
   </div>
+  <div class="input-files-field">
+    <app-input-files
+      accept="image/*"
+      formControlName="files"
+      (rejected)="onReject($event)"
+    ></app-input-files>
+    <app-files style="margin-top: 5px">
+      <app-file
+        *ngFor="let file of files.valueChanges | async"
+        [file]="file"
+      ></app-file>
+      <app-file
+        *ngFor="let rejected of rejectedFiles"
+        status="error"
+        [file]="rejected"
+      ></app-file>
+    </app-files>
+  </div>
 </div>
