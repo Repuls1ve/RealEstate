@@ -34,3 +34,95 @@ ngx-tooltip-content.ngx-charts-tooltip-content.type-tooltip {
   background-color: brand-colors.$greyscale-10;
   box-shadow: 0 4px 6px 0 rgba($color: black, $alpha: 0.2);
 }
+
+.ng-select {
+  position: relative;
+
+  &.ng-select-single {
+    position: relative;
+
+    .ng-select-container {
+      padding: 15px 32px 15px 16px;
+      border: 1px solid brand-colors.$greyscale-50;
+      border-radius: 8px;
+      appearance: none;
+      background-image: url("/assets/svg/arrow.svg");
+      background-repeat: no-repeat;
+      background-position: calc(100% - 16px) center;
+      background-size: 16px;
+      font-size: 1rem;
+      font-family: typography.$font-secondary;
+      height: 56px;
+
+      .ng-value-container {
+        text-overflow: ellipsis;
+
+        .ng-placeholder {
+          font-size: 1rem;
+          font-family: typography.$font-secondary;
+          color: brand-colors.$greyscale-70;
+        }
+
+        .ng-value {
+          text-overflow: ellipsis;
+
+          .ng-value-label {
+            font-size: 1rem;
+            font-family: typography.$font-secondary;
+            color: brand-colors.$greyscale-70;
+          }
+        }
+
+        .ng-input {
+          padding-left: 16px;
+          padding-right: 50px;
+        }
+
+        input {
+          font-size: 1rem;
+          font-family: typography.$font-secondary;
+        }
+      }
+
+      &.ng-has-value .ng-placeholder {
+        display: none;
+      }
+    }
+
+    .ng-dropdown-panel {
+      background-color: brand-colors.$greyscale-10;
+      border: 1px solid brand-colors.$greyscale-50;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      box-shadow: 0 1px 0 rgba($color: black, $alpha: 0.06);
+
+      .ng-option {
+        padding: 10px 32px 10px 16px;
+        padding-right: 50px;
+
+        .ng-option-label {
+          font-size: 1rem;
+          font-family: typography.$font-secondary;
+          color: brand-colors.$greyscale-70;
+        }
+      }
+    }
+  }
+
+  &.ng-select-opened {
+    position: relative;
+
+    .ng-select-container {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom: 0;
+    }
+  }
+
+  &.ng-select-focused {
+    &:focus {
+      outline: 2px solid brand-colors.$secondary-50;
+      border: none;
+    }
+  }
+}
