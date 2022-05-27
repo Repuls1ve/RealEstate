@@ -62,7 +62,130 @@
       },
       "search-button": "Search"
     },
-    "product-creation": {}
+    "product-general": {
+      "fields": {
+        "title": {
+          "label": "Property title",
+          "placeholder": "Add title"
+        },
+        "price": {
+          "label": "Price",
+          "placeholder": "Add price"
+        },
+        "description": {
+          "label": "Description",
+          "placeholder": "Add description"
+        },
+        "overviews": {
+          "label": "Overview",
+          "placeholder": "Add overview",
+          "add-button": "Add overview"
+        },
+        "identifier": {
+          "label": "Identifier",
+          "placeholder": "Add Identifier"
+        },
+        "size": {
+          "label": "Property size",
+          "placeholder": "Add property size"
+        },
+        "year": {
+          "label": "Year",
+          "placeholder": "Add built year"
+        },
+        "category": {
+          "label": "Category",
+          "options": {
+            "apartments": "Apartments",
+            "condominium": "Condominium",
+            "duplex": "Duplex Home",
+            "multi-family": "Multi-Family Home",
+            "single-family": "Single-Family Home",
+            "townhouse": "Townhouse"
+          }
+        },
+        "status": {
+          "label": "Status",
+          "options": {
+            "sell": "Sell",
+            "rent": "Rent"
+          }
+        },
+        "agency": {
+          "label": "Agency",
+          "placeholder": "Select agency"
+        }
+      }
+    },
+    "product-translate": {
+      "fields": {
+        "title": {
+          "label": "Property title",
+          "placeholder": "Add title"
+        },
+        "description": {
+          "label": "Description",
+          "placeholder": "Add description"
+        },
+        "overviews": {
+          "label": "Overview",
+          "placeholder": "Add overview",
+          "add-button": "Add overview"
+        },
+        "position": {
+          "label": "Position",
+          "placeholder": "Add position"
+        },
+        "city": {
+          "label": "City",
+          "placeholder": "Add city"
+        },
+        "state": {
+          "label": "State",
+          "placeholder": "Add state"
+        },
+        "size": {
+          "label": "Property size",
+          "placeholder": "Add property size"
+        },
+        "area": {
+          "label": "Area",
+          "placeholder": "Add area"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Add country"
+        }
+      }
+    },
+    "product-location": {
+      "fields": {
+        "position": {
+          "label": "Position",
+          "placeholder": "Add position"
+        },
+        "city": {
+          "label": "City",
+          "placeholder": "Add city"
+        },
+        "state": {
+          "label": "State",
+          "placeholder": "Add state"
+        },
+        "zip": {
+          "label": "ZIP code",
+          "placeholder": "Add ZIP code"
+        },
+        "area": {
+          "label": "Area",
+          "placeholder": "Add area"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Add country"
+        }
+      }
+    }
   },
   "components": {
     "home-benefits": {

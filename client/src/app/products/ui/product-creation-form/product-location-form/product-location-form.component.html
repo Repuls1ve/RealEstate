@@ -1,0 +1,86 @@
+<div class="product-location" [formGroup]="form">
+  <div class="form-field-group">
+    <div class="form-field">
+      <label for="position">{{
+        'forms.product-location.fields.position.label' | translate
+      }}</label>
+      <input
+        id="position"
+        [placeholder]="
+          'forms.product-location.fields.position.placeholder' | translate
+        "
+        shared-text-field
+        formControlName="position"
+      />
+    </div>
+    <div class="form-field">
+      <label for="city">{{
+        'forms.product-location.fields.city.label' | translate
+      }}</label>
+      <input
+        id="city"
+        [placeholder]="
+          'forms.product-location.fields.city.placeholder' | translate
+        "
+        shared-text-field
+        formControlName="city"
+      />
+    </div>
+  </div>
+  <div class="form-field-group">
+    <div class="form-field">
+      <label for="state">{{
+        'forms.product-location.fields.state.label' | translate
+      }}</label>
+      <input
+        id="state"
+        [placeholder]="
+          'forms.product-location.fields.state.placeholder' | translate
+        "
+        shared-text-field
+        formControlName="state"
+      />
+    </div>
+    <div class="form-field">
+      <label for="zip">{{
+        'forms.product-location.fields.zip.label' | translate
+      }}</label>
+      <input
+        id="zip"
+        [placeholder]="
+          'forms.product-location.fields.zip.placeholder' | translate
+        "
+        shared-text-field
+        formControlName="zip"
+      />
+    </div>
+  </div>
+  <div class="form-field-group">
+    <div class="form-field">
+      <label for="area">{{
+        'forms.product-location.fields.area.label' | translate
+      }}</label>
+      <input
+        id="area"
+        [placeholder]="
+          'forms.product-location.fields.area.placeholder' | translate
+        "
+        shared-text-field
+        formControlName="area"
+      />
+    </div>
+    <div class="form-field">
+      <label for="country">{{
+        'forms.product-location.fields.country.label' | translate
+      }}</label>
+      <input
+        id="contry"
+        [placeholder]="
+          'forms.product-location.fields.country.placeholder' | translate
+        "
+        shared-text-field
+        formControlName="country"
+      />
+    </div>
+  </div>
+</div>

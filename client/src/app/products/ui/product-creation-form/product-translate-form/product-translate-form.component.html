@@ -1,0 +1,140 @@
+<div class="product-translate" [formGroup]="vm.form" *ngrxLet="vm$ as vm">
+  <div class="form-field">
+    <label for="title-ru">{{
+      'forms.product-translate.fields.title.label' | translate
+    }}</label>
+    <input
+      id="title-ru"
+      [placeholder]="
+        'forms.product-translate.fields.title.placeholder' | translate
+      "
+      shared-text-field
+      formControlName="title"
+    />
+  </div>
+  <div class="form-field">
+    <label for="description-ru">{{
+      'forms.product-translate.fields.description.label' | translate
+    }}</label>
+    <textarea
+      id="description-ru"
+      [placeholder]="
+        'forms.product-translate.fields.description.placeholder' | translate
+      "
+      shared-text-area
+      formControlName="description"
+    ></textarea>
+  </div>
+  <div class="form-field-array" formArrayName="overviews">
+    <button
+      class="add-button"
+      type="button"
+      shared-button
+      (click)="addOverview()"
+    >
+      {{ 'forms.product-translate.fields.overviews.add-button' | translate }}
+    </button>
+    <div class="form-field-group">
+      <div
+        class="form-field"
+        *ngFor="let overview of vm.overviews.controls; let i = index"
+      >
+        <label [for]="'overview' + i">
+          {{ 'forms.product-translate.fields.overviews.label' | translate }}
+        </label>
+        <input
+          [id]="'overview' + i"
+          [placeholder]="
+            'forms.product-translate.fields.overviews.placeholder' | translate
+          "
+          shared-text-field
+          [formControlName]="i"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="form-field-group">
+    <div class="form-field">
+      <label for="position">{{
+        'forms.product-translate.fields.position.label' | translate
+      }}</label>
+      <input
+        id="position"
+        [placeholder]="
+          'forms.product-translate.fields.position.placeholder' | translate
+        "
+        shared-text-field
+        formControlName="position"
+      />
+    </div>
+    <div class="form-field">
+      <label for="city">{{
+        'forms.product-translate.fields.city.label' | translate
+      }}</label>
+      <input
+        id="city"
+        [placeholder]="
+          'forms.product-translate.fields.city.placeholder' | translate
+        "
+        shared-text-field
+        formControlName="city"
+      />
+    </div>
+  </div>
+  <div class="form-field-group">
+    <div class="form-field">
+      <label for="area">{{
+        'forms.product-translate.fields.area.label' | translate
+      }}</label>
+      <input
+        id="area"
+        [placeholder]="
+          'forms.product-translate.fields.area.placeholder' | translate
+        "
+        shared-text-field
+        formControlName="area"
+      />
+    </div>
+    <div class="form-field">
+      <label for="country">{{
+        'forms.product-translate.fields.country.label' | translate
+      }}</label>
+      <input
+        id="contry"
+        [placeholder]="
+          'forms.product-translate.fields.country.placeholder' | translate
+        "
+        shared-text-field
+        formControlName="country"
+      />
+    </div>
+  </div>
+  <div class="form-field">
+    <label for="state">{{
+      'forms.product-translate.fields.state.label' | translate
+    }}</label>
+    <input
+      id="state"
+      [placeholder]="
+        'forms.product-translate.fields.state.placeholder' | translate
+      "
+      shared-text-field
+      formControlName="state"
+    />
+  </div>
+  <div class="form-field">
+    <label for="property-size-ru">{{
+      'forms.product-translate.fields.size.label' | translate
+    }}</label>
+    <input
+      id="property-size-ru"
+      [placeholder]="
+        'forms.product-translate.fields.size.placeholder' | translate
+      "
+      shared-text-field
+      suffix="&nbsp;square feet"
+      mask="0*"
+      formControlName="size"
+    />
+  </div>
+</div>
