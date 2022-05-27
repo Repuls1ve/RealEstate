@@ -1,0 +1,13 @@
+<div class="input-files-wrapper" *ngrxLet="vm$ as vm">
+  <label class="input-files-label">
+    <span class="label-text">{{ vm.label }}</span>
+    <input
+      #input
+      type="file"
+      class="input-files-native"
+      [accept]="vm.accept"
+      [multiple]="vm.multiple"
+      (change)="onFilesSelected(input)"
+    />
+  </label>
+</div>
