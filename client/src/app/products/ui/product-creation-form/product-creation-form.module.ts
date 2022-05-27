@@ -7,7 +7,6 @@ import { NgSelectModule } from '@ng-select/ng-select'
 import { ReactiveComponentModule } from '@ngrx/component'
 import { TranslateModule } from '@ngx-translate/core'
 import { ButtonModule } from '@shared/ui/controls/button/button.module'
-import { SelectModule } from '@shared/ui/controls/select/select.module'
 import { TextAreaModule } from '@shared/ui/controls/text-area/text-area.module'
 import { TextFieldModule } from '@shared/ui/controls/text-field/text-field.module'
 import { StepperModule } from '@shared/ui/stepper/stepper.module'
@@ -20,7 +19,6 @@ import { ProductTranslateFormComponent } from './product-translate-form/product-
 @NgModule({
   imports: [
     CommonModule,
-    SelectModule,
     ButtonModule,
     FilesModule,
     StepperModule,
