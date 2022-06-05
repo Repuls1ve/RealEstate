@@ -10,16 +10,12 @@
   <div class="content">
     <img src="/assets/img/img-placeholder.png" alt="placeholder" class="img" />
     <app-accordion class="accordion-wrapper">
-      <app-expansion-panel *ngFor="let expansion of accordion">
-        <app-expansion-panel-title>
-          <span class="expansion-title">{{ expansion.title | translate }}</span>
-        </app-expansion-panel-title>
-        <app-expansion-panel-content>
-          <p class="expansion-description">
-            {{ expansion.description | translate }}
-          </p>
-        </app-expansion-panel-content>
-      </app-expansion-panel>
+      <app-accordion-item *ngFor="let expansion of accordion">
+        <span class="expansion-title">{{ expansion.title | translate }}</span>
+        <p appAccordionItemContent class="expansion-description">
+          {{ expansion.description | translate }}
+        </p>
+      </app-accordion-item>
     </app-accordion>
   </div>
 </div>

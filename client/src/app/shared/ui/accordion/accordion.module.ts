@@ -1,18 +1,13 @@
+import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { AngularSvgIconModule as SvgIconModule } from 'angular-svg-icon'
+import { AccordionItemContentDirective } from './accordion-item/accordion-item-content.directive'
+import { AccordionItemComponent } from './accordion-item/accordion-item.component'
 import { AccordionComponent } from './accordion.component'
-import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component'
-import { ExpansionPanelTitleComponent } from './expansion-panel/expansion-panel-title/expansion-panel-title.component'
-import { ExpansionPanelContentComponent } from './expansion-panel/expansion-panel-content/expansion-panel-content.component'
 
 @NgModule({
-  imports: [SvgIconModule],
-  declarations: [
-    AccordionComponent,
-    ExpansionPanelComponent,
-    ExpansionPanelTitleComponent,
-    ExpansionPanelContentComponent
-  ],
-  exports: [AccordionComponent, ExpansionPanelComponent, ExpansionPanelTitleComponent, ExpansionPanelContentComponent]
+  imports: [CommonModule, SvgIconModule],
+  declarations: [AccordionComponent, AccordionItemComponent, AccordionItemContentDirective],
+  exports: [AccordionComponent, AccordionItemComponent, AccordionItemContentDirective]
 })
 export class AccordionModule {}
