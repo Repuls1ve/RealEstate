@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core'
-import { FileStatus, FileStatusT } from '@shared/enums/file-status'
-import { FileLike } from '@shared/interfaces/file-like'
+import { FileStatus, FileStatusT } from '@app/shared/enums/file-status.enum'
+import { FileLike } from '@app/shared/interfaces/file-like.interface'
 import { ComponentStore } from '@ngrx/component-store'
 import { map, tap } from 'rxjs'
 

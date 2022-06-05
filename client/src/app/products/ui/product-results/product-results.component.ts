@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { ProductResultsMeta, ProductResultsState, ProductResultsStore } from './product-results.store'
 
 @Component({
-  selector: 'product-results',
+  selector: 'app-product-results',
   templateUrl: './product-results.component.html',
   styleUrls: ['./product-results.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

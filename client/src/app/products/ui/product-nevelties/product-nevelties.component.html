@@ -1,0 +1,24 @@
+<div class="product-listing" *ngrxLet="vm$ as vm">
+  <div class="heading">
+    <h2 class="title">{{ 'components.product-listing.title' | translate }}</h2>
+    <a appButton color="secondary" class="view-button">{{
+      'components.product-listing.view-button' | translate
+    }}</a>
+  </div>
+  <div class="listings">
+    <ng-container *ngIf="!vm.loading">
+      <app-product-card
+        class="product"
+        *ngFor="let product of vm.nevelties"
+        [product]="product"
+      ></app-product-card>
+    </ng-container>
+    <ng-container *ngIf="vm.loading">
+      <app-product-card
+        class="product"
+        *ngFor="let loader of vm.quantity | times"
+        [loading]="true"
+      ></app-product-card>
+    </ng-container>
+  </div>
+</div>

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router'
 import { ProductDetailStore } from './product-detail.store'
 
 @Component({
-  selector: 'product-detail-page',
+  selector: 'app-product-detail-page',
   templateUrl: './product-detail.page.html',
   styleUrls: ['./product-detail.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,12 +15,7 @@ export class ProductDetailPage implements OnInit {
   constructor(private readonly productDetailStore: ProductDetailStore, private readonly route: ActivatedRoute) {}
 
   public ngOnInit(): void {
-    this.observeLanguageChange()
     this.observeParamsChange()
-  }
-
-  private observeLanguageChange(): void {
-    this.productDetailStore.observeLanguageChange()
   }
 
   private observeParamsChange(): void {

@@ -1,24 +1,24 @@
-<div class="home-page">
-  <section class="discover">
+<div class="home-page" *ngrxLet="vm$ as vm">
+  <section appOverview>
     <h1 class="heading">{{ 'pages.home.overview.title' | translate }}</h1>
     <p class="description">
       {{ 'pages.home.overview.description' | translate }}
     </p>
-    <search-form (search)="onSearch($event)"></search-form>
+    <app-product-search (search)="onSearch($event)"></app-product-search>
   </section>
   <section>
-    <product-listing [quantity]="4"></product-listing>
+    <app-product-nevelties [quantity]="vm.nevelties"></app-product-nevelties>
   </section>
   <section class="benefits-wrapper">
-    <home-benefits></home-benefits>
+    <app-home-benefits></app-home-benefits>
   </section>
   <section class="categories-wrapper">
-    <product-categories [quantity]="8"></product-categories>
+    <app-product-categories [quantity]="vm.products"></app-product-categories>
   </section>
   <section>
-    <home-reviews [reviews]="reviews"></home-reviews>
+    <app-home-reviews [reviews]="vm.reviews"></app-home-reviews>
   </section>
   <section>
-    <home-contact></home-contact>
+    <app-home-contact></app-home-contact>
   </section>
 </div>

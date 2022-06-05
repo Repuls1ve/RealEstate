@@ -4,23 +4,23 @@
     <p class="description">
       {{ 'pages.catalog.overview.description' | translate }}
     </p>
-    <search-form (search)="onSearch($event)"></search-form>
+    <app-product-search (search)="onSearch($event)"></app-product-search>
   </section>
   <main>
-    <product-results
+    <app-product-results
       [products]="vm.products"
       [loading]="vm.loading"
       [meta]="vm.results"
-    ></product-results>
+    ></app-product-results>
     <div class="pagination">
-      <paginator
+      <app-paginator
         *ngIf="vm.meta"
         [length]="vm.meta.totalItems"
         [pageSize]="vm.meta.limit"
         [pageIndex]="vm.pageIndex"
         (page)="changePage($event)"
         [delta]="2"
-      ></paginator>
+      ></app-paginator>
     </div>
   </main>
 </div>

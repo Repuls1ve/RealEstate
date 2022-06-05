@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core'
 import { ReactiveComponentModule } from '@ngrx/component'
 import { TranslateModule } from '@ngx-translate/core'
 import { PaginatorModule } from '@shared/ui/paginator/paginator.module'
-import { SearchFormModule } from '@shared/ui/search-form/search-form.module'
+import { ProductSearchModule } from '@app/products/ui/product-search/product-search.module'
 import { ProductResultsModule } from '@app/products/ui/product-results/product-results.module'
 import { ProductCatalogRoutingModule } from './product-catalog-routing.module'
 import { ProductCatalogPage } from './product-catalog.page'
@@ -13,7 +13,7 @@ import { ProductCatalogPage } from './product-catalog.page'
     CommonModule,
     TranslateModule,
     PaginatorModule,
-    SearchFormModule,
+    ProductSearchModule,
     ProductResultsModule,
     ReactiveComponentModule,
     ProductCatalogRoutingModule

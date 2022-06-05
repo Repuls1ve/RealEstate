@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core'
-import { Categories, Category, Product, PropertyStatus, PropertyStatuses } from '@shared/models/product.model'
 import { ComponentStore } from '@ngrx/component-store'
-import { Period } from '@app/products/feature/product-catalog/product-catalog.store'
-import { PaginationMetaInfo } from '@core/types/pagination.type'
 import { TranslateService } from '@ngx-translate/core'
+import { Category, CategoryT } from '@shared/enums/category.enum'
+import { Period, PeriodT } from '@shared/enums/period.enum'
+import { PropertyStatus, PropertyStatusT } from '@shared/enums/property-status.enum'
+import { PaginationMetaInfo } from '@shared/interfaces/pagination.interface'
+import { Product } from '@shared/models/product.model'
 import { switchMap } from 'rxjs'
 
 export interface ProductResultsMeta extends Pick<PaginationMetaInfo, 'totalItems'> {
-  readonly category: Category
-  readonly status: PropertyStatus
-  readonly period: Period | number
+  readonly category: CategoryT
+  readonly status: PropertyStatusT
+  readonly period: PeriodT
   readonly priceMin?: number
   readonly priceMax?: number
 }
@@ -26,9 +28,9 @@ export class ProductResultsStore extends ComponentStore<ProductResultsState> {
   constructor(private readonly translate: TranslateService) {
     super({
       meta: {
-        category: Categories.Any,
-        status: PropertyStatuses.Sell,
-        period: Period.Any,
+        category: Category.Any,
+        status: PropertyStatus.Sell,
+        period: Period.AllTime,
         totalItems: 1
       },
       products: [],
@@ -86,7 +88,7 @@ export class ProductResultsStore extends ComponentStore<ProductResultsState> {
     period: state.meta.period
   }))
 
-  public readonly periodSpecified$ = this.select(state => state.meta.period !== Period.Any)
+  public readonly periodSpecified$ = this.select(state => state.meta.period !== Period.AllTime)
 
   public readonly vm$ = this.select(
     this.restrictions$,

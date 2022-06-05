@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, Output } from '@angular/core
 import { Step, StepperStore } from './stepper.store'
 
 @Component({
-  selector: 'stepper',
+  selector: 'app-stepper',
   templateUrl: './stepper.component.html',
   styleUrls: ['./stepper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

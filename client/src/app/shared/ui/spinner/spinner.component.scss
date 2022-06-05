@@ -1,0 +1,31 @@
+@use "brand-colors";
+
+:host {
+  width: 1.375rem;
+  display: block;
+  fill: brand-colors.$greyscale-10;
+}
+
+.progress-spinner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: inherit;
+  animation: spinnerRotate 1s linear infinite;
+
+  path {
+    fill: inherit;
+  }
+
+  @keyframes spinnerRotate {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+}

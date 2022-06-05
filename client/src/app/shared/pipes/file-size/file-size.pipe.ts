@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core'
-import { FileSizeUnit } from '@shared/enums/file-size-units'
+import { FileSizeUnit } from '@shared/enums/file-size-unit.enum'
 import { BYTES_PER_KB, FILE_SIZE_UNITS } from '@shared/constants/file-size'
 
 @Pipe({

@@ -1,9 +1,9 @@
 <ng-container *ngrxLet="vm$ as vm">
-  <stepper
+  <app-stepper
     #stepper
     [steps]="vm.steps"
     (stepChange)="onStepChange($event)"
-  ></stepper>
+  ></app-stepper>
   <form
     class="product-creation-form"
     [formGroup]="form"
@@ -11,7 +11,9 @@
     (ngSubmit)="onSubmit()"
   >
     <ng-container *ngSwitchCase="1">
-      <product-general-form formGroupName="general"></product-general-form>
+      <app-product-general-form
+        formGroupName="general"
+      ></app-product-general-form>
       <button
         class="next-button"
         [disabled]="general.invalid"
@@ -23,29 +25,17 @@
       </button>
     </ng-container>
     <ng-container *ngSwitchCase="2">
-      <product-location-form formGroupName="location"></product-location-form>
+      <app-product-location-form
+        formGroupName="location"
+      ></app-product-location-form>
       <button
+        appButton
         class="next-button"
         [disabled]="location.invalid"
         color="secondary"
-        shared-button
         (click)="stepper.selectNextStep()"
       >
         Next step
-      </button>
-    </ng-container>
-    <ng-container *ngSwitchCase="3">
-      <product-translate-form
-        formGroupName="translation"
-      ></product-translate-form>
-      <button
-        class="submit-button"
-        [disabled]="form.invalid"
-        type="submit"
-        color="secondary"
-        shared-button
-      >
-        Create product
       </button>
     </ng-container>
   </form>

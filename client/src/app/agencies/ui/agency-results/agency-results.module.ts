@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
-import { TimesPipeModule } from 'src/app/shared/pipes/times/times.module'
+import { TimesPipeModule } from '@shared/pipes/times/times.module'
 import { AgencyCardModule } from '../agency-card/agency-card.module'
 import { AgencyResultsComponent } from './agency-results.component'
 

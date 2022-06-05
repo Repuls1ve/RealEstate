@@ -2,16 +2,15 @@ import { Injectable } from '@angular/core'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
 import { TranslateService } from '@ngx-translate/core'
 import { catchError, EMPTY, Observable, switchMap, tap } from 'rxjs'
-import { Language, Translatable } from '@core/i18n/i18n.types'
 import { Product, ProductDetails } from '@shared/models/product.model'
 import { ProductsService } from '@app/products/data-access/products.service'
-import { Status, Error } from '@app/products/ui/product-listing/product-listing.store'
+import { RequestStatus, RequestStatusT } from '@shared/enums/request-status.enum'
+import { RequestError } from '@shared/types/request-error.type'
 
 export interface ProductDetailState {
-  product: Product | null
-  translations: Translatable<Product> | null
-  status: Status
-  error: Error
+  readonly product: Product | null
+  readonly status: RequestStatusT
+  readonly error: RequestError
 }
 
 @Injectable()
@@ -19,18 +18,17 @@ export class ProductDetailStore extends ComponentStore<ProductDetailState> {
   constructor(private readonly productsService: ProductsService, private readonly translate: TranslateService) {
     super({
       product: null,
-      translations: null,
-      status: Status.Pending,
+      status: RequestStatus.Pending,
       error: null
     })
   }
 
-  public readonly setError = this.updater((state, value: Error) => ({
+  public readonly setError = this.updater((state, value: RequestError) => ({
     ...state,
     error: value
   }))
 
-  public readonly setStatus = this.updater((state, value: Status) => ({
+  public readonly setStatus = this.updater((state, value: RequestStatusT) => ({
     ...state,
     status: value
   }))
@@ -40,14 +38,9 @@ export class ProductDetailStore extends ComponentStore<ProductDetailState> {
     product: value
   }))
 
-  public readonly setTranslations = this.updater((state, value: Translatable<Product>) => ({
-    ...state,
-    translations: value
-  }))
+  public readonly error$ = this.select(state => state.error === RequestStatus.Error)
 
-  public readonly error$ = this.select(state => state.error == Status.Error)
-
-  public readonly loading$ = this.select(state => state.status == Status.Loading)
+  public readonly loading$ = this.select(state => state.status === RequestStatus.Loading)
 
   public readonly product$ = this.select(state => state.product)
 
@@ -57,38 +50,19 @@ export class ProductDetailStore extends ComponentStore<ProductDetailState> {
     error
   }))
 
-  public readonly updateLanguage = this.effect($ =>
-    $.pipe(
-      tap(() => {
-        const translations = this.get().translations
-        const language = this.translate.currentLang as Language
-
-        if (translations) {
-          this.setProduct(translations[language])
-        }
-      })
-    )
-  )
-
-  public readonly observeLanguageChange = this.effect($ =>
-    $.pipe(switchMap(() => this.translate.onLangChange.pipe(tap(() => this.updateLanguage()))))
-  )
-
   public readonly fetchProduct = this.effect((uid$: Observable<ProductDetails['uid']>) =>
     uid$.pipe(
-      tap(() => this.setStatus(Status.Loading)),
+      tap(() => this.setStatus(RequestStatus.Loading)),
       switchMap(uid =>
-        this.productsService.getProduct(uid).pipe(
+        this.productsService.findOne(uid).pipe(
           tapResponse(
             translations => {
-              this.setTranslations(translations)
-              this.updateLanguage()
-              this.setStatus(Status.Success)
+              this.setStatus(RequestStatus.Success)
               this.setError(null)
             },
             error => {
-              this.setStatus(Status.Error)
-              this.setError(error as Error)
+              this.setStatus(RequestStatus.Error)
+              this.setError(error as RequestError)
             }
           ),
           catchError(() => EMPTY)

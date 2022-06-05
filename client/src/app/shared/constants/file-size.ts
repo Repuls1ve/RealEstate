@@ -1,4 +1,4 @@
-import { FileSizeUnit, FileSizeUnitT } from '../enums/file-size-units'
+import { FileSizeUnit, FileSizeUnitT } from '../enums/file-size-unit.enum'
 
 export const BYTES_PER_KB = 1024
 

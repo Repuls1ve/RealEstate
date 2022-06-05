@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { Product } from '@shared/models/product.model'
 
 @Component({
-  selector: 'product-info',
+  selector: 'app-product-info',
   templateUrl: './product-info.component.html',
   styleUrls: ['./product-info.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

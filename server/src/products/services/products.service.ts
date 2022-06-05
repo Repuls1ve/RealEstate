@@ -1,9 +1,10 @@
-import { Injectable } from '@nestjs/common'
+import { BadRequestException, Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model, FilterQuery } from 'mongoose'
+import { CloudinaryService } from 'src/cloudinary/services/cloudinary.service'
 import { Paginated, PaginationMetaInfo } from 'src/common/types/pagination.type'
 import { CreateProductDto } from '../dtos/create-product.dto'
-import { FindLatestProductsDto } from '../dtos/find-latest-products.dto'
+import { FindNeveltiesDto } from '../dtos/find-nevelties.dto'
 import { FindProductDto } from '../dtos/find-product.dto'
 import { FindProductsDto, Period } from '../dtos/find-products.dto'
 import { Category, PropertyStatus } from '../entities/product.entity'
@@ -11,30 +12,33 @@ import { Product, ProductDocument } from '../schemas/product.schema'
 
 @Injectable()
 export class ProductsService {
-  constructor(@InjectModel(Product.name) private readonly productModel: Model<ProductDocument>) {}
+  constructor(
+    @InjectModel(Product.name) private readonly productModel: Model<ProductDocument>,
+    private readonly cloudinaryService: CloudinaryService
+  ) {}
 
   public async find(findProductsDto: FindProductsDto): Promise<Paginated<ProductDocument[]>> {
     const { priceMin, priceMax, period, status, category, limit, page } = findProductsDto
 
     const query: FilterQuery<ProductDocument> = {
       ...(status != PropertyStatus.Any && {
-        'en.details.status': {
+        'details.status': {
           $regex: status,
           $options: 'i'
         }
       }),
       ...(category != Category.Any && {
-        'en.details.category': {
+        'details.category': {
           $regex: category,
           $options: 'i'
         }
       }),
-      ...(period != Period.Any && {
+      ...(period != Period.AllTime && {
         createdAt: {
           $gt: new Date().getTime() - 1000 * 60 * 60 * 24 * period
         }
       }),
-      'en.details.price': {
+      'details.price': {
         $gte: priceMin ?? 0,
         ...(priceMax && { $lte: priceMax })
       }
@@ -56,17 +60,27 @@ export class ProductsService {
     return results
   }
 
-  public async findLatest(findLatestProductsDto: FindLatestProductsDto): Promise<ProductDocument[]> {
-    const { limit } = findLatestProductsDto
+  public async findNevelties(findNeveltiesDto: FindNeveltiesDto): Promise<ProductDocument[]> {
+    const { limit } = findNeveltiesDto
 
     return this.productModel.find().sort({ createdAt: 'desc' }).limit(limit)
   }
 
   public async findOne(findProductDto: FindProductDto): Promise<ProductDocument> {
-    return this.productModel.findOne({ 'en.details.uid': findProductDto.uid })
+    return this.productModel.findOne({ 'details.uid': findProductDto.uid })
   }
 
   public async create(createProductDto: CreateProductDto): Promise<ProductDocument> {
     return this.productModel.create(createProductDto)
+  }
+
+  public async uploadImage(file: Express.Multer.File) {
+    return this.cloudinaryService.uploadImage(file).catch(() => {
+      throw new BadRequestException('Invalid file type')
+    })
+  }
+
+  public async deleteAll() {
+    return this.productModel.deleteMany({})
   }
 }

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, Output } from '@angular/core
 import { CarouselImage, CarouselStore } from './carousel.store'
 
 @Component({
-  selector: 'carousel',
+  selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

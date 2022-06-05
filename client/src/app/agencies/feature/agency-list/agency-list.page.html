@@ -13,13 +13,13 @@
       [loading]="vm.loading"
     ></agency-results>
     <div class="pagination">
-      <paginator
+      <app-paginator
         [length]="133"
         [pageIndex]="vm.pageIndex"
         (page)="changePage($event)"
         [pageSize]="6"
         [delta]="2"
-      ></paginator>
+      ></app-paginator>
     </div>
   </main>
 </div>

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { Agency } from 'src/app/shared/models/agency.model'
+import { Agency } from '@shared/models/agency.model'
 
 @Component({
   selector: 'agency-results',

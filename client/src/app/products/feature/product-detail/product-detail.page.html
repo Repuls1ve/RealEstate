@@ -1,16 +1,16 @@
 <div class="product-detail-page" *ngrxLet="vm$ as vm">
   <main class="product-info-wrapper">
-    <product-info
+    <app-product-info
       *ngIf="!vm.error"
       [product]="vm.product"
       [loading]="vm.loading"
-    ></product-info>
+    ></app-product-info>
     <ng-container *ngIf="vm.error"> No such product </ng-container>
   </main>
   <section class="product-payment-wrapper">
-    <product-payment></product-payment>
+    <app-product-payment></app-product-payment>
   </section>
   <section>
-    <product-listing [quantity]="4"></product-listing>
+    <app-product-nevelties [quantity]="4"></app-product-nevelties>
   </section>
 </div>

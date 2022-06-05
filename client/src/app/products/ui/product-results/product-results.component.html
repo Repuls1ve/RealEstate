@@ -34,11 +34,11 @@
       </span>
     </div>
     <div class="products">
-      <product-card
+      <app-product-card
         *ngFor="let product of vm.products"
         [product]="product"
         class="product"
-      ></product-card>
+      ></app-product-card>
     </div>
   </div>
   <ng-template #loader>
@@ -48,11 +48,11 @@
         <ngx-skeleton-loader class="results-count-loader"></ngx-skeleton-loader>
       </div>
       <div class="products">
-        <product-card
+        <app-product-card
           *ngFor="let loader of vm.limit | times"
           [loading]="true"
           class="product"
-        ></product-card>
+        ></app-product-card>
       </div>
     </div>
   </ng-template>

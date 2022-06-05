@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { HomeReviewsStore, Review } from './home-reviews.store'
 
 @Component({
-  selector: 'home-reviews',
+  selector: 'app-home-reviews',
   templateUrl: './home-reviews.component.html',
   styleUrls: ['./home-reviews.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

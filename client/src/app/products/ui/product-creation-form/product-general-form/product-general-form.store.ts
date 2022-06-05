@@ -54,7 +54,7 @@ export class ProductGeneralFormStore extends ComponentStore<ProductGeneralFormSt
       distinctUntilChanged(),
       tap(() => this.setAgencyInputLoading(true)),
       switchMap(term =>
-        this.agenciesService.findAgencies({ name: term }).pipe(
+        this.agenciesService.find(2).pipe(
           tap(items => this.setAgencyInputItems(items)),
           tap(() => this.setAgencyInputLoading(false))
         )

@@ -6,33 +6,33 @@
   </p>
   <div class="categories">
     <button
-      shared-button
+      appButton
       color="secondary"
-      [theme]="vm.themes.any"
+      [appearance]="vm.appearance.any"
       (click)="changeCategory('any')"
     >
       All
     </button>
     <button
-      shared-button
+      appButton
       color="secondary"
-      [theme]="vm.themes.apartments"
+      [appearance]="vm.appearance.apartments"
       (click)="changeCategory('apartments')"
     >
       Apartments
     </button>
     <button
-      shared-button
+      appButton
       color="secondary"
-      [theme]="vm.themes.townhouse"
+      [appearance]="vm.appearance.townhouse"
       (click)="changeCategory('townhouse')"
     >
       Townhouses
     </button>
     <button
-      shared-button
+      appButton
       color="secondary"
-      [theme]="vm.themes.condominium"
+      [appearance]="vm.appearance.condominium"
       (click)="changeCategory('condominium')"
     >
       Condominiums
@@ -40,18 +40,18 @@
   </div>
   <div class="products">
     <ng-container *ngIf="!vm.loading">
-      <product-card
+      <app-product-card
         *ngFor="let product of vm.products"
         [product]="product"
         class="product"
-      ></product-card>
+      ></app-product-card>
     </ng-container>
     <ng-container *ngIf="vm.loading">
-      <product-card
+      <app-product-card
         [loading]="true"
         *ngFor="let loader of vm.quantity | times"
         class="product"
-      ></product-card>
+      ></app-product-card>
     </ng-container>
   </div>
 </div>
