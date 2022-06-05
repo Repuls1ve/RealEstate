@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
-import { Agency, MockAgency } from 'src/app/shared/models/agency.model'
+import { Agency, MockAgency } from '@shared/models/agency.model'
 
 @Component({
   selector: 'agency-card',

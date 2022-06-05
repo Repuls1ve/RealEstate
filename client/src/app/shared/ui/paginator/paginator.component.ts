@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, Output } from '@angular/core
 import { PaginatorStore } from './paginator.store'
 
 @Component({
-  selector: 'paginator',
+  selector: 'app-paginator',
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

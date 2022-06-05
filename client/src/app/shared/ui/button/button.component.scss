@@ -1,0 +1,58 @@
+@use "brand-colors";
+@use "typography";
+
+:host {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  font-family: typography.$font-tertiary;
+  font-weight: typography.$semi-bold;
+  font-size: 1rem;
+  border-radius: 8px;
+
+  &.sm {
+    height: 45px;
+  }
+
+  &.md {
+    height: 55px;
+  }
+
+  &.lg {
+    height: 65px;
+  }
+
+  &.contained {
+    border: none;
+    color: brand-colors.$greyscale-10;
+
+    &.primary {
+      color: brand-colors.$greyscale-10;
+      background-color: brand-colors.$primary-70;
+    }
+
+    &.secondary {
+      background-color: brand-colors.$secondary-50;
+      font-family: typography.$font-secondary;
+    }
+  }
+
+  &.outlined {
+    border-style: solid;
+    border-width: 1px;
+
+    &.primary {
+      color: brand-colors.$primary-70;
+      background-color: brand-colors.$greyscale-10;
+      border-color: brand-colors.$primary-70;
+    }
+
+    &.secondary {
+      background-color: brand-colors.$greyscale-10;
+      color: brand-colors.$secondary-50;
+      border-color: brand-colors.$secondary-50;
+    }
+  }
+}

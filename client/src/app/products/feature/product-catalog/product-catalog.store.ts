@@ -1,67 +1,62 @@
 import { Injectable } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { ComponentStore, tapResponse } from '@ngrx/component-store'
-import { TranslateService } from '@ngx-translate/core'
 import { map, Observable, switchMap, tap } from 'rxjs'
-import { Language, Translatable } from '@core/i18n/i18n.types'
-import { PaginationMetaInfo, PaginationParams } from '@core/types/pagination.type'
-import { Categories, Category, Product, PropertyStatus, PropertyStatuses } from '@shared/models/product.model'
 import { PageEvent } from '@shared/ui/paginator/paginator.store'
-import { SearchFormParams } from '@shared/ui/search-form/search-form.store'
 import { ProductsService } from '@app/products/data-access/products.service'
-import { Error, Status } from '@app/products/ui/product-listing/product-listing.store'
-
-export enum Period {
-  Any = 'any'
-}
+import { Product, ProductDetails } from '@shared/models/product.model'
+import { PropertyStatus } from '@shared/enums/property-status.enum'
+import { Category } from '@shared/enums/category.enum'
+import { PaginationMetaInfo, PaginationParams } from '@shared/interfaces/pagination.interface'
+import { RequestStatus, RequestStatusT } from '@shared/enums/request-status.enum'
+import { RequestError } from '@shared/types/request-error.type'
+import { Period, PeriodT } from '@shared/enums/period.enum'
+import { ProductSearchEvent } from '@app/products/ui/product-search/product-search.component'
 
 export interface ProductCatalogParams extends PaginationParams {
   readonly priceMin?: number
   readonly priceMax?: number
-  readonly status: PropertyStatus
-  readonly period: Period | number
-  readonly category: Category
+  readonly status: ProductDetails['status']
+  readonly category: ProductDetails['category']
+  readonly period: PeriodT
 }
 
 export interface ProductCatalogState {
   readonly products: Product[]
-  readonly translations: Translatable<Product>[] | null
   readonly params: ProductCatalogParams
-  readonly status: Status
-  readonly error: Error
+  readonly status: RequestStatusT
+  readonly error: RequestError
   readonly meta: PaginationMetaInfo | null
 }
 
 @Injectable()
 export class ProductCatalogStore extends ComponentStore<ProductCatalogState> {
   constructor(
-    private readonly translate: TranslateService,
     private readonly productsService: ProductsService,
     private readonly route: ActivatedRoute,
     private readonly router: Router
   ) {
     super({
       products: [],
-      translations: null,
       params: {
-        status: PropertyStatuses.Any,
-        period: Period.Any,
-        category: Categories.Any,
+        status: PropertyStatus.Sell,
+        period: Period.AllTime,
+        category: Category.Any,
         page: 1,
         limit: 8
       },
-      status: Status.Pending,
+      status: RequestStatus.Pending,
       error: null,
       meta: null
     })
   }
 
-  public readonly setError = this.updater((state, value: Error) => ({
+  public readonly setError = this.updater((state, value: RequestError) => ({
     ...state,
     error: value
   }))
 
-  public readonly setStatus = this.updater((state, value: Status) => ({
+  public readonly setStatus = this.updater((state, value: RequestStatusT) => ({
     ...state,
     status: value
   }))
@@ -76,11 +71,6 @@ export class ProductCatalogStore extends ComponentStore<ProductCatalogState> {
     params: value
   }))
 
-  public readonly setTranslations = this.updater((state, value: Translatable<Product>[]) => ({
-    ...state,
-    translations: value
-  }))
-
   public readonly setMeta = this.updater((state, value: PaginationMetaInfo) => ({
     ...state,
     meta: value
@@ -90,7 +80,7 @@ export class ProductCatalogStore extends ComponentStore<ProductCatalogState> {
 
   public readonly status$ = this.select(state => state.status)
 
-  public readonly loading$ = this.select(state => state.status == Status.Loading)
+  public readonly loading$ = this.select(state => state.status == RequestStatus.Loading)
 
   public readonly products$ = this.select(state => state.products)
 
@@ -126,28 +116,11 @@ export class ProductCatalogStore extends ComponentStore<ProductCatalogState> {
     })
   )
 
-  public readonly updateLanguage = this.effect($ =>
-    $.pipe(
-      tap(() => {
-        const translations = this.get().translations
-        const language = this.translate.currentLang as Language
-
-        if (translations) {
-          this.setProducts(translations.map(translation => translation[language]))
-        }
-      })
-    )
-  )
-
-  public readonly observeLanguageChange = this.effect($ =>
-    $.pipe(switchMap(() => this.translate.onLangChange.pipe(tap(() => this.updateLanguage()))))
-  )
-
   public readonly observeParamsChange = this.effect($ =>
     $.pipe(switchMap(() => this.route.queryParams.pipe(tap(params => this.fetchProducts(params)))))
   )
 
-  public readonly onSearch = this.effect((params$: Observable<SearchFormParams>) =>
+  public readonly onSearch = this.effect((params$: Observable<ProductSearchEvent>) =>
     params$.pipe(
       map(params => ({
         priceMin: params.price.min ?? undefined,
@@ -184,27 +157,26 @@ export class ProductCatalogStore extends ComponentStore<ProductCatalogState> {
       map(params => ({
         ...(params.priceMin && { priceMin: params.priceMin }),
         ...(params.priceMax && { priceMax: params.priceMax }),
-        status: params.status || PropertyStatuses.Any,
-        period: params.period || Period.Any,
-        category: params.category || Categories.Any,
+        status: params.status || PropertyStatus.Sell,
+        period: params.period || Period.AllTime,
+        category: params.category || Category.Any,
         page: params.page || 1,
         limit: params.limit || 8
       })),
       tap(params => this.setParams(params)),
-      tap(() => this.setStatus(Status.Loading)),
+      tap(() => this.setStatus(RequestStatus.Loading)),
       switchMap(params =>
-        this.productsService.getProducts(params).pipe(
+        this.productsService.find(params).pipe(
           tapResponse(
             result => {
+              this.setProducts(result.data)
               this.setMeta(result.meta)
-              this.setTranslations(result.data)
-              this.setStatus(Status.Success)
+              this.setStatus(RequestStatus.Success)
               this.setError(null)
-              this.updateLanguage()
             },
             error => {
-              this.setStatus(Status.Error)
-              this.setError(error as Error)
+              this.setStatus(RequestStatus.Error)
+              this.setError(error as RequestError)
             }
           )
         )

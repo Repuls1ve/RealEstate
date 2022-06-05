@@ -3,7 +3,7 @@ import { ProductCreationFormParams } from '@app/products/ui/product-creation-for
 import { ProductCreationStore } from './product-creation.store'
 
 @Component({
-  selector: 'product-creation-page',
+  selector: 'app-product-creation-page',
   templateUrl: './product-creation.page.html',
   styleUrls: ['./product-creation.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,6 +15,6 @@ export class ProductCreationPage {
   constructor(private readonly productCreationStore: ProductCreationStore) {}
 
   public onCreate(params: ProductCreationFormParams): void {
-    this.productCreationStore.onCreate(params)
+    this.productCreationStore.onCreate()
   }
 }

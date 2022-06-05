@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, Output } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { Categories, PropertyStatuses } from '@shared/models/product.model'
+import { Category } from '@shared/enums/category.enum'
+import { PropertyStatus } from '@shared/enums/property-status.enum'
 import { Step, StepEvent } from '@shared/ui/stepper/stepper.store'
 import { ProductCreationFormStore, ProductCreationFormValues } from './product-creation-form.store'
 
@@ -15,12 +16,12 @@ export const ProductCreationFormSteps: Step[] = [
   },
   {
     id: 3,
-    label: 'Translate'
+    label: 'Photos'
   }
 ]
 
 @Component({
-  selector: 'product-creation-form',
+  selector: 'app-product-creation-form',
   templateUrl: './product-creation-form.component.html',
   styleUrls: ['./product-creation-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,8 +38,8 @@ export class ProductCreationFormComponent implements OnInit {
       price: [null, Validators.required],
       size: [null, Validators.required],
       year: [null, Validators.required],
-      category: [Categories.Apartments, Validators.required],
-      status: [PropertyStatuses.Sell, Validators.required],
+      category: [Category.Apartments, Validators.required],
+      status: [PropertyStatus.Sell, Validators.required],
       agency: [null, Validators.required],
       overviews: this.fb.array([]),
       files: [[]]
@@ -50,17 +51,6 @@ export class ProductCreationFormComponent implements OnInit {
       zip: [null, Validators.required],
       area: [null, Validators.required],
       country: [null, Validators.required]
-    }),
-    translation: this.fb.group({
-      title: [null, Validators.required],
-      description: [null, Validators.required],
-      size: [null, Validators.required],
-      position: [null, Validators.required],
-      city: [null, Validators.required],
-      state: [null, Validators.required],
-      area: [null, Validators.required],
-      country: [null, Validators.required],
-      overviews: this.fb.array([])
     })
   })
 

@@ -1,0 +1,6 @@
+<ng-container *ngIf="!showLoader; else loader">
+  <ng-content></ng-content>
+</ng-container>
+<ng-template #loader>
+  <app-spinner class="spinner"></app-spinner>
+</ng-template>

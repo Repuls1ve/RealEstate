@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { FormArray, FormBuilder, FormControl, FormGroup, FormGroupDirective } from '@angular/forms'
-import { FileLike } from '@app/shared/interfaces/file-like'
+import { FileLike } from '@app/shared/interfaces/file-like.interface'
 import { AgencySearchEvent, ProductGeneralFormStore } from './product-general-form.store'
 
 @Component({
-  selector: 'product-general-form',
+  selector: 'app-product-general-form',
   templateUrl: './product-general-form.component.html',
   styleUrls: ['./product-general-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

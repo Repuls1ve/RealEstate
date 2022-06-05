@@ -1,18 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core'
 import { ComponentStore } from '@ngrx/component-store'
-import { filter, map, Observable, tap } from 'rxjs'
+import { map, Observable, tap } from 'rxjs'
 import { Step, StepEvent } from '@shared/ui/stepper/stepper.store'
-
-export type TranslatableField =
-  | 'title'
-  | 'description'
-  | 'size'
-  | 'position'
-  | 'city'
-  | 'state'
-  | 'area'
-  | 'country'
-  | 'overview'
 
 export interface ProductCreationFormValues {
   readonly uid: string
@@ -31,7 +20,6 @@ export interface ProductCreationFormValues {
   readonly area: string
   readonly country: string
   readonly agency: string
-  readonly translation: Pick<ProductCreationFormValues, TranslatableField>
 }
 
 export interface ProductCreationFormParams extends Omit<ProductCreationFormValues, 'price' | 'year'> {

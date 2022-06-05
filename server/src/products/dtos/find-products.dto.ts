@@ -4,7 +4,7 @@ import { PaginationDto } from 'src/common/dtos/pagination.dto'
 import { Category, PropertyStatus } from '../entities/product.entity'
 
 export enum Period {
-  Any = 'any'
+  AllTime = 'all-time'
 }
 
 export class FindProductsDto extends PaginationDto {
@@ -14,7 +14,7 @@ export class FindProductsDto extends PaginationDto {
   public readonly status?: PropertyStatus = PropertyStatus.Any
 
   @IsOptional()
-  public readonly period?: Period | number = Period.Any
+  public readonly period?: Period | number = Period.AllTime
 
   @IsOptional()
   @IsString()

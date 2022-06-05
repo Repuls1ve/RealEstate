@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core'
 import { EMPTY_ARRAY, EMPTY_FUNCTION, EMPTY_STRING } from '@shared/constants/empty'
-import { FileLike } from '@shared/interfaces/file-like'
+import { FileLike } from '@app/shared/interfaces/file-like.interface'
 import { ComponentStore } from '@ngrx/component-store'
 import { map, Observable, tap } from 'rxjs'
 import { isFormatAcceptable } from '@shared/helpers/files/is-format-acceptable'

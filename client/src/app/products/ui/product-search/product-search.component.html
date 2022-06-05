@@ -1,0 +1,117 @@
+<form class="search-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="search-type">
+    <button
+      appButton
+      type="button"
+      class="switch"
+      [appearance]="getAppearance('sell')"
+      (click)="changeStatus('sell')"
+    >
+      {{ 'forms.search.status.sell' | translate }}
+    </button>
+    <button
+      appButton
+      type="button"
+      class="switch"
+      [appearance]="getAppearance('rent')"
+      (click)="changeStatus('rent')"
+    >
+      {{ 'forms.search.status.rent' | translate }}
+    </button>
+  </div>
+  <div class="search-attributes">
+    <div class="search-attribute">
+      <label for="period">{{
+        'forms.search.fields.period.label' | translate
+      }}</label>
+      <ng-select
+        labelForId="period"
+        [searchable]="false"
+        [clearable]="false"
+        formControlName="period"
+      >
+        <ng-option value="all-time">
+          {{ 'forms.search.fields.period.options.any' | translate }}
+        </ng-option>
+        <ng-option value="1">
+          {{ 'forms.search.fields.period.options.last-day' | translate }}
+        </ng-option>
+        <ng-option value="7">
+          {{ 'forms.search.fields.period.options.last-week' | translate }}
+        </ng-option>
+        <ng-option value="31">
+          {{ 'forms.search.fields.period.options.last-month' | translate }}
+        </ng-option>
+        <ng-option value="365">
+          {{ 'forms.search.fields.period.options.last-year' | translate }}
+        </ng-option>
+      </ng-select>
+    </div>
+    <div class="search-attribute">
+      <label for="category">{{
+        'forms.search.fields.category.label' | translate
+      }}</label>
+      <ng-select
+        labelForId="category"
+        [searchable]="false"
+        [clearable]="false"
+        formControlName="category"
+      >
+        <ng-option value="any">
+          {{ 'forms.search.fields.category.options.any' | translate }}
+        </ng-option>
+        <ng-option value="apartments">
+          {{ 'forms.search.fields.category.options.apartments' | translate }}
+        </ng-option>
+        <ng-option value="condominium">
+          {{ 'forms.search.fields.category.options.condominium' | translate }}
+        </ng-option>
+        <ng-option value="duplex">
+          {{ 'forms.search.fields.category.options.duplex' | translate }}
+        </ng-option>
+        <ng-option value="multi-family">
+          {{ 'forms.search.fields.category.options.multi-family' | translate }}
+        </ng-option>
+        <ng-option value="single-family">
+          {{ 'forms.search.fields.category.options.single-family' | translate }}
+        </ng-option>
+        <ng-option value="townhouse">
+          {{ 'forms.search.fields.category.options.townhouse' | translate }}
+        </ng-option>
+      </ng-select>
+    </div>
+    <fieldset class="search-attribute fieldset" formGroupName="price">
+      <legend>{{ 'forms.search.fields.range.label' | translate }}</legend>
+      <div class="price-range">
+        <input
+          appInput
+          id="min-price"
+          class="min-price"
+          placeholder="Min $"
+          suffix="$"
+          mask="0*"
+          formControlName="min"
+        />
+        <input
+          appInput
+          id="max-price"
+          class="max-price"
+          suffix="$"
+          placeholder="Max $"
+          mask="0*"
+          formControlName="max"
+        />
+      </div>
+    </fieldset>
+    <button
+      appButton
+      type="submit"
+      color="secondary"
+      size="md"
+      class="submit-button"
+    >
+      {{ 'forms.search.search-button' | translate }}
+      <svg-icon src="/assets/svg/search.svg" svgClass="search-icon"></svg-icon>
+    </button>
+  </div>
+</form>

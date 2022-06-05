@@ -1,19 +1,14 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input, Output, Provider } from '@angular/core'
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
+import { ChangeDetectionStrategy, Component, Input, Output } from '@angular/core'
+import { ControlValueAccessor } from '@angular/forms'
+import { INPUT_FILES_PROVIDERS } from './input-files.providers'
 import { InputFilesState, InputFilesStore } from './input-files.store'
-
-const INPUT_FILES_CONTROL_VALUE_ACCESSOR: Provider = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => InputFilesComponent),
-  multi: true
-}
 
 @Component({
   selector: 'app-input-files',
   templateUrl: './input-files.component.html',
   styleUrls: ['./input-files.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [InputFilesStore, INPUT_FILES_CONTROL_VALUE_ACCESSOR]
+  providers: [INPUT_FILES_PROVIDERS]
 })
 export class InputFilesComponent implements ControlValueAccessor {
   public readonly vm$ = this.inputFilesStore.vm$

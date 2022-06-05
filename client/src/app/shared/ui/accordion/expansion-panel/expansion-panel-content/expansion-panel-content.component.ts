@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'expansion-panel-content',
+  selector: 'app-expansion-panel-content',
   templateUrl: './expansion-panel-content.component.html',
   styleUrls: ['./expansion-panel-content.component.scss']
 })

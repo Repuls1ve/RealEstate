@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { Language } from '@core/i18n/i18n.types'
+import { LanguageT } from '@shared/enums/language.enum'
 import { LanguageSwitcherStore } from './language-switcher.store'
 
 @Component({
-  selector: 'language-switcher',
+  selector: 'app-language-switcher',
   templateUrl: './language-switcher.component.html',
   styleUrls: ['./language-switcher.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,7 +14,7 @@ export class LanguageSwitcherComponent {
 
   constructor(private readonly languageSwitcherStore: LanguageSwitcherStore) {}
 
-  public useLanguage(lang: Language): void {
+  public useLanguage(lang: LanguageT): void {
     this.languageSwitcherStore.useLanguage(lang)
   }
 }

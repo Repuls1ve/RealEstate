@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Param, Post, Query, UploadedFile, UseInterceptors } from '@nestjs/common'
+import { FileInterceptor } from '@nestjs/platform-express'
 import { Paginated } from 'src/common/types/pagination.type'
 import { CreateProductDto } from '../dtos/create-product.dto'
-import { FindLatestProductsDto } from '../dtos/find-latest-products.dto'
+import { FindNeveltiesDto } from '../dtos/find-nevelties.dto'
 import { FindProductDto } from '../dtos/find-product.dto'
 import { FindProductsDto } from '../dtos/find-products.dto'
 import { ProductDocument } from '../schemas/product.schema'
@@ -21,13 +22,22 @@ export class ProductsController {
     return this.productsService.findOne(findProductDto)
   }
 
-  @Get('latest')
-  public async findLatest(@Query() findLatestProductsDto: FindLatestProductsDto): Promise<ProductDocument[]> {
-    return this.productsService.findLatest(findLatestProductsDto)
+  @Get('nevelties')
+  public async findNevelties(@Query() findNeveltiesDto: FindNeveltiesDto): Promise<ProductDocument[]> {
+    return this.productsService.findNevelties(findNeveltiesDto)
   }
 
   @Post('create')
-  public async create(@Body() createProductDto: CreateProductDto): Promise<ProductDocument> {
+  @UseInterceptors(FileInterceptor('file'))
+  public async create(
+    @UploadedFile() file: Express.Multer.File,
+    @Body() createProductDto: CreateProductDto
+  ): Promise<ProductDocument> {
     return this.productsService.create(createProductDto)
+  }
+
+  @Delete('drop')
+  public async drop() {
+    return this.productsService.deleteAll()
   }
 }

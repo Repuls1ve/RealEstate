@@ -5,7 +5,7 @@ import { tap } from 'rxjs'
 import { ProductPaymentParams, ProductPaymentStore } from './product-payment.store'
 
 @Component({
-  selector: 'product-payment',
+  selector: 'app-product-payment',
   templateUrl: './product-payment.component.html',
   styleUrls: ['./product-payment.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

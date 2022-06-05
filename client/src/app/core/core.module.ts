@@ -6,7 +6,7 @@ import { TranslateModule } from '@ngx-translate/core'
 import { AngularSvgIconModule as SvgIconModule } from 'angular-svg-icon'
 import { NgxMaskModule } from 'ngx-mask'
 import { CoreRoutingModule } from './core-routing.module'
-import { TranslateConfig } from './i18n/i18n.config'
+import { TranslateConfig } from './configs/i18n.config'
 
 @NgModule({
   imports: [TranslateModule.forRoot(TranslateConfig), NgxMaskModule.forRoot(), SvgIconModule.forRoot()],

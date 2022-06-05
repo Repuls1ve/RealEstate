@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { FormGroup, FormGroupDirective } from '@angular/forms'
 
 @Component({
-  selector: 'product-location-form',
+  selector: 'app-product-location-form',
   templateUrl: './product-location-form.component.html',
   styleUrls: ['./product-location-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

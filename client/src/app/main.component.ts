@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { TranslateService } from '@ngx-translate/core'
-import { Languages } from '@core/i18n/i18n.types'
+import { Language } from '@shared/enums/language.enum'
 
 @Component({
   selector: 'estate-app',
@@ -18,6 +18,6 @@ export class MainComponent implements OnInit {
   }
 
   private setDefaultLanguage(): void {
-    this.translate.use(Languages.en)
+    this.translate.use(Language.En)
   }
 }

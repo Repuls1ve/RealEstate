@@ -1,20 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 
 export interface BenefitsExpansionPanel {
-  title: string
-  description: string
+  readonly title: string
+  readonly description: string
 }
 
-export type BenefitsAccordion = BenefitsExpansionPanel[]
-
 @Component({
-  selector: 'home-benefits',
+  selector: 'app-home-benefits',
   templateUrl: './home-benefits.component.html',
   styleUrls: ['./home-benefits.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeBenefitsComponent {
-  public readonly accordion: BenefitsAccordion = [
+  public readonly accordion: BenefitsExpansionPanel[] = [
     {
       title: 'components.home-benefits.accordion.warranty.title',
       description: 'components.home-benefits.accordion.warranty.description'

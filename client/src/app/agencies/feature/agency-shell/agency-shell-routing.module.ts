@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
-const LoadChildrenCallbacks = {
-  AgencyList: () => import('../agency-list/agency-list.module').then(m => m.AgencyListModule)
-}
-
 const routes: Routes = [
   {
     path: '',
-    loadChildren: LoadChildrenCallbacks.AgencyList
+    loadChildren: () => import('../agency-list/agency-list.module').then(m => m.AgencyListModule)
   },
   {
     path: '**',

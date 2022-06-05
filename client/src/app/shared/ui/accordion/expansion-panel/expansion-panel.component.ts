@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'
 
 @Component({
-  selector: 'expansion-panel',
+  selector: 'app-expansion-panel',
   templateUrl: './expansion-panel.component.html',
   styleUrls: ['./expansion-panel.component.scss']
 })

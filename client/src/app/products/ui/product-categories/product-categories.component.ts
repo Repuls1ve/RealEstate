@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'
-import { Categories } from '@shared/models/product.model'
+import { Category } from '@shared/enums/category.enum'
 import { ProductCategoriesState, ProductCategoriesStore } from './product-categories.store'
 
 @Component({
-  selector: 'product-categories',
+  selector: 'app-product-categories',
   templateUrl: './product-categories.component.html',
   styleUrls: ['./product-categories.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,15 +20,10 @@ export class ProductCategoriesComponent implements OnInit {
   constructor(private readonly productCategoriesStore: ProductCategoriesStore) {}
 
   public ngOnInit(): void {
-    this.observeLanguageChange()
-    this.changeCategory(Categories.Any)
+    this.changeCategory(Category.Any)
   }
 
   public changeCategory(category: ProductCategoriesState['category']): void {
     this.productCategoriesStore.changeCategory(category)
-  }
-
-  private observeLanguageChange(): void {
-    this.productCategoriesStore.observeLanguageChange()
   }
 }

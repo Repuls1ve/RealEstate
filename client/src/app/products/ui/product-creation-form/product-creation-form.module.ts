@@ -6,15 +6,14 @@ import { InputFilesModule } from '@shared/ui/input-files/input-files.module'
 import { NgSelectModule } from '@ng-select/ng-select'
 import { ReactiveComponentModule } from '@ngrx/component'
 import { TranslateModule } from '@ngx-translate/core'
-import { ButtonModule } from '@shared/ui/controls/button/button.module'
-import { TextAreaModule } from '@shared/ui/controls/text-area/text-area.module'
-import { TextFieldModule } from '@shared/ui/controls/text-field/text-field.module'
+import { ButtonModule } from '@shared/ui/button/button.module'
+import { TextAreaModule } from '@shared/ui/text-area/text-area.module'
+import { InputModule } from '@shared/ui/input/input.module'
 import { StepperModule } from '@shared/ui/stepper/stepper.module'
 import { NgxMaskModule } from 'ngx-mask'
 import { ProductCreationFormComponent } from './product-creation-form.component'
 import { ProductGeneralFormComponent } from './product-general-form/product-general-form.component'
 import { ProductLocationFormComponent } from './product-location-form/product-location-form.component'
-import { ProductTranslateFormComponent } from './product-translate-form/product-translate-form.component'
 
 @NgModule({
   imports: [
@@ -26,17 +25,12 @@ import { ProductTranslateFormComponent } from './product-translate-form/product-
     TextAreaModule,
     NgSelectModule,
     TranslateModule,
-    TextFieldModule,
+    InputModule,
     InputFilesModule,
     ReactiveFormsModule,
     ReactiveComponentModule
   ],
-  declarations: [
-    ProductCreationFormComponent,
-    ProductGeneralFormComponent,
-    ProductTranslateFormComponent,
-    ProductLocationFormComponent
-  ],
+  declarations: [ProductCreationFormComponent, ProductGeneralFormComponent, ProductLocationFormComponent],
   exports: [ProductCreationFormComponent]
 })
 export class ProductCreationFormModule {}
